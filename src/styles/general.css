@@ -201,25 +201,38 @@ IMAGES
   background-color: white;
 }
 
-.img-box--pad-vert {
-  padding: 12% 19%;
+.img-full {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: white;
 }
 
-.img-box--pad-horiz {
-  padding: 19% 12%;
-}
-
-.img-box--pad-norm {
-  padding: 12%;
-}
-
-/* image element */
-
-.img-fit {
+.img-full > img {
+  object-fit: cover;
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+
+  object-position: center center;
+}
+
+.img-pad {
+  padding: 12%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: white;
+}
+
+.img-pad > img {
+  object-fit: contain;
+  display: block;
+  width: 100%;
+  height: 100%;
+
   object-position: center center;
 }
 

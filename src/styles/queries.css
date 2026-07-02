@@ -58,32 +58,6 @@
     max-width: 55ch;
   }
 
-  /* films */
-  .films-proj {
-    display: flex;
-    flex-direction: column;
-    height: 300vw;
-  }
-  /* films modal */
-
-  .modal-film {
-    padding: 2rem;
-  }
-  .modal-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    position: relative;
-  }
-
-  .modal-text {
-    color: white;
-    font-size: 2rem;
-    padding: 0 2rem;
-    max-width: 45ch;
-  }
-
   /* images */
 
   /* images in 1 column */
@@ -109,27 +83,11 @@
     padding: 0;
   }
 
-  .img-box {
+  .img-full,
+  .img-pad {
     display: flex;
     flex-direction: column;
     padding: var(--frame-y) var(--frame-x);
-  }
-
-  .img-box--pad-vert,
-  .img-box--pad-horiz,
-  .img-box--pad-norm {
-    padding: var(--frame-y) var(--frame-x);
-  }
-
-  .img-square {
-    aspect-ratio: 1;
-  }
-  .img-vert {
-    aspect-ratio: 0.8;
-  }
-
-  .img-horiz {
-    aspect-ratio: 1.6;
   }
 
   .credit {
