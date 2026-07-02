@@ -250,9 +250,14 @@ CREDITS
   padding: 8rem 0 2rem 2rem;
 }
 
-.c-gradient {
+.img-full > .credit {
   color: white;
   background-image: var(--gradient);
+}
+
+.img-pad > .credit {
+  color: var(--col-grey-dark);
+  background: transparent;
 }
 
 .c-hide {

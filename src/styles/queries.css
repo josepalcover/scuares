@@ -96,19 +96,9 @@
     position: relative;
   }
 
-  .c-gradient {
+  .img-full > .credit,
+  .img-pad > .credit {
     color: var(--col-grey-dark);
-    background: transparent;
-  }
-
-  .hero-full .credit.c-gradient {
-    position: absolute;
-    color: white;
-    background-image: var(--gradient);
-    padding: 8rem 0 2rem var(--frame-x);
-  }
-
-  .images-two > :nth-child(2) .credit.c-gradient {
     background: transparent;
   }
 
@@ -140,10 +130,6 @@
 @media (min-aspect-ratio: 3/1) {
   .empty {
     display: none;
-  }
-
-  .images-two > :nth-child(2) .credit.c-gradient {
-    background-image: var(--gradient);
   }
 
   .images-one,
@@ -196,7 +182,9 @@
     background: transparent;
   }
 
-  .images-two > :nth-child(2) .credit.c-gradient {
+  .img-full > .credit,
+  .img-pad > .credit {
+    color: var(--col-grey-dark);
     background: transparent;
   }
 }
