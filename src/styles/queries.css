@@ -1,0 +1,293 @@
+/* PORTRAIT NORMAL OR LANDSCAPE SMALL */
+/* OR LANDSCAPE WITH SMALL HEIGHT */
+/* same conditions as gsap match media */
+@media (max-aspect-ratio: 1/1),
+  (max-width: calc(700em/16)),
+  (max-height: calc(450em/16)) {
+  :root {
+    --frame-x: 1.6rem;
+    --frame-y: 1.6rem;
+  }
+
+  .nav {
+    background: white;
+  }
+
+  .centered-box {
+    justify-content: flex-start;
+    padding: var(--margin);
+  }
+
+  .text-box {
+    max-width: 60ch;
+  }
+
+  #home .centered-box {
+    padding-top: 12rem;
+  }
+
+  /* set heights */
+  .films,
+  .about,
+  .cover {
+    height: auto;
+  }
+
+  .about .cover-content,
+  .images .cover-content,
+  .films-main .cover-content,
+  .tours-main .cover-content,
+  .contact .cover-content {
+    height: 100vw;
+  }
+
+  .cover-text {
+    padding: 5rem;
+    padding-top: 8rem;
+  }
+
+  .home .cover-text {
+    padding-top: 5rem;
+  }
+
+  .about .cover-text {
+    padding-top: 3rem;
+  }
+
+  .cover-text .text-1 {
+    max-width: 55ch;
+  }
+
+  /* films */
+  .films-proj {
+    display: flex;
+    flex-direction: column;
+    height: 300vw;
+  }
+  /* films modal */
+
+  .modal-film {
+    padding: 2rem;
+  }
+  .modal-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    position: relative;
+  }
+
+  .modal-text {
+    color: white;
+    font-size: 2rem;
+    padding: 0 2rem;
+    max-width: 45ch;
+  }
+
+  /* images */
+
+  /* images in 1 column */
+
+  .images-one {
+    overflow: hidden;
+    height: auto;
+  }
+  .images-two {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .hero-full {
+    height: 100vh;
+    height: var(--hero-height);
+  }
+
+  .hero-full .img-box {
+    display: block;
+    height: 100%;
+    padding: 0;
+  }
+
+  .img-box {
+    display: flex;
+    flex-direction: column;
+    padding: var(--frame-y) var(--frame-x);
+  }
+
+  .img-box--pad-vert,
+  .img-box--pad-horiz,
+  .img-box--pad-norm {
+    padding: var(--frame-y) var(--frame-x);
+  }
+
+  .img-square {
+    aspect-ratio: 1;
+  }
+  .img-vert {
+    aspect-ratio: 0.8;
+  }
+
+  .img-horiz {
+    aspect-ratio: 1.6;
+  }
+
+  .credit {
+    padding: 2rem 0;
+    padding-bottom: 2rem;
+    position: relative;
+  }
+
+  .c-gradient {
+    color: var(--col-grey-dark);
+    background: transparent;
+  }
+
+  .hero-full .credit.c-gradient {
+    position: absolute;
+    color: white;
+    background-image: var(--gradient);
+    padding: 8rem 0 2rem var(--frame-x);
+  }
+
+  .images-two > :nth-child(2) .credit.c-gradient {
+    background: transparent;
+  }
+
+  .c-hide {
+    display: block;
+  }
+
+  .c-cover {
+    position: absolute;
+    background-image: var(--gradient);
+    color: white;
+    padding-left: var(--frame-x);
+  }
+
+  .c-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .tours-proj {
+    display: flex;
+    flex-direction: column;
+    height: 200vw;
+  }
+}
+
+/* LANDSCAPE EXTEME, aspect ratio over 3/1*/
+@media (min-aspect-ratio: 3/1) {
+  .empty {
+    display: none;
+  }
+
+  .images-two > :nth-child(2) .credit.c-gradient {
+    background-image: var(--gradient);
+  }
+
+  .images-one,
+  .images-two {
+    height: 33vw;
+  }
+}
+
+/* PORTRAIT BIG */
+@media (max-aspect-ratio: 1/1) and (min-width: calc(800em/16)) {
+  /* images */
+
+  /* images in 2 columns */
+
+  .images-one {
+    overflow: hidden;
+    height: auto;
+    padding: var(--frame-y) var(--frame-x);
+  }
+  .images-two {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+    overflow: hidden;
+    padding: var(--frame-y) var(--frame-x);
+    gap: var(--frame-y) var(--frame-x);
+  }
+
+  .img-box {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  .images-two .img-box {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60vw auto;
+  }
+  .credit {
+    padding-bottom: 0;
+  }
+  .c-hide {
+    display: none;
+  }
+}
+
+/* VERY SMALL VIEWPORT HEIGHT */
+@media (max-height: calc(450em/16)) {
+  .credit {
+    color: var(--col-grey-dark);
+    background: transparent;
+  }
+
+  .images-two > :nth-child(2) .credit.c-gradient {
+    background: transparent;
+  }
+}
+/* WIDTH-REM  */
+
+@media (max-width: calc(1600em/16)) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media (max-width: calc(1500em/16)) {
+  html {
+    font-size: 59%;
+  }
+}
+
+@media (max-width: calc(1400em/16)) {
+  html {
+    font-size: 58%;
+  }
+}
+
+@media (max-width: calc(1300em/16)) {
+  html {
+    font-size: 57%;
+  }
+}
+
+@media (max-width: calc(1200em/16)) {
+  html {
+    font-size: 56%;
+  }
+}
+
+@media (max-width: calc(1100em/16)) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media (max-width: calc(1000em/16)) {
+  html {
+    font-size: 54%;
+  }
+}
+
+@media (max-width: calc(900em/16)) {
+  html {
+    font-size: 53%;
+  }
+}

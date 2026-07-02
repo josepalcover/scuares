@@ -1,0 +1,275 @@
+@import "@fontsource-variable/geist-mono";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --col-grey-dark: rgb(63, 63, 63);
+  --frame-x: 1.6rem;
+  --frame-y: 1.6rem;
+  --margin: 2.5rem;
+  --radius: 0.8rem;
+  --nav-text-size: 2.4rem;
+  --nav-text-weight: 500;
+  --nav-text-line-height: 0.6;
+  --cover-column: 40rem;
+  --hero-height: 100vh;
+  --gradient: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0) 80%
+  );
+}
+
+@supports (height: 100svh) {
+  :root {
+    --hero-height: 100svh;
+  }
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
+
+button {
+  border: none;
+  background-color: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Geist Mono Variable", "Geist Mono", monospace;
+  color: var(--col-grey-dark);
+  overflow-x: hidden;
+  background-color: white;
+}
+
+body {
+  background-color: white;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  position: relative;
+}
+
+/* ------------------
+GENERAL
+--------------------*/
+.section {
+  position: relative;
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.centered-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: calc(2 * var(--margin));
+}
+
+.text-box {
+  max-width: 45ch;
+}
+
+.header-main {
+  font-size: 1.6rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  margin-bottom: 3rem;
+}
+
+.text-normal {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.cover-text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding: 8rem 6rem 2rem 4rem;
+
+  background-color: white;
+  overflow: hidden;
+}
+
+.header-sub {
+  font-size: 1.4rem;
+  letter-spacing: 0.1ch;
+  color: rgb(100, 100, 100);
+  line-height: 2;
+}
+
+/* ------------------
+HERO
+--------------------*/
+.logo-hero {
+  color: white;
+  font-size: 5rem;
+  background: transparent;
+  position: absolute;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+}
+
+.logo-hero[data-theme="light"] {
+  color: white;
+}
+
+.logo-hero[data-theme="dark"] {
+  color: var(--col-grey-dark);
+}
+
+.hero-full {
+  width: 100%;
+  height: 100vh;
+  height: var(--hero-height);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background-color: white;
+}
+
+.hero-full .img-box {
+  height: 100%;
+  padding: 0;
+}
+
+/* ------------------
+IMAGES
+--------------------*/
+
+.images-one {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+}
+
+.images-two {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+}
+
+/* image container */
+
+.img-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: white;
+}
+
+.img-box--pad-vert {
+  padding: 12% 19%;
+}
+
+.img-box--pad-horiz {
+  padding: 19% 12%;
+}
+
+.img-box--pad-norm {
+  padding: 12%;
+}
+
+/* image element */
+
+.img-fit {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* ------------------
+CREDITS
+--------------------*/
+/* img- credits */
+.credit {
+  position: absolute;
+  bottom: 0;
+  color: var(--col-grey-dark);
+  background: transparent;
+  width: 100%;
+  left: 0;
+  padding: 8rem 0 2rem 2rem;
+}
+
+.c-gradient {
+  color: white;
+  background-image: var(--gradient);
+}
+
+.c-hide {
+  display: none;
+}
+
+.c-text {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+/* ------------------
+CONTACT
+--------------------*/
+
+.contact-info {
+  background-color: rgb(234, 234, 234);
+}
+
+.contact-info .text-box {
+  max-width: 70ch;
+}
+
+.email-big {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.05ch;
+  padding: 4rem 0;
+}
