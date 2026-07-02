@@ -164,9 +164,18 @@ HERO
   background-color: white;
 }
 
-.hero-full .img-box {
+.hero-full .img-hero {
+  width: 100%;
   height: 100%;
   padding: 0;
+}
+
+.hero-full .img-hero > img {
+  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-position: center center;
 }
 
 /* ------------------
@@ -219,7 +228,7 @@ IMAGES
 }
 
 .img-pad {
-  padding: 12%;
+  padding: 8rem;
   position: relative;
   width: 100%;
   height: 100%;

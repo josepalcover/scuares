@@ -77,7 +77,7 @@
     height: var(--hero-height);
   }
 
-  .hero-full .img-box {
+  .hero-full .img-hero {
     display: block;
     height: 100%;
     padding: 0;
