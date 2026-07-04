@@ -25,7 +25,7 @@ function loadFilmsAssets(imgFormat) {
   videoFilms.src = videoFilms.dataset.src;
 
   filmImages.forEach((img) => {
-    img.src = `images/${img.dataset.src}.${imgFormat}`;
+    img.src = `/images/${img.dataset.src}.${imgFormat}`;
   });
 }
 
@@ -44,7 +44,7 @@ function loadImages(imgFormat) {
     onEnter: () => {
       // all images load the lowres version directly
       nonFilmLazyImages.forEach((img) => {
-        img.src = `images/lowres/${img.dataset.src}.${imgFormat}`;
+        img.src = `/images/lowres/${img.dataset.src}.${imgFormat}`;
       });
 
       firstTrigger.kill();
@@ -64,7 +64,7 @@ function loadImages(imgFormat) {
       start: "top 250%", //when top of the img is 2.5 pages away
       onEnter: () => {
         // the format is a string "webp" or "jpg" depending on support
-        img.src = `images/${img.dataset.src}.${imgFormat}`;
+        img.src = `/images/${img.dataset.src}.${imgFormat}`;
         imgTrigger.kill();
         ///// instead of doing this: we can add a low res image with the same proportion as the high res one! this would help avoid layout shifting
         /////// when page finishes loading we add the good src
