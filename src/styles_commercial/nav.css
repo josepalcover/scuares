@@ -1,0 +1,308 @@
+/* ------------------
+NAV 
+--------------------*/
+
+.nav-box {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  background-color: rgb(0, 0, 0);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+/* LOGO */
+.logo-box {
+  z-index: 999;
+  position: fixed;
+  left: var(--margin);
+  top: var(--margin);
+  height: var(--hamburger-size);
+
+  display: flex;
+  align-items: center;
+  padding-top: 0.3rem; /*to center vertically */
+}
+.logo {
+  height: 2.3rem;
+  padding: 0.1rem 0;
+  fill: var(--col-grey-dark);
+}
+
+.logo-nav-active {
+  fill: white;
+}
+
+.fixed {
+  position: fixed !important;
+}
+
+/* NAV */
+
+.nav-links li {
+  height: 100%;
+}
+
+.nav-links .link {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: 250ms ease-in-out;
+}
+
+.nav-links .link:hover {
+  opacity: 0.5;
+}
+
+/*-- from the fullpage nav --*/
+.contact-link {
+  padding-top: 4rem;
+}
+
+.nav-links {
+  color: white;
+
+  letter-spacing: 1;
+  list-style: none;
+
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  gap: 1.4rem;
+
+  align-items: flex-start;
+  width: auto;
+  margin: 0 auto;
+
+  z-index: 3;
+}
+
+.nav-links .link {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.nav-links .link:hover {
+  opacity: 0.5;
+}
+
+.nav-line {
+  display: none;
+}
+
+/* ---------------------- */
+/*   CONTACT BUTTON        
+/* ---------------------- */
+
+.contact-btn {
+  visibility: visible;
+  pointer-events: auto;
+  cursor: pointer;
+  position: fixed;
+  z-index: 5;
+  right: calc(var(--margin) + var(--hamburger-size) + 0.8rem);
+  top: var(--margin);
+  height: var(--hamburger-size);
+  padding: 0 1.6rem;
+  border-radius: 9999px;
+
+  color: var(--col-grey-dark);
+
+  border: 2px solid var(--col-grey-dark);
+  background-color: rgba(255, 255, 255, 0.918);
+
+  font-weight: 600;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  transition: 300ms ease-in-out;
+}
+
+.contact-btn:hover {
+  background-color: var(--col-grey-dark);
+  color: white;
+}
+
+.contact-btn-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* ---------------------- */
+/*   HAMBURGER             
+/* ---------------------- */
+
+.hamburger {
+  position: fixed;
+  z-index: 10;
+  right: var(--margin);
+  top: var(--margin);
+  flex-shrink: 0;
+  width: var(--hamburger-size);
+  height: var(--hamburger-size);
+
+  border-radius: 50%;
+  background-color: var(--col-grey-dark);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+  transform-origin: center center;
+}
+
+.transparent {
+  background: transparent !important;
+}
+
+.hamburger:hover {
+  background-color: rgba(50, 50, 50);
+}
+.hamburger-lines {
+  font-size: 2px; /*controls global size*/
+  --anim-time: 400ms;
+  z-index: 999;
+  height: 8em;
+  width: 8em;
+  position: relative;
+}
+
+.line {
+  background-color: rgb(255, 255, 255);
+  height: var(--line-thickness);
+  border-radius: 99px;
+  width: 100%; /*occupies the container*/
+  transition: all 300ms ease-in-out;
+  position: absolute;
+  z-index: 999;
+}
+
+/* initial positions */
+.line-top {
+  top: 0;
+}
+.line-mid {
+  top: calc(4em - var(--line-thickness) / 2);
+}
+.line-bottom {
+  bottom: 0;
+}
+/* animations normal */
+.anim-line-top {
+  animation: lineTopAnim var(--anim-time) ease-in-out normal forwards;
+}
+.anim-line-mid {
+  animation: lineMidAnim var(--anim-time) ease-in-out normal forwards;
+}
+.anim-line-bottom {
+  animation: lineBottomAnim var(--anim-time) ease-in-out normal forwards;
+}
+/* animations reversed */
+.anim-line-top-rev {
+  animation: lineTopAnimRev var(--anim-time) ease-in-out forwards;
+}
+.anim-line-mid-rev {
+  animation: lineMidAnimRev var(--anim-time) ease-in-out forwards;
+}
+.anim-line-bottom-rev {
+  animation: lineBottomAnimRev var(--anim-time) ease-in-out forwards;
+}
+
+/* animations keyframes */
+@keyframes lineTopAnim {
+  0% {
+    top: 0;
+    transform: rotate(0deg);
+  }
+
+  30% {
+    top: calc(4em - var(--line-thickness) / 2);
+    transform: rotate(0deg);
+  }
+  100% {
+    top: calc(4em - var(--line-thickness) / 2);
+    transform: rotate(45deg) scaleX(150%);
+  }
+}
+
+@keyframes lineTopAnimRev {
+  0% {
+    top: calc(4em - var(--line-thickness) / 2);
+    transform: rotate(45deg) scaleX(150%);
+  }
+
+  30% {
+    top: calc(4em - var(--line-thickness) / 2);
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 0;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes lineMidAnim {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes lineMidAnimRev {
+  0% {
+    transform: rotate(45deg);
+  }
+
+  30% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes lineBottomAnim {
+  0% {
+    bottom: 0;
+    transform: rotate(0deg);
+  }
+  30% {
+    bottom: calc(4em - var(--line-thickness) / 2);
+    transform: rotate(0deg);
+  }
+  100% {
+    bottom: calc(4em - var(--line-thickness) / 2);
+    transform: rotate(-45deg) scaleX(150%);
+  }
+}
+
+@keyframes lineBottomAnimRev {
+  0% {
+    bottom: calc(4em - var(--line-thickness) / 2);
+    transform: rotate(-45deg) scaleX(150%);
+  }
+
+  30% {
+    bottom: calc(4em - var(--line-thickness) / 2);
+    transform: rotate(0deg);
+  }
+  100% {
+    bottom: 0;
+    transform: rotate(0deg);
+  }
+}

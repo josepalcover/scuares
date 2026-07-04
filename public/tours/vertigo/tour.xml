@@ -1,0 +1,228 @@
+﻿<krpano version="1.20" title="VERTIGO">
+
+	<include url="skin/vtourskin.xml" />
+
+	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+	<skin_settings maps="false"
+	               maps_type="google"
+	               maps_bing_api_key=""
+	               maps_google_api_key=""
+	               maps_zoombuttons="false"
+	               maps_loadonfirstuse="true"
+	               gyro="false"
+	               gyro_keeplookingdirection="false"
+	               webvr="true"
+	               webvr_keeplookingdirection="true"
+	               webvr_prev_next_hotspots="true"
+	               littleplanetintro="false"
+	               followmousecontrol="false"
+	               title="false"
+	               thumbs="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="false"
+	               thumbs_text="false"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_buttons="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="false"
+	               tooltips_mapspots="false"
+	               deeplinking="false"
+	               loadscene_flags="MERGE"
+	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+	               loadingtext="loading..."
+	               layout_width="100%"
+	               layout_maxwidth="814"
+	               controlbar_width="-24"
+	               controlbar_height="40"
+	               controlbar_offset="20"
+	               controlbar_offset_closed="-40"
+	               controlbar_overlap.no-fractionalscaling="10"
+	               controlbar_overlap.fractionalscaling="0"
+	               design_skin_images="vtourskin.png"
+	               design_bgcolor="rgb(0,0,0)"
+	               design_bgalpha="0.8"
+	               design_bgborder="0"
+	               design_bgroundedge="1"
+	               design_bgshadow="0 4 10 0x000000 0.3"
+	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+	               design_thumbborder_padding="2"
+	               design_thumbborder_bgroundedge="0"
+	               design_text_css="color:#FFFFFF; font-family:Arial;"
+	               design_text_shadow="1"
+	               />
+
+	<!--
+	    For an alternative skin design either change the <skin_settings> values 
+	    from above or optionally include one of the predefined designs from below.
+	-->
+	<!-- <include url="skin/vtourskin_design_flat_light.xml"  /> -->
+	<!-- <include url="skin/vtourskin_design_glass.xml"       /> -->
+	<!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
+	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
+	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
+	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
+
+
+	<!-- startup action - load the first scene -->
+	<action name="startup" autorun="onstart">
+		if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
+		loadscene(get(startscene), null, MERGE);
+		if(startactions !== null, startactions() );
+	
+	</action>
+
+
+	
+	<scene name="scene_Vertigo_01" title="Vertigo_01" onstart="" thumburl="panos/Vertigo_01.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Vertigo_01.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Vertigo_01.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="0.523" atv="-1.673" linkedscene="scene_vertigo_04" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="37.207" atv="0.916" linkedscene="scene_vertigo_02" />
+
+	</scene>
+
+	<scene name="scene_Vertigo_02" title="Vertigo_02" onstart="" thumburl="panos/Vertigo_02.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Vertigo_02.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Vertigo_02.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-3.180" atv="6.386" linkedscene="scene_vertigo_03" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-177.417" atv="17.741" linkedscene="scene_vertigo_05" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="114.686" atv="3.772" linkedscene="scene_vertigo_01" />
+
+	</scene>
+
+	<scene name="scene_Vertigo_03" title="Vertigo_03" onstart="" thumburl="panos/Vertigo_03.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Vertigo_03.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Vertigo_03.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-37.472" atv="-4.637" linkedscene="scene_vertigo_01" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="4.072" atv="-3.126" linkedscene="scene_vertigo_02" />
+
+	</scene>
+
+	<scene name="scene_Vertigo_04" title="Vertigo_04" onstart="" thumburl="panos/Vertigo_04.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Vertigo_04.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Vertigo_04.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="36.606" atv="14.695" linkedscene="scene_vertigo_05" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="129.842" atv="2.042" linkedscene="scene_vertigo_01" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="66.554" atv="10.782" linkedscene="scene_vertigo_09" />
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="82.173" atv="-0.535" linkedscene="scene_vertigo_06" />
+
+	</scene>
+
+	<scene name="scene_Vertigo_05" title="Vertigo_05" onstart="" thumburl="panos/Vertigo_05.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Vertigo_05.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Vertigo_05.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="127.425" atv="7.741" linkedscene="scene_vertigo_04" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-99.178" atv="18.092" linkedscene="scene_vertigo_02" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="91.544" atv="40.187" linkedscene="scene_vertigo_09" />
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="91.819" atv="5.226" linkedscene="scene_vertigo_06" />
+
+	</scene>
+
+	<scene name="scene_Vertigo_06" title="Vertigo_06" onstart="" thumburl="panos/Vertigo_06.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Vertigo_06.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Vertigo_06.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="160.338" atv="12.305" linkedscene="scene_vertigo_07" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="110.372" atv="41.905" linkedscene="scene_vertigo_04" />
+
+	</scene>
+
+	<scene name="scene_Vertigo_07" title="Vertigo_07" onstart="" thumburl="panos/Vertigo_07.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Vertigo_07.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Vertigo_07.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-178.152" atv="7.793" linkedscene="scene_vertigo_08" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-168.389" atv="22.217" linkedscene="scene_vertigo_06" />
+
+	</scene>
+
+	<scene name="scene_Vertigo_08" title="Vertigo_08" onstart="" thumburl="panos/Vertigo_08.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Vertigo_08.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Vertigo_08.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="78.090" atv="4.232" linkedscene="scene_vertigo_07" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="65.120" atv="21.916" linkedscene="scene_vertigo_06" />
+
+	</scene>
+
+	<scene name="scene_Vertigo_09" title="Vertigo_09" onstart="" thumburl="panos/Vertigo_09.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Vertigo_09.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Vertigo_09.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="22.236" atv="10.901" linkedscene="scene_vertigo_10" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="66.340" atv="3.696" linkedscene="scene_vertigo_04" />
+
+	</scene>
+
+	<scene name="scene_Vertigo_10" title="Vertigo_10" onstart="" thumburl="panos/Vertigo_10.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Vertigo_10.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Vertigo_10.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-54.555" atv="7.553" linkedscene="scene_vertigo_09" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-127.267" atv="0.938" linkedscene="scene_vertigo_04" />
+
+	</scene>
+
+
+</krpano>

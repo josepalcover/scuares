@@ -1,0 +1,453 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --col-grey-dark: rgb(31, 31, 31);
+  --frame: 1.2rem;
+  --margin: 2.5rem;
+  --hamburger-size: 40px;
+  --line-thickness: 2px;
+  --cover-column: 42rem;
+  --gradient: radial-gradient(
+    ellipse farthest-corner at left bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
+
+button {
+  border: none;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Inter", sans-serif;
+
+  color: var(--col-grey-dark);
+  overflow-x: hidden;
+  background-color: white;
+}
+
+body {
+  background-color: white;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  position: relative;
+}
+
+/* ------------------
+HOME  and general
+--------------------*/
+.section {
+  position: relative;
+}
+
+.home {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr var(--cover-column);
+  overflow: hidden;
+}
+
+.home .cover-content {
+  z-index: 0;
+}
+
+.home .cover-text {
+  z-index: 4;
+  background-color: rgb(255, 255, 255);
+}
+.cover {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: var(--cover-column) 1fr;
+  overflow: hidden;
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cover-text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding: 8rem 6rem 2rem 4rem;
+
+  background-color: white;
+  overflow: hidden;
+}
+
+.cover-content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.header-main {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -1;
+  margin-bottom: 3rem;
+  line-height: 1;
+}
+
+.header-sub {
+  font-size: 1.4rem;
+  letter-spacing: 0.1ch;
+  color: rgb(100, 100, 100);
+  line-height: 2;
+}
+
+.text-1 {
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* the video element */
+.video {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  background-color: white;
+}
+
+.video-contact {
+  object-position: left center;
+}
+
+/* ------------------
+FILMS
+--------------------*/
+#films {
+  z-index: 2;
+}
+
+.films-main {
+  z-index: 0;
+}
+.films-proj {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--frame);
+  padding: var(--frame);
+  position: relative;
+  z-index: 1;
+  background-color: white;
+}
+
+.film-item {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.film-item:hover .btn-play {
+  transform: scale(1.2);
+}
+
+.film-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* button project */
+.btn-box {
+  --btn-size: 4.5rem;
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: bottom;
+  gap: 1rem;
+  width: 100%;
+  padding: 10rem 0 2rem 2rem;
+  background-image: var(--gradient);
+}
+.btn-proj {
+  cursor: pointer;
+  text-align: left;
+
+  color: white;
+
+  border: none;
+
+  background: transparent;
+
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -1;
+
+  line-height: 1;
+}
+
+.btn-play {
+  cursor: pointer;
+  height: var(--btn-size);
+  width: var(--btn-size);
+  border-radius: 50%;
+  border: 3px solid white;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  color: white;
+  transform-origin: left bottom;
+  transition: 300ms ease-in-out;
+}
+
+.svg-play {
+  fill: white;
+  height: 50%;
+  margin-left: 0.2rem;
+}
+
+/* ------------------
+IMAGES
+--------------------*/
+
+.images-one {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+}
+
+.images-two {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+}
+
+/* image container */
+
+.img-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: white;
+}
+
+.img-box--pad-vert {
+  padding: 10% 17%;
+}
+
+.img-box--pad-horiz {
+  padding: 17% 10%;
+}
+
+.img-box--pad-norm {
+  padding: 10%;
+}
+
+/* image element */
+
+.img-fit {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* img- credits */
+.credit {
+  position: absolute;
+  bottom: 0;
+  color: var(--col-grey-dark);
+  background: transparent;
+  width: 100%;
+  left: 0;
+  padding: 8rem 0 2rem 2rem;
+  text-align: left;
+}
+
+.c-gradient {
+  color: white;
+  background-image: var(--gradient);
+}
+
+.c-hide {
+  display: none;
+}
+
+.c-text {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.c-prize {
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 700;
+  background-color: var(--col-grey-dark);
+  padding: 0.6rem 1.2rem;
+  border-radius: 9999px;
+}
+.c-project {
+  font-size: 1.7rem;
+  letter-spacing: -0.03ch;
+  font-weight: 700;
+}
+
+.c-author {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* ------------------
+TOURS
+--------------------*/
+.pano {
+  width: 100%;
+  height: 100%;
+}
+
+.tours-proj {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--frame);
+  padding: var(--frame);
+  position: relative;
+  z-index: 1;
+  background-color: white;
+}
+
+.tour-item {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.tour-item:hover .btn-play {
+  transform: scale(1.2);
+}
+.modal-tours {
+  visibility: hidden;
+  opacity: 0;
+  z-index: 99;
+  width: 100%;
+
+  height: 100dvh; /* dyamic viewport height so it adapts if the toolbar is on/off*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  padding: var(--frame);
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-pano {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 100%;
+}
+
+.pano-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  display: none;
+}
+
+.pano-overlay-hidden {
+  display: none !important;
+}
+
+/* ------------------
+CONTACT
+--------------------*/
+
+.contact-email {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+
+  padding: 2rem 8rem;
+}
+
+.contact-details {
+  margin-top: 3rem;
+}
+
+.contact-details h4 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.instagram {
+  fill: var(--col-grey-dark);
+
+  height: 2.6rem;
+  width: 2.6rem;
+  transform: translateX(-15%);
+}

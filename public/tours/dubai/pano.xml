@@ -1,0 +1,28 @@
+﻿<krpano>
+	
+	<!-- the skin 
+	<include url="skin/defaultskin.xml" />
+	-->
+	<!-- view settings -->
+	<view hlookat="0" vlookat="0" maxpixelzoom="1.0" fovmax="90"  limitview="auto" />
+
+	<control disablewheel="true" />
+	
+	<autorotate enabled="true"
+            waittime="0"
+            accel="1"
+            speed="4"
+            horizon="0.0"
+            tofov="off"
+            oneroundrange="360.0"
+            zoomslowdown="true"
+            interruptionevents="userviewchange|layers|keyboard"
+            />
+
+	<preview url="dubai2.tiles/preview.jpg" />
+
+	<image>
+		<cube url="dubai2.tiles/pano_%s.jpg" />
+	</image>
+
+</krpano>

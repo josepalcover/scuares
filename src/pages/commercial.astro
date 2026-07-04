@@ -1,0 +1,1047 @@
+---
+import "../styles_commercial/general.css";
+import "../styles_commercial/nav.css";
+import "../styles_commercial/buttons.css";
+import "../styles_commercial/modal-film.css";
+import "../styles_commercial/queries.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- meta description for SEO-->
+    <meta
+      name="description"
+      content="Architectural Visualization studio that produces high-end photorealistic 3D renderings for architecture and real estate. Images, Videos, 360 Virtual Tours, CG Animations, Walkthroughs, Cinemagraphs "
+    />
+
+    <!-- google site ownership verification -->
+    <meta
+      name="google-site-verification"
+      content="Oc__Wwdl_tRXLnyFebkLVeqprhvqnJwN6DI6k9S0lB0"
+    />
+
+    <title>Scuares-Architectural Visualization. 3D Rendering</title>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+
+    <!-- GOOGLE FONTS without render blocking -->
+
+    <!-- preconnect? -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <!-- connect to domain of font files -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- optionally increase loading priority -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+    />
+
+    <!-- async CSS -->
+    <link
+      rel="stylesheet"
+      media="print"
+      onload="
+        this.onload = null;
+        this.removeAttribute('media');
+      "
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+    />
+
+    <!-- no-JS fallback -->
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      />
+    </noscript>
+
+    <!-- SCRIPTS -->
+
+    <script>
+      import "../js_commercial/app.js";
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-807551184"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "AW-807551184");
+    </script>
+  </head>
+  <body>
+    <!--=========================================
+      LOGO + CONTACT BUTTON + HAMBURGER + NAV OFF SCREEN
+    ===============================================-->
+    <nav class="nav">
+      <!-- LOGO -->
+      <div class="logo-box">
+        <a class="link" href="#home" aria-label="scroll to the top of the page">
+          <svg
+            class="logo"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 268.53 41.61"
+          >
+            <path
+              d="m0,34.93c1.89-2.51,3.79-5.02,5.68-7.52,1.64,1.62,3.43,2.81,5.57,3.69,2.18.92,4.62,1.38,7.33,1.38,1.79,0,3.25-.27,4.38-.81,1.13-.54,1.69-1.27,1.69-2.19,0-1.02-.5-1.8-1.5-2.34-1-.54-2.85-1.01-5.57-1.42-5.37-.77-9.35-2.19-11.94-4.26s-3.88-4.88-3.88-8.41c0-2.56.72-4.81,2.15-6.76s3.4-3.48,5.91-4.61C12.34.56,15.2,0,18.43,0c3.37-.03,6.71.56,9.87,1.73,2.92,1.07,5.58,2.76,7.79,4.95-2,2.51-3.99,5.02-5.99,7.52-1.4-1.61-3.13-2.91-5.07-3.8-1.95-.9-4.07-1.36-6.22-1.34-1.64,0-2.96.28-3.95.84s-1.5,1.31-1.5,2.23c-.02.54.15,1.08.5,1.5.33.38,1,.7,2,.96,1.51.36,3.03.67,4.57.92,5.63.87,9.69,2.34,12.17,4.41s3.72,4.98,3.72,8.71c0,2.61-.74,4.89-2.23,6.83-1.48,1.94-3.57,3.45-6.26,4.53s-5.87,1.61-9.56,1.61c-3.52.01-7.02-.6-10.33-1.8-3.3-1.2-5.95-2.83-7.95-4.88Z"
+            />
+            <path
+              d="m69.9,26.26c2.51,2.56,5.02,5.12,7.52,7.68-2.06,2.41-4.63,4.34-7.52,5.64-2.96,1.36-6.19,2.05-9.44,2.03-4.04,0-7.65-.9-10.83-2.69-3.12-1.74-5.71-4.3-7.49-7.41-1.82-3.15-2.73-6.72-2.73-10.71s.88-7.7,2.65-10.83c1.73-3.08,4.28-5.62,7.37-7.33C52.59.88,56.23,0,60.38,0c7.01,0,12.67,2.53,16.97,7.6-2.53,2.58-5.07,5.17-7.6,7.75-1.28-1.64-2.57-2.87-3.88-3.69-1.35-.83-2.91-1.26-4.49-1.23-2.61,0-4.77.93-6.49,2.8-1.71,1.87-2.57,4.39-2.57,7.56s.87,5.63,2.61,7.52c1.63,1.85,3.99,2.88,6.45,2.84,1.66.02,3.29-.42,4.72-1.27,1.55-.97,2.77-2.13,3.8-3.65Z"
+            />
+            <path
+              d="m94.01,24.57c0,2.2.49,3.85,1.46,4.95.97,1.1,2.25,1.65,3.84,1.65,1.14.01,2.25-.29,3.22-.88,1.04-.64,1.85-1.41,2.53-2.42.42-.61.75-1.24,1-1.94V1.23h12.51v39.15h-12.44v-4.34c-.97,1.47-2.13,2.61-3.61,3.57-2.05,1.33-4.48,2-7.29,2-4.2,0-7.54-1.34-10.02-4.03-2.48-2.69-3.72-6.59-3.72-11.71V1.23h12.51v23.34Z"
+            />
+            <path
+              d="m156.94,7.79c-1.52-2.49-3.74-4.49-6.37-5.76C147.83.68,144.59,0,140.86,0c-6.6,0-12.36,1.95-17.27,5.83,2.07,2.48,4.15,4.96,6.22,7.45,3.12-2.56,6.4-3.84,9.83-3.84,2.61,0,4.61.64,5.99,1.92,1.18,1.1,1.86,2.61,2.03,4.53h-6.64c-5.89,0-10.47,1.11-13.74,3.34-3.28,2.23-4.91,5.36-4.91,9.4,0,2.61.6,4.89,1.8,6.83,1.21,1.96,2.96,3.53,5.03,4.53,2.15,1.07,4.68,1.61,7.6,1.61s5.54-.67,7.72-2c1.57-.95,2.81-2.11,3.88-3.6v4.37h10.83v-23.72c0-3.43-.75-6.39-2.26-8.87Zm-9.25,19.9c-.15.31-.31.61-.5.91-.76,1.22-1.8,2.23-3.03,2.96-1.23.72-2.64,1.09-4.07,1.07-1.59,0-2.88-.42-3.88-1.27-.96-.77-1.52-1.95-1.5-3.19,0-1.48.63-2.66,1.88-3.53,1.25-.87,2.96-1.31,5.11-1.31h5.99v4.35Z"
+            />
+            <path
+              d="m186.86,11.98c-2.3,0-4.21.4-5.72,1.19-1.51.79-2.64,2.05-3.38,3.76-.74,1.71-1.11,3.93-1.11,6.64v16.81h-12.51V1.23h12.44v6.44c.3-.73.66-1.41,1.11-2.07,1.36-1.94,2.93-3.28,4.72-3.99,1.65-.7,3.28-1.04,5.07-1.07h1.84v11.44h-2.46Z"
+            />
+            <path
+              d="m224,28.02c-1.28,1.2-2.67,2.1-4.3,2.76-1.69.72-3.63,1.07-5.83,1.07s-4.12-.44-5.6-1.31c-1.49-.87-2.65-2.21-3.3-3.8-.32-.76-.56-1.53-.72-2.34h25.52v-4.07c0-3.89-.79-7.37-2.38-10.44-1.49-2.96-3.74-5.47-6.53-7.26C218.09.88,214.94,0,211.41,0c-3.89,0-7.36.91-10.4,2.73-3.02,1.79-5.5,4.36-7.18,7.45-1.74,3.15-2.61,6.72-2.61,10.71s.93,7.7,2.8,10.83c1.86,3.12,4.56,5.64,7.79,7.29,3.33,1.74,7.22,2.61,11.67,2.61,3.19.03,6.16-.46,9.17-1.5,2.72-.92,5.21-2.4,7.33-4.34-2-2.58-3.99-5.17-5.99-7.75Zm-19.31-13.44c.54-1.64,1.34-2.88,2.42-3.72,1.07-.84,2.41-1.27,3.99-1.27,2.25,0,3.9.82,4.95,2.46.76,1.19,1.25,2.83,1.46,4.91h-13.37c.12-.81.3-1.6.55-2.38Z"
+            />
+            <path
+              d="m232.22,34.93c1.89-2.51,3.79-5.02,5.68-7.52,1.64,1.62,3.43,2.81,5.57,3.69,2.18.92,4.62,1.38,7.33,1.38,1.79,0,3.25-.27,4.38-.81,1.13-.54,1.69-1.27,1.69-2.19,0-1.02-.5-1.8-1.5-2.34-1-.54-2.85-1.01-5.57-1.42-5.37-.77-9.35-2.19-11.94-4.26s-3.88-4.88-3.88-8.41c0-2.56.72-4.81,2.15-6.76s3.4-3.48,5.91-4.61C244.55.56,247.42,0,250.65,0c3.37-.03,6.71.56,9.87,1.73,2.92,1.07,5.58,2.76,7.79,4.95-2,2.51-3.99,5.02-5.99,7.52-1.4-1.61-3.13-2.91-5.07-3.8-1.95-.9-4.07-1.36-6.22-1.34-1.64,0-2.96.28-3.95.84s-1.5,1.31-1.5,2.23c-.02.54.15,1.08.5,1.5.33.38,1,.7,2,.96,1.51.36,3.03.67,4.57.92,5.63.87,9.69,2.34,12.17,4.41s3.72,4.98,3.72,8.71c0,2.61-.74,4.89-2.23,6.83-1.48,1.94-3.57,3.45-6.26,4.53s-5.87,1.61-9.56,1.61c-3.52.01-7.02-.6-10.33-1.8-3.3-1.2-5.95-2.83-7.95-4.88Z"
+            />
+          </svg>
+        </a>
+      </div>
+      <!-- CONTACT BUTTON -->
+      <button class="contact-btn" aria-label="scroll to the contact section">
+        Contact
+      </button>
+
+      <!-- HAMBURGER -->
+      <div class="hamburger">
+        <div class="hamburger-lines">
+          <div class="line line-top"></div>
+          <div class="line line-mid"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+
+      <!-- NAVIGATION OFF SCREEN -->
+      <div class="nav-box">
+        <ul class="nav-links">
+          <li>
+            <a class="link" href="#home" aria-label="scroll to the home section"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              class="link"
+              href="#films"
+              aria-label="scroll to the films section"
+              >Films</a
+            >
+          </li>
+          <li>
+            <a
+              class="link"
+              href="#images"
+              aria-label="scroll to the images section"
+              >Images</a
+            >
+          </li>
+          <li>
+            <a
+              class="link"
+              href="#tours"
+              aria-label="scroll to the tours section"
+              >Tours</a
+            >
+          </li>
+          <li>
+            <a
+              class="link contact-link"
+              href="#contact"
+              aria-label="scroll to the contact section"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <header>
+      <!--====================
+      HOME
+      ========================-->
+      <section class="home section" id="home">
+        <div class="cover-content">
+          <video
+            class="video"
+            muted
+            playsinline
+            autoplay
+            loop
+            data-src="/videos/video_hero_3mbps.mp4"
+            data-poster="/images/poster_hero.jpg"
+            poster="/images/poster_hero_800_20.avif"
+          >
+            <source type="video/mp4" />
+          </video>
+        </div>
+
+        <div class="cover-text">
+          <h1 class="header-main">
+            <span class="header-sub">3D RENDERINGS</span><br />
+            Architectural<br />
+            Visualization<br />
+          </h1>
+          <h2 class="text-1">
+            Scuares produces high quality Images, Animations, Walkthroughs and
+            360 Virtual reality Tours for Architecture and Real Estate.
+          </h2>
+        </div>
+      </section>
+
+    </header>
+
+    <!--==============================
+    FILMS
+    ===============================-->
+    <div class="section" id="films">
+      <div class="page">
+        <section class="cover snap films-main anim">
+          <div class="cover-text">
+            <h3 class="header-sub">FILMS</h3>
+            <h4 class="header-main">
+              If you can imagine it,<br />
+              We can film it<br />
+            </h4>
+            <p class="text-1">
+              Scuares produces high-end cinematic animations for all kinds of
+              architectural projects or real estate properties. We create
+              photorealistic 3D rendered walkthroughs, flythroughs and
+              cinemagraphs. Each film is carefully crafted to visualize the
+              unbuilt designs and convey the feeling of experiencing their
+              spaces.
+            </p>
+          </div>
+          <div class="cover-content">
+            <video
+              class="video video-films"
+              muted
+              playsinline
+              autoplay
+              loop
+              poster="/images/pixel.jpg"
+              data-src="/videos/video_films_3mbps.mp4"
+              data-poster="poster_films"
+            >
+              <source src="" type="video/mp4" />
+            </video>
+          </div>
+        </section>
+
+        <!--films-proj-->
+        <section class="films-proj snap" id="films-proj">
+          <!--SOLARIS-->
+          <div
+            class="film-item"
+            data-name="solaris"
+            data-src="https://player.vimeo.com/video/829716759?h=762c0fae3c"
+            data-title="Solaris"
+            data-description="3D rendered animation of an exclusive residential development in
+          Switzerland.(br)
+          (br)
+          Developer: La Strada Properties(br)
+          Architect: Justyna Gornicka - Hervé De Giovannini Architecte"
+          >
+            <img
+              src="/images/pixel.jpg"
+              data-src="film_solaris"
+              class="img-lazy film-img"
+              alt="Photorealistic exterior 3D Rendering of a modern contemprary villa designed by Justyna Gornicka - Hervé De Giovannini Architecte. Still CG Image produced by Scuares, an architectural visualization studio"
+            />
+            <div class="btn-box">
+              <button class="btn-play" aria-label="play">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="svg-play"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <h5 class="btn-proj">Solaris<br />Film</h5>
+            </div>
+          </div>
+
+          <!--VILLA-->
+          <div
+            class="film-item"
+            data-name="villa"
+            data-src="https://player.vimeo.com/video/830866369?h=4a71b312ad"
+            data-title="The Villa"
+            data-description="A 3d rendered architectural walkthrough of a refurbished heritage villa. A video created to showcase both the spaces and the essence of the project. It includes fully computer generated scenes along with composites of drone footage and rendered animations."
+          >
+            <img
+              src="/images/pixel.jpg"
+              data-src="film_villa"
+              class="img-lazy film-img"
+              alt="Photorealistic exterior 3D Rendering of a traditional villa with a pool in France. Still CG image produced by Scuares, an architectural visualization studio"
+            />
+            <div class="btn-box">
+              <button class="btn-play" aria-label="play">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="svg-play"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <h5 class="btn-proj">Villa<br />Film</h5>
+            </div>
+          </div>
+
+          <!--VERTIGO-->
+          <div
+            class="film-item"
+            data-name="vertigo"
+            data-src="https://player.vimeo.com/video/830818477?h=af3612985e"
+            data-title="Vertigo"
+            data-description="3D rendered animation of an exclusive residential development in
+          Switzerland. (br)(br)
+          Developer: La Strada Properties(br) 
+          Architects: Justyna Gornicka - Hervé De Giovannini Architecte"
+          >
+            <img
+              src="/images/pixel.jpg"
+              data-src="film_vertigo"
+              class="img-lazy film-img"
+              alt="Photorealistic exteriorn 3D Rendering of a modern housing complex in Switzerland designed by Hervé DeGiovannini Architecte. With contemporary metal facade design. Still CG Image produced by Scuares, an architectural visualization studio"
+            />
+            <div class="btn-box">
+              <button class="btn-play" aria-label="play">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="svg-play"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <h5 class="btn-proj">Vertigo<br />Film</h5>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!--=============================
+      modal-films
+    ==============================-->
+    <div>
+      <div class="film-modals"></div>
+      <!-- we insert here a script element with the vimeo script-->
+      <!-- we insert here the modals generated in JS -->
+    </div>
+    <!--==============================
+      IMAGES
+     ==============================-->
+    <div class="section" id="images">
+      <section class="images cover snap">
+        <div class="cover-text">
+          <h3 class="header-sub">IMAGES</h3>
+          <h4 class="header-main">
+            We take photos<br />
+            of the unbuilt<br />
+          </h4>
+          <p class="text-1">
+            We create striking 3D rendered still images of your projects,
+            visualizing unbuilt architecture and design as if it had already
+            been created. Our renderings are virtual photographs, developed to
+            portray buildings and spaces in the most photorealistic manner.
+          </p>
+        </div>
+        <div class="cover-content">
+          <img
+            src="/images/pixel.jpg"
+            data-src="gym"
+            class="img-lazy img-fit"
+            alt="Photorealistic exterior 3D Rendering of a wooden sports complex designed by Transversal Architects and Acte architects. Contemporary facade design. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient c-cover">
+            <div class="c-text">
+              <p class="c-project">Sports Complex in St. Maurice</p>
+              <p class="c-author">Transversal + Acte Arch.</p>
+              <p class="c-prize">1st Prize</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMAGES SLIDES -->
+
+      <!-- washington -->
+      <section class="images-two snap">
+        <div class="img-box img-box--pad-norm">
+          <img
+            src="/images/pixel.jpg"
+            data-src="washington_aerial"
+            class="img-lazy img-fit img-square"
+            alt="Aerial photorealistic exterior 3D Rendering of a modern multifunctional complex in an urban context in Washington. Still CG image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit">
+            <div class="c-text">
+              <h5 class="c-project">Multifunctional Building</h5>
+              <h6 class="c-author">Partnership with Pictury</h6>
+            </div>
+          </div>
+        </div>
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="washington_street"
+            class="img-lazy img-fit img-square"
+            alt="Photorealistic exterior 3D Rendering of a modern multifunctional complex in an urban context in Washington. View from a human eye level. Still CG image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient c-hide">
+            <div class="c-text">
+              <h5 class="c-project">Multifunctional Building</h5>
+              <h6 class="c-author">Partnership with Pictury</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- bedroom - dining -->
+      <section class="images-two snap">
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="bedroom"
+            class="img-lazy img-fit img-square"
+            alt="Photorealistic interior 3D Rendering of a modern dining room in an apartment in Berlin, designed by JM Designs. Mix of contemporary furniture with classical architecture. Real Estate residential project. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient c-gradient">
+            <div class="c-text">
+              <h5 class="c-project">Apartment in Berlin</h5>
+              <h6 class="c-author">JM Designs</h6>
+            </div>
+          </div>
+        </div>
+        <div class="img-box img-box--pad-norm">
+          <img
+            src="/images/pixel.jpg"
+            data-src="dining"
+            class="img-lazy img-fit img-vert"
+            alt="Photorealistic interior 3D Rendering of a modern bedroom in an apartment in Berlin, designed by JM Designs. Mix of contemporary furniture with classical architecture.Real Estate residential project. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-hide">
+            <div class="c-text">
+              <h5 class="c-project">Apartment in Berlin</h5>
+              <h6 class="c-author">JM Designs</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- puglia -->
+      <section class="images-one snap">
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="puglia"
+            class="img-lazy img-fit img-horiz"
+            alt="Photorealistic exterior 3D Rendering of a modern house in a beautiful landscape in Puglia designed by Bergnes de las Casas Arquitectos. Contemporary facade design with concrete and wood. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient">
+            <div class="c-text">
+              <h5 class="c-project">Villa in Puglia</h5>
+              <h6 class="c-author">Bergnes de las Casas</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- walkeweg -->
+      <section class="images-two snap">
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="walkeweg_a"
+            class="img-lazy img-fit img-vert"
+            alt="Photorealistic exterior 3D Rendering of a modern housing complex in Walkeweg, designed by Parabase Architects. First prize in an architectural competition. Building made of recycled concrete components. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient">
+            <div class="c-text">
+              <p class="c-prize">1st Prize</p>
+              <h5 class="c-project">Areal Walkeweg Nord Basel</h5>
+              <h6 class="c-author">Parabase</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="img-box img-box--pad-vert">
+          <img
+            src="/images/pixel.jpg"
+            data-src="walkeweg_b"
+            class="img-lazy img-fit img-vert"
+            alt="Photorealistic exterior 3D Rendering of a modern housing complex in Walkeweg, designed by Parabase Architects. First prize in an architectural competition. Building made of recycled concrete components. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-hide">
+            <div class="c-text">
+              <p class="c-prize">1st Prize</p>
+              <h5 class="c-project">Areal Walkeweg Nord Basel</h5>
+              <h6 class="c-author">Parabase</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- gregor -->
+      <section class="images-two snap">
+        <div class="img-box img-box--pad-norm">
+          <img
+            src="/images/pixel.jpg"
+            data-src="gregor_int"
+            class="img-lazy img-fit img-square"
+            alt="Photorealistic interior 3D Rendering of a modern house designed by Gregor Pils Architects. Contemporary interior design with wood and plaster. Building next to vineyards. Real Estate residential project. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit">
+            <div class="c-text">
+              <h5 class="c-project">Weinbergloft Houses</h5>
+              <h6 class="c-author">Gregor Pils</h6>
+            </div>
+          </div>
+        </div>
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="gregor_ext"
+            class="img-lazy img-fit img-square"
+            alt="Photorealistic exterior 3D Rendering of a modern house designed by Gregor Pils Architects. Contemporary facade design with wood and plaster. Building next to vineyards. Real Estate residential project.  Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient c-hide">
+            <div class="c-text">
+              <h5 class="c-project">Weinbergloft Houses</h5>
+              <h6 class="c-author">Gregor Pils</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- antiparos -->
+      <section class="images-two snap">
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="antiparos_b"
+            class="img-lazy img-fit img-square"
+            alt="Photorealistic exterior 3D Rendering of a modern house made of stone in a Greek Island. Luxury villa with sea view and beautiful landscape. Real Estate residential project. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient">
+            <div class="c-text">
+              <h5 class="c-project">Villas in Antiparos</h5>
+              <h6 class="c-author">West Valley</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="img-box img-box--pad-norm">
+          <img
+            src="/images/pixel.jpg"
+            data-src="antiparos_d"
+            class="img-lazy img-fit img-square"
+            alt="Photorealistic exterior 3D Rendering of a modern house made of stone in a Greek Island. Luxury villa with sea view and beautiful landscape. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-hide">
+            <div class="c-text">
+              <h5 class="c-project">Villas in Antiparos</h5>
+              <h6 class="c-author">West Valley</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- forest -->
+      <section class="images-one snap">
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="forest"
+            class="img-lazy img-fit img-horiz"
+            alt="Photorealistic exterior 3D Rendering of a modern contemporary house inside a forest designed by JM Designs. Luxury glass villa surrounded by trees. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient">
+            <div class="c-text">
+              <h5 class="c-project">Forest House</h5>
+              <h6 class="c-author">JM Designs</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- basel -->
+      <section class="images-two snap">
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="basel_a"
+            class="img-lazy img-fit img-square"
+            alt="Photorealistic exterior 3D Rendering of a modern multifamily housing building made of metal and concrete in Basel designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient">
+            <div class="c-text">
+              <h5 class="c-project">Burgfelderstrasse Housing, Basel</h5>
+              <h6 class="c-author">Parabase</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="img-box img-box--pad-vert">
+          <img
+            src="/images/pixel.jpg"
+            data-src="basel_b"
+            class="img-lazy img-fit img-vert"
+            alt="Photorealistic exterior 3D Rendering of a modern multifamily housing building made of metal and concrete in Basel designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-hide">
+            <div class="c-text">
+              <h5 class="c-project">Burgfelderstrasse Housing, Basel</h5>
+              <h6 class="c-author">Parabase</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ter- williamsburg -->
+      <section class="images-two snap">
+        <div class="img-box img-box--pad-vert">
+          <img
+            src="/images/pixel.jpg"
+            data-src="ter"
+            class="img-lazy img-fit img-vert"
+            alt="Photorealistic exterior 3D Rendering of a modern house in a beautiful landscape designed by Mesura Architects. Architectural project with traditional materials and a swimming pool. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit">
+            <div class="c-text">
+              <h5 class="c-project">Ter House</h5>
+              <h6 class="c-author">Mesura</h6>
+            </div>
+          </div>
+        </div>
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="williamsburg"
+            class="img-lazy img-fit img-vert"
+            alt="Photorealistic exterior 3D Rendering of a modern co-living building in Williamsburg, New York. Architectural project designed by The Collective with a contemporary facade design made of brick. Real Estate project. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient">
+            <div class="c-text">
+              <h5 class="c-project">Hotel in Williamsburg (NY)</h5>
+              <h6 class="c-author">The Collective</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- codines -->
+      <section class="images-two snap">
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="codines_a"
+            class="img-lazy img-fit img-square"
+            alt="Photorealistic exterior 3D Rendering of a modern house made of brick designed by Bergnes de las Casas Architects. Contemporary design building.Residential architecture. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient">
+            <div class="c-text">
+              <h5 class="c-project">House in St. F. Codines</h5>
+              <h6 class="c-author">Bergnes de las Casas</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="img-box img-box--pad-norm">
+          <img
+            src="/images/pixel.jpg"
+            data-src="codines_b"
+            class="img-lazy img-fit img-square"
+            alt="Photorealistic exterior 3D Rendering of a modern house made of brick designed by Bergnes de las Casas Architects. Contemporary design building.Residential architecture. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-hide">
+            <div class="c-text">
+              <h5 class="c-project">House in St. F. Codines</h5>
+              <h6 class="c-author">Bergnes de las Casas</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- lakehouse -->
+      <section class="images-two snap">
+        <div class="img-box img-box--pad-norm">
+          <img
+            src="/images/pixel.jpg"
+            data-src="lakehouse_int"
+            class="img-lazy img-fit img-square"
+            alt="Photorealistic interior 3D Rendering of a modern house next to a lake in Texas. Interior Design with wood and fabric. Soft color palette. Contemporary design building. Residential Real Estate project. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit">
+            <div class="c-text">
+              <h5 class="c-project">Lakehouse in Texas</h5>
+              <h6 class="c-author">Private Client</h6>
+            </div>
+          </div>
+        </div>
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="lakehouse_ext"
+            class="img-lazy img-fit img-square"
+            alt="Photorealistic exterior 3D Rendering of a modern  wooden house next to a lake in Texas. White house made of wood. Traditional american architecture style Beautiful landscape and contemporary design building. Residential Real Estate project. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient c-hide">
+            <div class="c-text">
+              <h5 class="c-project">Lakehouse in Texas</h5>
+              <h6 class="c-author">Private Client</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- zurich -->
+      <section class="images-two snap">
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="zurich_ext"
+            class="img-lazy img-fit img-vert"
+            alt="Photorealistic exterior 3D Rendering of a courthouse in Zurich designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient">
+            <div class="c-text">
+              <h5 class="c-project">Hinwil Courthouse, Zurich</h5>
+              <h6 class="c-author">Parabase</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="img-box img-box--pad-vert">
+          <img
+            src="/images/pixel.jpg"
+            data-src="zurich_int"
+            class="img-lazy img-fit img-vert"
+            alt="Photorealistic interior 3D Rendering of a courthouse in Zurich designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-hide">
+            <div class="c-text">
+              <h5 class="c-project">Hinwil Courthouse, Zurich</h5>
+              <h6 class="c-author">Parabase</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- pool -->
+
+      <section class="images-one snap">
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="pool"
+            class="img-lazy img-fit img-horiz"
+            alt="Photorealistic exterior 3D Rendering of a contemporary luxury Villa with a swimmig pool designed by JM Designs. Residential real estate project. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient">
+            <div class="c-text">
+              <h5 class="c-project">N House</h5>
+              <h6 class="c-author">JM Designs</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- doha - offices -->
+      <section class="images-two snap">
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="doha"
+            class="img-lazy img-fit img-square"
+            alt="Photorealistic exterior 3D Rendering of a park in Doha designed by Yaseen Raad. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient">
+            <div class="c-text">
+              <h5 class="c-project">Conference Street Park (Doha)</h5>
+              <h6 class="c-author">Yaseen Raad</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="img-box img-box--pad-vert">
+          <img
+            src="/images/pixel.jpg"
+            data-src="offices"
+            class="img-lazy img-fit img-vert"
+            alt="Photorealistic exterior 3D Rendering of an office building in Basel designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit">
+            <div class="c-text">
+              <h5 class="c-project">BRCCH Offices, Basel</h5>
+              <h6 class="c-author">Parabase</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- robotic -->
+      <section class="images-two snap">
+        <div class="img-box img-box--pad-vert">
+          <img
+            src="/images/pixel.jpg"
+            data-src="robot_a"
+            class="img-lazy img-fit img-vert"
+            alt="Photorealistic exterior 3D Rendering of robotically fabricated wooden pavilion in a beautiful landscape designed by Josep Alcover. Parametric architecture project. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit">
+            <div class="c-text">
+              <h5 class="c-project">Wooden Pavilions</h5>
+              <h6 class="c-author">Josep Alcover</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="robot_b"
+            class="img-lazy img-fit img-vert"
+            alt="Photorealistic exterior 3D Rendering of robotically fabricated wooden pavilion in a beautiful landscape designed by Josep Alcover. Parametric architecture project. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-hide">
+            <div class="c-text">
+              <h5 class="c-project">Wooden Pavilions</h5>
+              <h6 class="c-author">Josep Alcover</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- volta -->
+      <section class="images-two snap">
+        <div class="img-box">
+          <img
+            src="/images/pixel.jpg"
+            data-src="volta_a"
+            class="img-lazy img-fit img-vert"
+            alt="Photorealistic exterior 3D Rendering of a residential building in Volta designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-gradient">
+            <div class="c-text">
+              <h5 class="c-project">Stadtbaustein Volta Nord</h5>
+              <h6 class="c-author">Parabase</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="img-box img-box--pad-vert">
+          <img
+            src="/images/pixel.jpg"
+            data-src="volta_b"
+            class="img-lazy img-fit img-vert"
+            alt="Photorealistic exterior 3D Rendering of a residential building in Volta designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="credit c-hide">
+            <div class="c-text">
+              <h5 class="c-project">Stadtbaustein Volta Nord</h5>
+              <h6 class="c-author">Parabase</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =======================
+      TOURS
+    ============================ -->
+    <div class="section" id="tours">
+      <section class="cover tours-main snap">
+        <div class="cover-text">
+          <h2 class="header-sub">360 VIRTUAL TOURS</h2>
+          <h3 class="header-main">
+            Look around,<br />
+            Move around
+          </h3>
+          <p class="text-1">
+            We bring your clients inside your designs making it possible for
+            them to feel and explore photorealistic virtual spaces as if they
+            were actually there. Our 360º virtual tours do not require any
+            special equipment and they can easily be hosted online. They can be
+            played from anywhere with a smartphone, tablet, computer or a
+            virtual reality headset.
+          </p>
+        </div>
+        <div class="cover-content">
+          <div class="pano" id="pano-dubai"></div>
+          <!-- credit -->
+          <div class="credit c-cover c-gradient">
+            <div class="c-text">
+              <p class="c-project">Spanish Pavilion. Expo Dubai 2020</p>
+              <p class="c-author">External Reference + OnionLab</p>
+              <p class="c-prize">1st Prize</p>
+            </div>
+          </div>
+
+          <!--click and drag-->
+          <div class="pano-overlay">
+            <p class="pano-click-text">Click and Drag</p>
+            <div class="pano-play">PLAY 360</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tours-proj snap" id="tours-proj">
+        <div class="tour-item" data-project="solaris">
+          <img
+            src="/images/pixel.jpg"
+            data-src="tour_solaris"
+            class="img-lazy img-fit"
+            alt="Photorealistic interior 3D Rendering of a luxury bathroom in a contamporary villa designed by Justyna Gornicka in Switzerland. Residential real estate project. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="btn-box">
+            <button class="btn-play">360</button>
+            <h4 class="btn-proj">Play <br />Solaris <br />Tour</h4>
+          </div>
+        </div>
+
+        <div class="tour-item" data-project="vertigo">
+          <img
+            src="/images/pixel.jpg"
+            data-src="tour_vertigo"
+            class="img-lazy img-fit"
+            alt="Photorealistic exterior 3D Rendering of a luxury housing complex designed by Justyna Gornicka in Switzerland. Residential real estate project. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <div class="btn-box">
+            <button class="btn-play">360</button>
+            <h4 class="btn-proj">Play <br />Vertigo<br />Tour</h4>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- modal panos -->
+    <div class="modal-tours modal-solaris">
+      <div class="modal-pano hidden" id="pano-solaris"></div>
+      <div class="modal-pano hidden" id="pano-vertigo"></div>
+      <div class="modal-close">
+        <div class="line-close line-close1"></div>
+        <div class="line-close line-close2"></div>
+      </div>
+    </div>
+
+    <!--=============================
+      CONTACT
+    ==============================-->
+    <div class="section" id="contact">
+      <section class="cover contact snap">
+        <div class="cover-text">
+          <h2 class="header-sub">CONTACT</h2>
+          <h3 class="header-main">
+            Let's do something<br />
+            great together
+          </h3>
+          <p class="text-1">
+            We collaborate with architects, designers, developers and real
+            estate agencies worldwide. We work in English, Spanish and Catalan.
+            Get in touch to discuss your project or request a quote.
+          </p>
+
+          <div class="contact-details">
+            <h4>info@scuares.com</h4>
+
+            <a
+              href="https://www.instagram.com/scuares.studio/"
+              target="_blank"
+              aria-label="Go to the instagram page of Scuares Studio"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="100"
+                height="100"
+                viewBox="0 0 24 24"
+                class="instagram"
+              >
+                <path
+                  d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="cover-content">
+          <img
+            src="/images/pixel.jpg"
+            data-src="room"
+            class="img-lazy img-fit"
+            alt="Photorealistic interior 3D Rendering of an empty room with skylights. Abstract shapes nicely illuminated. Conceptual architectural project. Still CG Image produced by Scuares, an architectural visualization studio"
+          />
+          <h5 class="contact-email">info@scuares.com</h5>
+        </div>
+      </section>
+    </div>
+    <!-- Event snippet for Viewed contact section conversion page -->
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactSection = document.getElementById("contact");
+        if (!contactSection) return;
+
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                gtag("event", "conversion", {
+                  send_to: "AW-807551184/Dd25CNvZ0_8bENCBiYED",
+                });
+                observer.disconnect(); // fire once
+              }
+            });
+          },
+          { threshold: 0.4 }, // 40% visible
+        );
+
+        observer.observe(contactSection);
+      });
+    </script>
+  </body>
+</html>
