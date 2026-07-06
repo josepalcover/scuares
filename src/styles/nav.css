@@ -125,9 +125,17 @@
   height: var(--line-thickness);
   border-radius: 99px;
   width: 100%;
-  transition: all 300ms ease-in-out;
+  transition:
+    top 300ms ease-in-out,
+    bottom 300ms ease-in-out,
+    transform 300ms ease-in-out;
   position: absolute;
   z-index: 999;
+}
+
+.line-light,
+.hamburger-nav-active .line {
+  background-color: white;
 }
 
 .line-top {

@@ -7,6 +7,7 @@ import { updateContactBtnVisibility } from "./nextAndContactBtn.js";
 
 export function navInit() {
   // hamburger
+  const nav = document.querySelector(".nav-commercial");
   const hamburger = document.querySelector(".hamburger");
   const lineTop = document.querySelector(".line-top");
   const lineMid = document.querySelector(".line-mid");
@@ -54,8 +55,9 @@ export function navInit() {
     navIsActive = true;
     navTl.restart();
     logo.classList.add("logo-nav-active");
+    hamburger.classList.add("hamburger-nav-active");
     hamburgerNavAnim();
-    logoBox.classList.add("fixed");
+    logoBox?.classList.add("fixed");
     hamburger.classList.add("transparent");
   }
 
@@ -63,8 +65,9 @@ export function navInit() {
     navIsActive = false;
     navTl.reverse();
     logo.classList.remove("logo-nav-active");
+    hamburger.classList.remove("hamburger-nav-active");
     hamburgerNavAnim();
-    logoBox.classList.remove("fixed");
+    logoBox?.classList.remove("fixed");
     hamburger.classList.remove("transparent");
   }
 
@@ -89,14 +92,13 @@ export function navInit() {
   //////////////////
   // LINKS - SCROLL TO
 
-  const nav = document.querySelector(".nav-commercial");
-
   nav.addEventListener("click", (e) => {
     e.preventDefault();
 
     const clickedLink = e.target.closest(".link");
     if (!clickedLink) return;
-    let goTo = clickedLink.getAttribute("href");
+    let goTo = clickedLink.dataset.goto ?? clickedLink.getAttribute("href");
+    if (!goTo) return;
 
     // Keep the home link aligned with the observer's first slide index.
     if (goTo === "#home") goTo = 0;

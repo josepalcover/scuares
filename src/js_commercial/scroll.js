@@ -30,11 +30,56 @@ export function scrollInit() {
   const observer = scrollObserver();
   observer.disable(); //we create the observer and imediately disable it
 
+  const logo = document.querySelector(".logo");
+  const contactBtn = document.querySelector(".contact-btn");
+  const hamburgerLines = gsap.utils.toArray(".hamburger .line");
+  const themedSections = gsap.utils.toArray("[data-logo], [data-contact]");
+
+  function setHamburgerTheme(isLight) {
+    hamburgerLines.forEach((line) => {
+      line.classList.toggle("line-light", isLight);
+    });
+  }
+
+  function updateNavTheme(section) {
+    if (!section) return;
+
+    const logoIsLight = section.dataset.logo === "light";
+    const contactIsLight =
+      (section.dataset.contact ?? section.dataset.logo) === "light";
+
+    logo?.classList.toggle("logo-light", logoIsLight);
+    contactBtn?.classList.toggle("contact-btn-light", contactIsLight);
+    setHamburgerTheme(contactIsLight);
+  }
+
+  function getCurrentThemedSection() {
+    const triggerY = window.innerHeight * 0.01;
+    return (
+      themedSections.find((section) => {
+        const rect = section.getBoundingClientRect();
+        return rect.top <= triggerY && rect.bottom > triggerY;
+      }) ?? themedSections[0]
+    );
+  }
+
+  themedSections.forEach((section) => {
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top 1%",
+      onEnter: () => updateNavTheme(section),
+      onEnterBack: () => updateNavTheme(section),
+      onRefresh: () => updateNavTheme(getCurrentThemedSection()),
+    });
+  });
+
+  updateNavTheme(getCurrentThemedSection());
+
   ///// MATCH MEDIA (animations only on landscape mode)
   let mm = gsap.matchMedia();
 
   mm.add(
-    "(min-width: calc(700em/16)) and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 3/1) and (min-height: calc(450em/16)",
+    "(min-width: calc(700em/16)) and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 3/1) and (min-height: calc(450em/16))",
     () => {
       // slides mode = true
 
@@ -71,7 +116,7 @@ export function scrollInit() {
           .querySelector(".pano-overlay")
           .classList.remove("pano-overlay-hidden");
       };
-    }
+    },
   );
 
   // non-slides (mobile): IntersectionObserver for contact button visibility on native scroll
@@ -87,7 +132,7 @@ export function scrollInit() {
             setContactBtnVisibilityFromSection(entry.isIntersecting);
           }
         },
-        { threshold: 0.1 }
+        { threshold: 0.1 },
       );
 
       contactObserver.observe(contactSection);
@@ -100,6 +145,6 @@ export function scrollInit() {
       return () => {
         contactObserver.disconnect();
       };
-    }
+    },
   );
 }
