@@ -45,7 +45,7 @@ export function navInit() {
   navTl = gsap
     .timeline({ paused: true })
     .fromTo(
-      ".nav-box",
+      ".nav-offscreen",
       { yPercent: -100, autoAlpha: 0 },
       { yPercent: 0, duration: 0.2, autoAlpha: 1 },
     );
@@ -82,7 +82,7 @@ export function navInit() {
   });
 
   // hide nav when clicking on the nav background
-  document.querySelector(".nav-box").addEventListener("click", () => {
+  document.querySelector(".nav-offscreen").addEventListener("click", () => {
     hideNav();
   });
 

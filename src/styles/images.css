@@ -1,0 +1,89 @@
+.images-one {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+}
+
+.images-two {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+}
+
+.img-full {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: white;
+}
+
+.img-full > img {
+  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-position: center center;
+}
+
+.img-pad {
+  padding: 8rem;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: white;
+}
+
+.img-pad > img {
+  object-fit: contain;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-position: center center;
+}
+
+.credit {
+  position: absolute;
+  bottom: 0;
+  color: var(--col-grey-dark);
+  background: transparent;
+  width: 100%;
+  left: 0;
+  padding: 8rem 0 2rem 2rem;
+}
+
+.img-full > .credit {
+  color: white;
+  background-image: var(--gradient);
+}
+
+.img-pad > .credit {
+  color: var(--col-grey-dark);
+  background: transparent;
+}
+
+.c-hide {
+  display: none;
+}
+
+.c-cover {
+  position: absolute;
+  background-image: var(--gradient);
+  color: white;
+}
+
+.c-text {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+}

@@ -1,0 +1,88 @@
+#films {
+  z-index: 2;
+}
+
+.films-main {
+  z-index: 0;
+}
+
+.films-proj {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--frame-x);
+  padding: var(--frame-y) var(--frame-x);
+  position: relative;
+  z-index: 1;
+  background-color: white;
+}
+
+.film-item {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.film-item:hover .btn-play {
+  transform: scale(1.2);
+}
+
+.film-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.btn-box {
+  --btn-size: 4.5rem;
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: bottom;
+  gap: 1rem;
+  width: 100%;
+  padding: 10rem 0 2rem 2rem;
+  background-image: var(--film-gradient);
+}
+
+.btn-proj {
+  cursor: pointer;
+  text-align: left;
+  color: white;
+  border: none;
+  background: transparent;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.btn-play {
+  cursor: pointer;
+  height: var(--btn-size);
+  width: var(--btn-size);
+  border-radius: 50%;
+  border: 3px solid white;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  color: white;
+  transform-origin: left bottom;
+  transition: 300ms ease-in-out;
+}
+
+.svg-play {
+  fill: white;
+  height: 50%;
+  margin-left: 0.2rem;
+}

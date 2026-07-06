@@ -1,0 +1,159 @@
+@import "@fontsource-variable/geist-mono";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --col-grey-dark: rgb(63, 63, 63);
+  --frame-x: 1.6rem;
+  --frame-y: 1.6rem;
+  --margin: 2.5rem;
+  --radius: 0.8rem;
+  --nav-text-size: 2.4rem;
+  --nav-text-weight: 500;
+  --nav-text-line-height: 0.6;
+  --cover-column: 40rem;
+  --hero-height: 100vh;
+  --hamburger-size: 40px;
+  --line-thickness: 2px;
+  --gradient: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0) 80%
+  );
+  --film-gradient: radial-gradient(
+    ellipse farthest-corner at left bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+
+@supports (height: 100svh) {
+  :root {
+    --hero-height: 100svh;
+  }
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
+
+button {
+  border: none;
+  background-color: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Geist Mono Variable", "Geist Mono", monospace;
+  color: var(--col-grey-dark);
+  overflow-x: hidden;
+  background-color: white;
+}
+
+body {
+  background-color: white;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  position: relative;
+}
+
+.section {
+  position: relative;
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.centered-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: calc(2 * var(--margin));
+}
+
+.text-box {
+  max-width: 45ch;
+}
+
+.header-main {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 3rem;
+}
+
+.text-normal {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.logo-hero {
+  color: white;
+  font-size: 5rem;
+  background: transparent;
+  position: absolute;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+}
+
+.logo-hero[data-theme="light"] {
+  color: white;
+}
+
+.logo-hero[data-theme="dark"] {
+  color: var(--col-grey-dark);
+}
+
+.hero-full {
+  width: 100%;
+  height: 100vh;
+  height: var(--hero-height);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background-color: white;
+}
+
+.hero-full .img-hero {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.hero-full .img-hero > img {
+  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-position: center center;
+}
