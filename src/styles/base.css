@@ -18,6 +18,9 @@
   --cover-column: 40rem;
   --hero-height: 100vh;
   --hamburger-size: 40px;
+  --hamburger-move-down: 0.5px;
+  --hamburger-left-pad: 1rem;
+  --logo-left-pad: 10px;
   --line-thickness: 2px;
   --gradient: linear-gradient(
     to top,

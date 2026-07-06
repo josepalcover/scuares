@@ -8,7 +8,6 @@
   padding: var(--frame-y) var(--frame-x);
   z-index: 99;
   background: transparent;
-  outline: 1px solid red;
 }
 
 .nav-main--docked {
@@ -33,7 +32,6 @@
   padding: var(--frame-y) var(--frame-x);
   z-index: 99;
   background: transparent;
-  outline: 1px solid red;
 }
 
 .logo {
@@ -53,6 +51,9 @@
   color: white;
 }
 
+.nav-commercial .logo {
+  padding-left: var(--logo-left-pad);
+}
 .contact-btn {
   cursor: pointer;
   display: block;
@@ -70,33 +71,18 @@
   color: white;
 }
 
-.nav-commercial .logo-box {
-  outline: 1px solid green;
-  z-index: 999;
-
-  left: var(--frame-x);
-  top: var(--frame-y);
-  display: flex;
-  align-items: center;
-}
-
-.nav-commercial .contact-btn {
-  visibility: visible;
-  pointer-events: auto;
-  z-index: 5;
-  right: calc(var(--frame-x) + var(--hamburger-size) + 1.6rem);
-  top: var(--frame-y);
-  height: var(--hamburger-size);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .contact-btn-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   cursor: default;
+}
+
+.nav-commercial .nav-right-box {
+  display: flex;
+  gap: var(--hamburger-left-pad);
+  justify-content: flex-end;
+  align-items: center;
 }
 
 /* HELPERS*/
@@ -111,15 +97,11 @@
 /* HAMBURGER*/
 
 .hamburger {
-  position: fixed;
   z-index: 10;
-  right: var(--frame-x);
-  top: var(--frame-y);
   flex-shrink: 0;
   width: var(--hamburger-size);
   height: var(--hamburger-size);
-  border-radius: 50%;
-  background-color: var(--col-grey-dark);
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,21 +110,18 @@
   transform-origin: center center;
 }
 
-.hamburger:hover {
-  background-color: rgb(50, 50, 50);
-}
-
 .hamburger-lines {
+  transform: translateY(var(--hamburger-move-down));
   font-size: 2px;
   --anim-time: 400ms;
   z-index: 999;
-  height: 8em;
-  width: 8em;
+  height: 10em;
+  width: 10em;
   position: relative;
 }
 
 .line {
-  background-color: white;
+  background-color: var(--col-grey-dark);
   height: var(--line-thickness);
   border-radius: 99px;
   width: 100%;
@@ -156,7 +135,7 @@
 }
 
 .line-mid {
-  top: calc(4em - var(--line-thickness) / 2);
+  top: calc(5em - var(--line-thickness) / 2);
 }
 
 .line-bottom {
@@ -194,24 +173,24 @@
   }
 
   30% {
-    top: calc(4em - var(--line-thickness) / 2);
+    top: calc(5em - var(--line-thickness) / 2);
     transform: rotate(0deg);
   }
 
   100% {
-    top: calc(4em - var(--line-thickness) / 2);
+    top: calc(5em - var(--line-thickness) / 2);
     transform: rotate(45deg) scaleX(150%);
   }
 }
 
 @keyframes lineTopAnimRev {
   0% {
-    top: calc(4em - var(--line-thickness) / 2);
+    top: calc(5em - var(--line-thickness) / 2);
     transform: rotate(45deg) scaleX(150%);
   }
 
   30% {
-    top: calc(4em - var(--line-thickness) / 2);
+    top: calc(5em - var(--line-thickness) / 2);
     transform: rotate(0deg);
   }
 
@@ -256,24 +235,24 @@
   }
 
   30% {
-    bottom: calc(4em - var(--line-thickness) / 2);
+    bottom: calc(5em - var(--line-thickness) / 2);
     transform: rotate(0deg);
   }
 
   100% {
-    bottom: calc(4em - var(--line-thickness) / 2);
+    bottom: calc(5em - var(--line-thickness) / 2);
     transform: rotate(-45deg) scaleX(150%);
   }
 }
 
 @keyframes lineBottomAnimRev {
   0% {
-    bottom: calc(4em - var(--line-thickness) / 2);
+    bottom: calc(5em - var(--line-thickness) / 2);
     transform: rotate(-45deg) scaleX(150%);
   }
 
   30% {
-    bottom: calc(4em - var(--line-thickness) / 2);
+    bottom: calc(5em - var(--line-thickness) / 2);
     transform: rotate(0deg);
   }
 

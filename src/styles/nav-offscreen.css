@@ -37,8 +37,8 @@
   display: flex;
   align-items: center;
   transition: 250ms ease-in-out;
-  font-size: 2.2rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .nav-offscreen .nav-links .link:hover {

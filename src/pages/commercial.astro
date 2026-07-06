@@ -9,7 +9,6 @@ import "../styles/tours.css";
 import "../styles/modal-film.css";
 import "../styles/contact.css";
 import "../styles/queries.css";
-
 ---
 
 <!doctype html>
@@ -46,8 +45,7 @@ import "../styles/queries.css";
     <script
       is:inline
       async
-      src="https://www.googletagmanager.com/gtag/js?id=AW-807551184"
-    ></script>
+      src="https://www.googletagmanager.com/gtag/js?id=AW-807551184"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -64,26 +62,26 @@ import "../styles/queries.css";
     ===============================================-->
     <nav class="nav-commercial">
       <!-- LOGO -->
-      <div class="logo-box">
-        <a
-          class="logo link"
-          href="#home"
-          aria-label="scroll to the top of the page"
-        >
-          scuares
-        </a>
-      </div>
-      <!-- CONTACT BUTTON -->
-      <button class="contact-btn" aria-label="scroll to the contact section">
-        contact
+      <button
+        class="logo link"
+        data-goto="#home"
+        aria-label="scroll to the top of the page"
+      >
+        scuares/commercial
       </button>
+      <div class="nav-right-box">
+        <!-- CONTACT BUTTON -->
+        <button class="contact-btn" aria-label="scroll to the contact section">
+          contact
+        </button>
 
-      <!-- HAMBURGER -->
-      <div class="hamburger">
-        <div class="hamburger-lines">
-          <div class="line line-top"></div>
-          <div class="line line-mid"></div>
-          <div class="line line-bottom"></div>
+        <!-- HAMBURGER -->
+        <div class="hamburger">
+          <div class="hamburger-lines">
+            <div class="line line-top"></div>
+            <div class="line line-mid"></div>
+            <div class="line line-bottom"></div>
+          </div>
         </div>
       </div>
 
@@ -99,40 +97,35 @@ import "../styles/queries.css";
             <a
               class="link"
               href="#about"
-              aria-label="scroll to the about section"
-              >About</a
+              aria-label="scroll to the about section">About</a
             >
           </li>
           <li>
             <a
               class="link"
               href="#films"
-              aria-label="scroll to the films section"
-              >Films</a
+              aria-label="scroll to the films section">Films</a
             >
           </li>
           <li>
             <a
               class="link"
               href="#images"
-              aria-label="scroll to the images section"
-              >Images</a
+              aria-label="scroll to the images section">Images</a
             >
           </li>
           <li>
             <a
               class="link"
               href="#tours"
-              aria-label="scroll to the tours section"
-              >Tours</a
+              aria-label="scroll to the tours section">Tours</a
             >
           </li>
           <li>
             <a
               class="link contact-link"
               href="#contact"
-              aria-label="scroll to the contact section"
-              >Contact</a
+              aria-label="scroll to the contact section">Contact</a
             >
           </li>
         </ul>
@@ -171,46 +164,44 @@ import "../styles/queries.css";
           </h2>
         </div>
       </section>
-
     </header>
 
-     <!--==============================
+    <!--==============================
     ABOUT
     ===============================-->
 
     <section
-  class="images-two snap nav-dock-section"
-  data-logo="dark"
-  data-contact="dark"
-  id="about"
->
-  <div class="centered-box">
-    <div class="text-box">
-      <h3 class="header-main">
-        Images of<br />
-        unbuilt<br />
-        architecture
-      </h3>
-      <h4 class="text-normal">
-        Founded in Barcelona by Josep Alcover. Scuares focuses on
-        photorealistic visualizations.
-      </h4>
-    </div>
-  </div>
+      class="images-two snap nav-dock-section"
+      data-logo="dark"
+      data-contact="dark"
+      id="about"
+    >
+      <div class="centered-box">
+        <div class="text-box">
+          <h3 class="header-main">
+            Images of<br />
+            unbuilt<br />
+            architecture
+          </h3>
+          <h4 class="text-normal">
+            Founded in Barcelona by Josep Alcover. Scuares focuses on
+            photorealistic visualizations.
+          </h4>
+        </div>
+      </div>
 
-  <div class="img-full">
-    <img
-      src="/images/pixel.jpg"
-      data-src="about_image"
-      class="img-initial"
-      alt="Photorealistic exterior 3D Rendering of a real estate residential deveoplment in Gland, Switzerland. Human eye level view. Facade detail at sunset. Still CG image produced by Scuares, an architectural visualization studio"
-    />
-    <div class="credit">
-      <div class="c-text">Housing project in Gland</div>
-    </div>
-  </div>
-</section>
-
+      <div class="img-full">
+        <img
+          src="/images/pixel.jpg"
+          data-src="about_image"
+          class="img-initial"
+          alt="Photorealistic exterior 3D Rendering of a real estate residential deveoplment in Gland, Switzerland. Human eye level view. Facade detail at sunset. Still CG image produced by Scuares, an architectural visualization studio"
+        />
+        <div class="credit">
+          <div class="c-text">Housing project in Gland</div>
+        </div>
+      </div>
+    </section>
 
     <!--==============================
     FILMS
@@ -280,8 +271,7 @@ import "../styles/queries.css";
                   <path
                     fill-rule="evenodd"
                     d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
-                    clip-rule="evenodd"
-                  />
+                    clip-rule="evenodd"></path>
                 </svg>
               </button>
               <h5 class="btn-proj">Solaris<br />Film</h5>
@@ -313,8 +303,7 @@ import "../styles/queries.css";
                   <path
                     fill-rule="evenodd"
                     d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
-                    clip-rule="evenodd"
-                  />
+                    clip-rule="evenodd"></path>
                 </svg>
               </button>
               <h5 class="btn-proj">Villa<br />Film</h5>
@@ -349,8 +338,7 @@ import "../styles/queries.css";
                   <path
                     fill-rule="evenodd"
                     d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
-                    clip-rule="evenodd"
-                  />
+                    clip-rule="evenodd"></path>
                 </svg>
               </button>
               <h5 class="btn-proj">Vertigo<br />Film</h5>
