@@ -1,32 +1,39 @@
-.nav {
+/*NAV MAIN SITE*/
+
+.nav-main {
   width: 100%;
-  height: fit-content;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   padding: var(--frame-y) var(--frame-x);
   z-index: 99;
   background: transparent;
-  line-height: var(--nav-text-line-height);
   outline: 1px solid red;
 }
 
-.nav--commercial {
-  display: block;
-  padding: 0;
-  overflow: visible;
-  background: transparent;
-  outline: 4px solid red;
-}
-
-.nav--docked {
+.nav-main--docked {
   position: absolute;
   top: var(--hero-height);
 }
 
-.nav--fixed {
+.nav-main--fixed {
   position: fixed;
   top: 0;
+}
+
+/*NAV COMMERCIAL SITE*/
+.nav-commercial {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--frame-y) var(--frame-x);
+  z-index: 99;
+  background: transparent;
+  outline: 1px solid red;
 }
 
 .logo {
@@ -63,76 +70,19 @@
   color: white;
 }
 
-.nav--commercial .logo-box {
+.nav-commercial .logo-box {
   outline: 1px solid green;
   z-index: 999;
-  position: fixed;
+
   left: var(--frame-x);
   top: var(--frame-y);
   display: flex;
   align-items: center;
 }
 
-.nav--commercial .nav-offscreen {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 5;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
-}
-
-.fixed {
-  position: fixed !important;
-}
-
-.nav--commercial .nav-links {
-  color: white;
-  letter-spacing: 0;
-  list-style: none;
-  display: flex;
-  height: auto;
-  flex-direction: column;
-  gap: 1.4rem;
-  align-items: flex-start;
-  width: auto;
-  margin: 0 auto;
-  z-index: 3;
-}
-
-.nav--commercial .nav-links li {
-  height: 100%;
-}
-
-.nav--commercial .nav-links .link {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  transition: 250ms ease-in-out;
-  font-size: 2.2rem;
-  font-weight: 700;
-}
-
-.nav--commercial .nav-links .link:hover {
-  opacity: 0.5;
-}
-
-.nav--commercial .contact-link {
-  padding-top: 4rem;
-}
-
-.nav-line {
-  display: none;
-}
-
-.nav--commercial .contact-btn {
+.nav-commercial .contact-btn {
   visibility: visible;
   pointer-events: auto;
-  position: fixed;
   z-index: 5;
   right: calc(var(--frame-x) + var(--hamburger-size) + 1.6rem);
   top: var(--frame-y);
@@ -148,6 +98,17 @@
   pointer-events: none;
   cursor: default;
 }
+
+/* HELPERS*/
+.fixed {
+  position: fixed !important;
+}
+
+.transparent {
+  background: transparent !important;
+}
+
+/* HAMBURGER*/
 
 .hamburger {
   position: fixed;
@@ -165,10 +126,6 @@
   cursor: pointer;
   transition: 300ms ease-in-out;
   transform-origin: center center;
-}
-
-.transparent {
-  background: transparent !important;
 }
 
 .hamburger:hover {

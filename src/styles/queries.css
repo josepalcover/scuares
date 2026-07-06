@@ -6,11 +6,11 @@
     --frame-y: 1.6rem;
   }
 
-  .nav:not(.nav--commercial) {
+  .nav-main:not(.nav-commercial) {
     background: white;
   }
 
-  .nav--commercial .logo-box {
+  .nav-commercial .logo-box {
     position: absolute;
   }
 
@@ -269,7 +269,7 @@
     background: transparent;
   }
 
-  .nav--commercial .nav-links {
+  .nav-commercial .nav-links {
     gap: 0.9rem;
     padding-bottom: 4rem;
   }

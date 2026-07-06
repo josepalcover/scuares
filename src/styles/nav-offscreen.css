@@ -1,0 +1,54 @@
+.nav-offscreen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  z-index: 5;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.nav-offscreen .nav-links {
+  color: white;
+  letter-spacing: 0;
+  list-style: none;
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  gap: 1.4rem;
+  align-items: flex-start;
+  width: auto;
+  margin: 0 auto;
+  z-index: 3;
+}
+
+.nav-offscreen .nav-links li {
+  height: 100%;
+}
+
+.nav-offscreen .nav-links .link {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: 250ms ease-in-out;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.nav-offscreen .nav-links .link:hover {
+  opacity: 0.5;
+}
+
+.nav-offscreen .contact-link {
+  padding-top: 4rem;
+}
+
+.nav-line {
+  display: none;
+}

@@ -8,7 +8,7 @@ export function navInit() {
   //////////////////
   // LINKS - SCROLL TO
 
-  const nav = document.querySelector(".nav");
+  const nav = document.querySelector(".nav-main");
 
   nav.addEventListener("click", (e) => {
     e.preventDefault();

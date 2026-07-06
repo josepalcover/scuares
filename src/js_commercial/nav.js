@@ -46,8 +46,8 @@ export function navInit() {
     .timeline({ paused: true })
     .fromTo(
       ".nav-offscreen",
-      { yPercent: -100, autoAlpha: 0 },
-      { yPercent: 0, duration: 0.2, autoAlpha: 1 },
+      { autoAlpha: 0 },
+      { duration: 0.2, autoAlpha: 1 },
     );
 
   function showNav() {
@@ -75,7 +75,7 @@ export function navInit() {
 
   // hide nav when clicking outside of the nav
   document.body.addEventListener("click", (e) => {
-    const navClick = e.target.closest(".nav");
+    const navClick = e.target.closest(".nav-commercial");
     if (!navClick && navIsActive) {
       hideNav();
     }
@@ -89,7 +89,7 @@ export function navInit() {
   //////////////////
   // LINKS - SCROLL TO
 
-  const nav = document.querySelector(".nav");
+  const nav = document.querySelector(".nav-commercial");
 
   nav.addEventListener("click", (e) => {
     e.preventDefault();

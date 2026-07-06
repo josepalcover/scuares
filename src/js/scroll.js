@@ -29,7 +29,7 @@ export function scrollInit() {
   const observer = scrollObserver();
   observer.disable(); //we create the observer and imediately disable it
 
-  const nav = document.querySelector(".nav");
+  const nav = document.querySelector(".nav-main");
   const navDockSection = document.querySelector(".nav-dock-section");
   const logo = document.querySelector(".logo");
   const contactBtn = document.querySelector(".contact-btn");
@@ -38,8 +38,8 @@ export function scrollInit() {
 
   function updateNavState(isFixed) {
     if (!nav) return;
-    nav.classList.toggle("nav--fixed", isFixed);
-    nav.classList.toggle("nav--docked", !isFixed);
+    nav.classList.toggle("nav-main--fixed", isFixed);
+    nav.classList.toggle("nav-main--docked", !isFixed);
   }
 
   function syncNavState() {
