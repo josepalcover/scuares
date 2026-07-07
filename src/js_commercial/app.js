@@ -13,6 +13,7 @@ scrollInit();
 navInit();
 
 /////// LOADING
+const initialImages = gsap.utils.toArray(".img-initial");
 const lazyImages = gsap.utils.toArray(".img-lazy");
 const filmImages = gsap.utils.toArray(".film-img");
 const nonFilmLazyImages = lazyImages.filter(
@@ -32,6 +33,10 @@ function loadFilmsAssets(imgFormat) {
 // function to load images with a certain format
 // we call it later after cjecking webp support
 function loadImages(imgFormat) {
+  initialImages.forEach((img) => {
+    img.src = `/images/${img.dataset.src}.${imgFormat}`;
+  });
+
   loadFilmsAssets(imgFormat);
 
   ////////////////////////////////////////////
