@@ -108,7 +108,6 @@
 /* HAMBURGER*/
 
 .hamburger {
-  outline: 1px solid red;
   z-index: 10;
   flex-shrink: 0;
   width: var(--hamburger-size);
@@ -151,7 +150,7 @@
 }
 
 .line-top {
-  top: 0;
+  top: 2px;
 }
 
 .line-mid {
@@ -159,7 +158,7 @@
 }
 
 .line-bottom {
-  bottom: 0;
+  bottom: 2px;
 }
 
 .anim-line-top {
@@ -188,7 +187,7 @@
 
 @keyframes lineTopAnim {
   0% {
-    top: 0;
+    top: 2px;
     transform: rotate(0deg);
   }
 
@@ -215,7 +214,7 @@
   }
 
   100% {
-    top: 0;
+    top: 2px;
     transform: rotate(0deg);
   }
 }
@@ -250,7 +249,7 @@
 
 @keyframes lineBottomAnim {
   0% {
-    bottom: 0;
+    bottom: 2px;
     transform: rotate(0deg);
   }
 
@@ -277,7 +276,7 @@
   }
 
   100% {
-    bottom: 0;
+    bottom: 2px;
     transform: rotate(0deg);
   }
 }
