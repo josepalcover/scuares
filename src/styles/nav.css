@@ -52,7 +52,18 @@
 }
 
 .nav-commercial .logo {
-  padding-left: var(--logo-left-pad);
+  position: relative;
+  margin-left: var(--logo-left-margin);
+}
+
+/*commercial in the logo*/
+.nav-commercial .logo span {
+  position: absolute;
+  left: 0;
+  top: 21px;
+  font-size: 1.4rem;
+  letter-spacing: 0.08ch;
+  font-weight: 350;
 }
 .contact-btn {
   cursor: pointer;
@@ -97,6 +108,7 @@
 /* HAMBURGER*/
 
 .hamburger {
+  outline: 1px solid red;
   z-index: 10;
   flex-shrink: 0;
   width: var(--hamburger-size);

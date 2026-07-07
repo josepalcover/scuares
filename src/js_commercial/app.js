@@ -7,12 +7,13 @@ import { navInit } from "./nav.js";
 import { scrollInit } from "./scroll.js";
 import { filmModalInit } from "./filmModal.js";
 import { panosInit } from "./panos.js";
+import { heroInit } from "../js/hero.js";
 
 // initialize scroll behavior and navigation
 scrollInit();
 navInit();
 
-/////// LOADING
+/////// ASSET LOADING
 const initialImages = gsap.utils.toArray(".img-initial");
 const lazyImages = gsap.utils.toArray(".img-lazy");
 const filmImages = gsap.utils.toArray(".film-img");
@@ -30,9 +31,10 @@ function loadFilmsAssets(imgFormat) {
   });
 }
 
-// function to load images with a certain format
-// we call it later after cjecking webp support
+// Load image assets after checking AVIF support.
 function loadImages(imgFormat) {
+  heroInit(imgFormat);
+
   initialImages.forEach((img) => {
     img.src = `/images/${img.dataset.src}.${imgFormat}`;
   });
@@ -60,7 +62,7 @@ function loadImages(imgFormat) {
   // LAZY LOAD IMAGES WITH SCROLL TRIGGER
   ////////////////////////////////////////////
 
-  // all images load the suppoted img format
+  // all images load the supported img format
   // the high res version with scroll trigger (load using scroll trigger)
 
   nonFilmLazyImages.forEach((img) => {
@@ -68,7 +70,7 @@ function loadImages(imgFormat) {
       trigger: img,
       start: "top 250%", //when top of the img is 2.5 pages away
       onEnter: () => {
-        // the format is a string "webp" or "jpg" depending on support
+        // the format is a string "avif" or "jpg" depending on support
         img.src = `/images/${img.dataset.src}.${imgFormat}`;
         imgTrigger.kill();
         ///// instead of doing this: we can add a low res image with the same proportion as the high res one! this would help avoid layout shifting
@@ -81,15 +83,7 @@ function loadImages(imgFormat) {
 // when page finishes loading it fires the "load" event on window object
 window.addEventListener("load", () => {
   ////////////////////////////////////////////
-  // LOAD HERO VIDEO (right after finishing loading)
-  ////////////////////////////////////////////
-
-  // in html, video element with no src, only poster
-  const videoHome = document.querySelector(".home .video");
-  videoHome.src = videoHome.dataset.src;
-
-  ////////////////////////////////////////////
-  // CHECK IMG FORMAT SUPPORT (avif) and update hero poster if necessary
+  // CHECK IMG FORMAT SUPPORT (avif)
   ////////////////////////////////////////////
 
   //check avif support
@@ -98,15 +92,11 @@ window.addEventListener("load", () => {
   imgAvif.onload = () => loadImages("avif");
   // if the image cannot be loaded
   imgAvif.onerror = () => {
-    //if error, change hero poster to jpg
-    videoHome.poster = videoHome.dataset.poster;
     loadImages("jpg");
   };
-  // special string from google webp documentation to check for webp lossy support
+  // AVIF support probe.
   imgAvif.src =
     "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=";
-
-  //webp.src="data:image/webp;base64, UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA";
 
   // when we load this src, either the onload or onerror event will be triggered
 

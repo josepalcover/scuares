@@ -23,7 +23,7 @@ function getSlides(template, imgFormat) {
 
       return {
         name,
-        src: `images/${name}.${imgFormat}`,
+        src: `/images/${name}.${imgFormat}`,
         alt: img.getAttribute("alt") ?? "",
         logoTheme: getLogoTheme(img.dataset.logo),
       };
@@ -99,20 +99,23 @@ async function runSequence(currentImage, logo, slides, interval) {
 }
 
 export function heroInit(imgFormat) {
-  const hero = document.querySelector("[data-hero-sequence]");
-  if (!hero || initializedHeroes.has(hero)) return;
+  const heroes = document.querySelectorAll("[data-hero-sequence]");
 
-  const currentImage = hero.querySelector("[data-hero-current]");
-  const template = hero.querySelector("template[data-hero-slides]");
-  if (!currentImage || !template) return;
+  heroes.forEach((hero) => {
+    if (initializedHeroes.has(hero)) return;
 
-  const slides = getSlides(template, imgFormat);
-  if (slides.length === 0) return;
+    const currentImage = hero.querySelector("[data-hero-current]");
+    const template = hero.querySelector("template[data-hero-slides]");
+    if (!currentImage || !template) return;
 
-  initializedHeroes.add(hero);
+    const slides = getSlides(template, imgFormat);
+    if (slides.length === 0) return;
 
-  const logo = hero.querySelector("[data-hero-logo]");
-  const interval = getInterval(hero);
+    initializedHeroes.add(hero);
 
-  runSequence(currentImage, logo, slides, interval);
+    const logo = hero.querySelector("[data-hero-logo]");
+    const interval = getInterval(hero);
+
+    runSequence(currentImage, logo, slides, interval);
+  });
 }
