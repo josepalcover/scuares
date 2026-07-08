@@ -6,7 +6,8 @@
     --frame-y: 1.6rem;
   }
 
-  .nav-main:not(.nav-commercial) {
+  .nav-main,
+  .nav-commercial {
     background: white;
   }
 
