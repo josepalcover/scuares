@@ -56,7 +56,7 @@ import "../styles/queries.css";
       gtag("config", "AW-807551184");
     </script>
   </head>
-  <body>
+  <body class="commercial-page">
     <!--=========================================
       LOGO + CONTACT BUTTON + HAMBURGER + NAV OFF SCREEN
     ===============================================-->
@@ -143,42 +143,19 @@ import "../styles/queries.css";
         data-logo="dark"
         data-contact="dark"
       >
-        <div class="cover-content" data-hero-sequence data-hero-interval="3000">
-          <div class="img-hero">
-            <img
-              src="/images/pixel.jpg"
-              data-hero-current
-              alt="Photorealistic architectural visualization by Scuares"
-            />
-
-            <template data-hero-slides>
-              <img
-                data-src="walkeweg_b"
-                data-logo="light"
-                alt="Photorealistic architectural visualization by Scuares"
-              />
-              <img
-                data-src="puglia"
-                data-logo="dark"
-                alt="Photorealistic architectural visualization by Scuares"
-              />
-              <img
-                data-src="walkeweg_a"
-                data-logo="light"
-                alt="Photorealistic architectural visualization by Scuares"
-              />
-              <img
-                data-src="basel_b"
-                data-logo="light"
-                alt="Photorealistic architectural visualization by Scuares"
-              />
-              <img
-                data-src="basel_a"
-                data-logo="light"
-                alt="Photorealistic architectural visualization by Scuares"
-              />
-            </template>
-          </div>
+        <div class="cover-content">
+          <video
+            class="video"
+            muted
+            playsinline
+            autoplay
+            loop
+            data-src="/videos/video_hero_3mbps.mp4"
+            data-poster="/images/poster_hero.jpg"
+            poster="/images/poster_hero_800_20.avif"
+          >
+            <source type="video/mp4" />
+          </video>
         </div>
 
         <div class="cover-text">

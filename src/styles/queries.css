@@ -256,6 +256,33 @@
   .c-hide {
     display: none;
   }
+
+  .commercial-page .images-one {
+    padding: 0;
+  }
+
+  .commercial-page .images-two {
+    grid-template-columns: 1fr;
+    padding: 0;
+    gap: 0;
+  }
+
+  .commercial-page .img-full,
+  .commercial-page .img-pad,
+  .commercial-page .images-two .img-full,
+  .commercial-page .images-two .img-pad {
+    display: flex;
+    flex-direction: column;
+    padding: var(--frame-y) var(--frame-x);
+  }
+
+  .commercial-page .credit {
+    padding-bottom: 2rem;
+  }
+
+  .commercial-page .c-hide {
+    display: block;
+  }
 }
 
 @media (max-height: calc(450em / 16)) {
