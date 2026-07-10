@@ -20,20 +20,6 @@
   top: 0;
 }
 
-/*NAV COMMERCIAL SITE*/
-.nav-commercial {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--frame-y) var(--frame-x);
-  z-index: 99;
-  background: transparent;
-}
-
 .logo {
   cursor: pointer;
   display: block;
@@ -46,25 +32,11 @@
   appearance: none;
 }
 
-.logo-light,
+.nav-main .logo-light,
 .logo-nav-active {
   color: white;
 }
 
-.nav-commercial .logo {
-  position: relative;
-  margin-left: var(--logo-left-margin);
-}
-
-/*commercial in the logo*/
-.nav-commercial .logo span {
-  position: absolute;
-  left: 0;
-  top: 21px;
-  font-size: 1.4rem;
-  letter-spacing: 0.08ch;
-  font-weight: 350;
-}
 .contact-btn {
   cursor: pointer;
   display: block;
@@ -78,7 +50,7 @@
   appearance: none;
 }
 
-.contact-btn-light {
+.nav-main .contact-btn-light {
   color: white;
 }
 
@@ -89,11 +61,54 @@
   cursor: default;
 }
 
+/*NAV COMMERCIAL SITE*/
+.nav-commercial {
+  outline: 1px solid red;
+  height: 46px;
+  position: fixed;
+  top: var(--frame-y);
+  left: var(--frame-x);
+  width: calc(100vw - 2 * var(--frame-x));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+  background: transparent;
+}
+
+.nav-commercial .nav-logo-box {
+  margin: 0;
+
+  height: 100%;
+  background-color: var(--col-dark-commercial);
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding-left: 50px;
+  padding-right: 12px;
+}
+
 .nav-commercial .nav-right-box {
   display: flex;
   gap: var(--hamburger-left-pad);
   justify-content: flex-end;
   align-items: center;
+}
+
+.nav-commercial .scuares {
+  font-size: 19px;
+  font-weight: 700;
+  transform: translateY(-0.5px);
+}
+
+.nav-commercial .commercial {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -4%;
+  transform: translateY(-6px);
 }
 
 /* HELPERS*/
@@ -144,7 +159,6 @@
   z-index: 999;
 }
 
-.line-light,
 .hamburger-nav-active .line {
   background-color: white;
 }

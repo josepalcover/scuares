@@ -35,7 +35,7 @@ export function navInit() {
   /////////////////
   // SHOW / HIDE NAV ANIMATION
 
-  const logo = document.querySelector(".logo");
+  const logo = document.querySelector(".nav-logo-box");
   const logoBox = document.querySelector(".logo-box");
 
   let navTl;

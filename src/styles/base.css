@@ -8,6 +8,7 @@
 
 :root {
   --col-grey-dark: rgb(63, 63, 63);
+  --col-dark-commercial: rgb(30, 30, 30);
   --frame-x: 1.6rem;
   --frame-y: 1.6rem;
   --margin: 2.5rem;

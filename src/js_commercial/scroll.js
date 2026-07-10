@@ -30,51 +30,6 @@ export function scrollInit() {
   const observer = scrollObserver();
   observer.disable(); //we create the observer and imediately disable it
 
-  const logo = document.querySelector(".logo");
-  const contactBtn = document.querySelector(".contact-btn");
-  const hamburgerLines = gsap.utils.toArray(".hamburger .line");
-  const themedSections = gsap.utils.toArray("[data-logo], [data-contact]");
-
-  function setHamburgerTheme(isLight) {
-    hamburgerLines.forEach((line) => {
-      line.classList.toggle("line-light", isLight);
-    });
-  }
-
-  function updateNavTheme(section) {
-    if (!section) return;
-
-    const logoIsLight = section.dataset.logo === "light";
-    const contactIsLight =
-      (section.dataset.contact ?? section.dataset.logo) === "light";
-
-    logo?.classList.toggle("logo-light", logoIsLight);
-    contactBtn?.classList.toggle("contact-btn-light", contactIsLight);
-    setHamburgerTheme(contactIsLight);
-  }
-
-  function getCurrentThemedSection() {
-    const triggerY = window.innerHeight * 0.01;
-    return (
-      themedSections.find((section) => {
-        const rect = section.getBoundingClientRect();
-        return rect.top <= triggerY && rect.bottom > triggerY;
-      }) ?? themedSections[0]
-    );
-  }
-
-  themedSections.forEach((section) => {
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top 1%",
-      onEnter: () => updateNavTheme(section),
-      onEnterBack: () => updateNavTheme(section),
-      onRefresh: () => updateNavTheme(getCurrentThemedSection()),
-    });
-  });
-
-  updateNavTheme(getCurrentThemedSection());
-
   ///// MATCH MEDIA (animations only on landscape mode)
   let mm = gsap.matchMedia();
 
