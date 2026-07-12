@@ -1,7 +1,6 @@
 <!--==============================
   CONTACT
- ==============================-->
-<!-- CONTACT -->
+ ==============================--><!-- CONTACT -->
 <section
   class="images-two snap"
   id="contact"
@@ -11,13 +10,28 @@
   <div class="centered-box">
     <div class="text-box">
       <h3 class="header-main">
-        Let's work<br />
-        together
+        Get in<br />
+        touch.
       </h3>
       <p class="text-normal">
-        We are based in Barcelona.<br />
-        We work with real estate developers, marketing agencies, architects
-        and designers around the world.
+        We work with architecture studios worldwide,<br />
+        in English, Spanish and Catalan.<br />
+        <br />
+        Tell us about your project and we’ll<br />
+        get back to you with a proposal.<br />
+        <br />
+        <button
+          class="email"
+          type="button"
+          data-email="info@scuares.com"
+          aria-describedby="email-copy-status">info@scuares.com</button
+        >
+        <span
+          id="email-copy-status"
+          class="email-copy-status"
+          aria-live="polite"
+          hidden>[email copied]</span
+        >
       </p>
     </div>
   </div>
@@ -28,3 +42,23 @@
     </div>
   </div>
 </section>
+
+<script>
+  const emailButton = document.querySelector<HTMLButtonElement>(".email");
+  const copyStatus = document.querySelector<HTMLElement>("#email-copy-status");
+  let hideCopyStatusTimeout: ReturnType<typeof setTimeout>;
+
+  emailButton?.addEventListener("click", async () => {
+    const email = emailButton.dataset.email;
+
+    if (!email || !copyStatus) return;
+
+    await navigator.clipboard.writeText(email);
+    copyStatus.hidden = false;
+
+    clearTimeout(hideCopyStatusTimeout);
+    hideCopyStatusTimeout = setTimeout(() => {
+      copyStatus.hidden = true;
+    }, 3000);
+  });
+</script>

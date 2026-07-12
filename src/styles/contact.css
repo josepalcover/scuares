@@ -6,25 +6,18 @@
   max-width: 70ch;
 }
 
-.email-big {
-  font-size: 3rem;
-  font-weight: 700;
-  letter-spacing: 0;
-  padding: 4rem 0;
+.email {
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.5em;
+  cursor: pointer;
 }
 
-.contact-email {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: white;
-  padding: 2rem 8rem;
+.email-copy-status {
+  margin-left: 1ch;
 }
 
 .contact-details {
