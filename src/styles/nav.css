@@ -40,6 +40,7 @@
 .contact-btn {
   cursor: pointer;
   display: block;
+  position: relative;
   font-size: var(--nav-text-size);
   font-weight: var(--nav-text-weight);
   line-height: var(--nav-text-line-height);
@@ -48,6 +49,43 @@
   background-color: transparent;
   color: var(--col-grey-dark);
   appearance: none;
+}
+
+.contact-btn__close {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  display: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  transform: translateY(-50%);
+}
+
+.contact-btn__close span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: var(--line-thickness);
+  border-radius: 99px;
+  background-color: var(--col-grey-dark);
+  transform-origin: center;
+}
+
+.contact-btn__close span:first-child {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.contact-btn__close span:last-child {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.contact-btn--close .contact-btn__label {
+  visibility: hidden;
+}
+
+.contact-btn--close .contact-btn__close {
+  display: block;
 }
 
 .nav-main .contact-btn-light {

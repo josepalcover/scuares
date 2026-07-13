@@ -20,6 +20,63 @@
   margin-left: 1ch;
 }
 
+.contact-modal.images-one {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  width: 100%;
+  height: 100vh;
+  height: var(--hero-height);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 300ms ease,
+    visibility 0s linear 300ms;
+}
+
+.contact-modal .text-box {
+  flex-shrink: 0;
+  width: max-content;
+  max-width: none;
+  white-space: nowrap;
+  padding: 0;
+}
+
+.contact-modal.contact-modal--open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+html.contact-modal-open,
+html.contact-modal-open body {
+  overflow: hidden;
+}
+
+html.contact-modal-open .nav-main {
+  z-index: 100001;
+}
+
+@media (max-aspect-ratio: 1/1),
+  (max-width: calc(700em / 16)),
+  (max-height: calc(450em / 16)) {
+  #contact .centered-box {
+    padding-bottom: 150px;
+  }
+
+  .contact-modal .centered-box {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-modal.images-one {
+    transition-duration: 0ms;
+  }
+}
+
 .contact-details {
   margin-top: 3rem;
 }

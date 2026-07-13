@@ -114,6 +114,10 @@
     overflow: hidden;
   }
 
+  #about {
+    padding-top: 50px;
+  }
+
   .hero-full {
     height: 100vh;
     height: var(--hero-height);

@@ -13,7 +13,19 @@
   </button>
 
   <!-- CONTACT BUTTON -->
-  <div class="contact-box link" data-goto="#contact">
-    <button class="contact-btn">contact</button>
+  <div class="contact-box">
+    <button
+      class="contact-btn"
+      type="button"
+      data-contact-toggle
+      aria-controls="contact-modal"
+      aria-expanded="false"
+    >
+      <span class="contact-btn__label">contact</span>
+      <span class="contact-btn__close" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </span>
+    </button>
   </div>
 </nav>

@@ -24,9 +24,15 @@ export function scrollObserver() {
     onEnable: () => goToSection(0, 0),
 
     onDown: (self) =>
-      allowRepeat && !animating && goToSection(1, self.velocityY),
+      !document.documentElement.classList.contains("contact-modal-open") &&
+      allowRepeat &&
+      !animating &&
+      goToSection(1, self.velocityY),
     onUp: (self) =>
-      allowRepeat && !animating && goToSection(-1, self.velocityY),
+      !document.documentElement.classList.contains("contact-modal-open") &&
+      allowRepeat &&
+      !animating &&
+      goToSection(-1, self.velocityY),
 
     tolerance: 0.5,
     preventDefault: true,

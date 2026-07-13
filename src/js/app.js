@@ -6,10 +6,12 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { scrollInit } from "./scroll.js";
 import { navInit } from "./nav.js";
 import { heroInit } from "./hero.js";
+import { contactModalInit } from "./contactModal.js";
 
 // initialize scroll behavior and navigation
 scrollInit();
 navInit();
+contactModalInit();
 
 /////// LOADING
 

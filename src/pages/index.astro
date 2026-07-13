@@ -45,9 +45,12 @@ import Contact from "../components/Contact.astro";
 
   <body>
     <Nav />
-    <Hero />
-    <About />
-    <Slides />
-    <Contact />
+    <main id="page-content">
+      <Hero />
+      <About />
+      <Slides />
+      <Contact />
+    </main>
+    <Contact variant="modal" />
   </body>
 </html>
