@@ -110,6 +110,13 @@ export function contactModalInit() {
     });
   });
 
+  modal.addEventListener("click", (event) => {
+    const target = event.target;
+
+    if (target instanceof Element && target.closest(".text-box")) return;
+    setOpen(false);
+  });
+
   document.addEventListener("keydown", (event) => {
     if (
       event.key !== "Escape" ||

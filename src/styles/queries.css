@@ -115,7 +115,11 @@
   }
 
   #about {
-    padding-top: 50px;
+    padding-top: 75px;
+  }
+
+  #about .text-box {
+    padding-bottom: 45px;
   }
 
   .hero-full {
@@ -309,53 +313,5 @@
   .email {
     border: none;
     bottom: 4rem;
-  }
-}
-
-@media (max-width: calc(1600em / 16)) {
-  html {
-    font-size: 60%;
-  }
-}
-
-@media (max-width: calc(1500em / 16)) {
-  html {
-    font-size: 59%;
-  }
-}
-
-@media (max-width: calc(1400em / 16)) {
-  html {
-    font-size: 58%;
-  }
-}
-
-@media (max-width: calc(1300em / 16)) {
-  html {
-    font-size: 57%;
-  }
-}
-
-@media (max-width: calc(1200em / 16)) {
-  html {
-    font-size: 56%;
-  }
-}
-
-@media (max-width: calc(1100em / 16)) {
-  html {
-    font-size: 55%;
-  }
-}
-
-@media (max-width: calc(1000em / 16)) {
-  html {
-    font-size: 54%;
-  }
-}
-
-@media (max-width: calc(900em / 16)) {
-  html {
-    font-size: 53%;
   }
 }

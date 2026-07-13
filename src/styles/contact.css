@@ -20,6 +20,10 @@
   margin-left: 1ch;
 }
 
+.instagram-link {
+  cursor: pointer;
+}
+
 .contact-modal.images-one {
   position: fixed;
   inset: 0;
@@ -40,7 +44,7 @@
   width: max-content;
   max-width: none;
   white-space: nowrap;
-  padding: 0;
+  padding: 35px;
 }
 
 .contact-modal.contact-modal--open {
