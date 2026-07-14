@@ -1,0 +1,13 @@
+---
+interface Props {
+  author: string;
+  project: string;
+}
+
+const { author, project } = Astro.props;
+---
+
+<div class="c-text">
+  <p class="c-author">{author}</p>
+  <p class="c-project">{project}</p>
+</div>

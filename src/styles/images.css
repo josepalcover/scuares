@@ -82,8 +82,17 @@
 .c-text {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   font-size: 1.4rem;
   font-weight: 500;
+}
+
+.c-author,
+.c-project {
+  font: inherit;
+}
+
+.c-author::after {
+  content: ",\00a0";
 }

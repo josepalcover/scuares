@@ -167,6 +167,10 @@
     gap: 0.4rem;
   }
 
+  .c-author::after {
+    content: none;
+  }
+
   .tours-proj {
     display: flex;
     flex-direction: column;
