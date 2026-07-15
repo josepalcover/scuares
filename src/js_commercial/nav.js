@@ -8,7 +8,7 @@ import { updateContactBtnVisibility } from "./nextAndContactBtn.js";
 export function navInit() {
   // hamburger
   const nav = document.querySelector(".nav-commercial");
-  const hamburger = document.querySelector(".hamburger");
+  const hamburger = document.querySelector(".hamburger-box");
   const lineTop = document.querySelector(".line-top");
   const lineMid = document.querySelector(".line-mid");
   const lineBottom = document.querySelector(".line-bottom");

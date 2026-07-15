@@ -1,3 +1,12 @@
+/* HELPERS*/
+.fixed {
+  position: fixed !important;
+}
+
+.transparent {
+  background: transparent !important;
+}
+
 /*NAV MAIN SITE*/
 
 .nav-main {
@@ -101,8 +110,7 @@
 
 /*NAV COMMERCIAL SITE*/
 .nav-commercial {
-  outline: 1px solid red;
-  height: 46px;
+  height: var(--nav-commercial-height);
   position: fixed;
   top: var(--frame-y);
   left: var(--frame-x);
@@ -114,9 +122,9 @@
   background: transparent;
 }
 
+/* LOGO */
 .nav-commercial .nav-logo-box {
   margin: 0;
-
   height: 100%;
   background-color: var(--col-dark-commercial);
   display: flex;
@@ -131,9 +139,9 @@
 
 .nav-commercial .nav-right-box {
   display: flex;
-  gap: var(--hamburger-left-pad);
   justify-content: flex-end;
   align-items: center;
+  height: 100%;
 }
 
 .nav-commercial .scuares {
@@ -149,22 +157,27 @@
   transform: translateY(-6px);
 }
 
-/* HELPERS*/
-.fixed {
-  position: fixed !important;
-}
-
-.transparent {
-  background: transparent !important;
+/*CONTACT BTN*/
+.nav-commercial .contact-btn {
+  background-color: white;
+  border: 2px solid var(--col-dark-commercial);
+  height: 100%;
+  padding: 0 12px;
+  color: var(--col-dark-commercial);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 /* HAMBURGER*/
 
-.hamburger {
+.nav-commercial .hamburger-box {
   z-index: 10;
   flex-shrink: 0;
-  width: var(--hamburger-size);
-  height: var(--hamburger-size);
+  width: var(--nav-commercial-height);
+  height: var(--nav-commercial-height);
   background: transparent;
   display: flex;
   justify-content: center;
@@ -172,10 +185,12 @@
   cursor: pointer;
   transition: 300ms ease-in-out;
   transform-origin: center center;
+  background-color: var(--col-dark-commercial);
 }
 
+/*hamburger geometry and anim*/
+
 .hamburger-lines {
-  transform: translateY(var(--hamburger-move-down));
   font-size: 2px;
   --anim-time: 400ms;
   z-index: 999;
@@ -185,7 +200,7 @@
 }
 
 .line {
-  background-color: var(--col-grey-dark);
+  background-color: white;
   height: var(--line-thickness);
   border-radius: 99px;
   width: 100%;
