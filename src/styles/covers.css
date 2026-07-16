@@ -75,14 +75,10 @@
   text-align: left;
 }
 
-.video {
+.video-films {
   object-fit: cover;
   height: 100%;
   width: 100%;
   z-index: 0;
   background-color: white;
-}
-
-.video-contact {
-  object-position: left center;
 }

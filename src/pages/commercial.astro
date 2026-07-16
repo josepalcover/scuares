@@ -141,19 +141,42 @@ import Credit from "../components/Credit.astro";
       HOME
       ========================-->
       <section class="home section" id="home">
-        <div class="cover-content">
-          <video
-            class="video"
-            muted
-            playsinline
-            autoplay
-            loop
-            data-src="/videos/video_hero_3mbps.mp4"
-            data-poster="/images/poster_hero.jpg"
-            poster="/images/poster_hero_800_20.avif"
-          >
-            <source type="video/mp4" />
-          </video>
+        <div class="cover-content" data-hero-sequence data-hero-interval="3000">
+          <div class="img-hero">
+            <img
+              src="/images/pixel.jpg"
+              data-hero-current
+              alt="Photorealistic architectural visualization by Scuares"
+            />
+
+            <template data-hero-slides>
+              <img
+                data-src="walkeweg_b"
+                data-logo="light"
+                alt="Photorealistic architectural visualization by Scuares"
+              />
+              <img
+                data-src="puglia"
+                data-logo="dark"
+                alt="Photorealistic architectural visualization by Scuares"
+              />
+              <img
+                data-src="walkeweg_a"
+                data-logo="light"
+                alt="Photorealistic architectural visualization by Scuares"
+              />
+              <img
+                data-src="basel_b"
+                data-logo="light"
+                alt="Photorealistic architectural visualization by Scuares"
+              />
+              <img
+                data-src="basel_a"
+                data-logo="light"
+                alt="Photorealistic architectural visualization by Scuares"
+              />
+            </template>
+          </div>
         </div>
 
         <div class="cover-text">
@@ -225,7 +248,7 @@ import Credit from "../components/Credit.astro";
           </div>
           <div class="cover-content">
             <video
-              class="video video-films"
+              class="video-films"
               muted
               playsinline
               autoplay
@@ -373,14 +396,14 @@ import Credit from "../components/Credit.astro";
             portray buildings and spaces in the most photorealistic manner.
           </p>
         </div>
-        <div class="cover-content">
+        <div class="cover-content img-full">
           <img
             src="/images/pixel.jpg"
             data-src="gym"
             class="img-lazy"
             alt="Photorealistic exterior 3D Rendering of a wooden sports complex designed by Transversal Architects and Acte architects. Contemporary facade design. Still CG Image produced by Scuares, an architectural visualization studio"
           />
-          <div class="credit c-cover">
+          <div class="credit">
             <Credit
               author="Transversal + Acte Arch."
               project="Sports Complex in St. Maurice"

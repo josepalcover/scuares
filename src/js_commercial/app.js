@@ -7,6 +7,7 @@ import { navInit } from "./nav.js";
 import { scrollInit } from "./scroll.js";
 import { filmModalInit } from "./filmModal.js";
 import { panosInit } from "./panos.js";
+import { heroInit } from "../js/hero.js";
 
 // initialize scroll behavior and navigation
 scrollInit();
@@ -32,6 +33,8 @@ function loadFilmsAssets(imgFormat) {
 
 // Load image assets after checking AVIF support.
 function loadImages(imgFormat) {
+  heroInit(imgFormat);
+
   initialImages.forEach((img) => {
     img.src = `/images/${img.dataset.src}.${imgFormat}`;
   });
@@ -80,15 +83,6 @@ function loadImages(imgFormat) {
 // when page finishes loading it fires the "load" event on window object
 window.addEventListener("load", () => {
   ////////////////////////////////////////////
-  // LOAD HERO VIDEO
-  ////////////////////////////////////////////
-
-  const videoHome = document.querySelector(".home .video");
-  if (videoHome?.dataset.src) {
-    videoHome.src = videoHome.dataset.src;
-  }
-
-  ////////////////////////////////////////////
   // CHECK IMG FORMAT SUPPORT (avif)
   ////////////////////////////////////////////
 
@@ -98,10 +92,6 @@ window.addEventListener("load", () => {
   imgAvif.onload = () => loadImages("avif");
   // if the image cannot be loaded
   imgAvif.onerror = () => {
-    if (videoHome?.dataset.poster) {
-      videoHome.poster = videoHome.dataset.poster;
-    }
-
     loadImages("jpg");
   };
   // AVIF support probe.
