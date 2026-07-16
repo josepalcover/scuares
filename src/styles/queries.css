@@ -1,6 +1,6 @@
-@media (max-aspect-ratio: 1/1),
-  (max-width: calc(700em / 16)),
-  (max-height: calc(450em / 16)) {
+@media (max-aspect-ratio: 1.3),
+  (max-width: 700px),
+  (max-height: 450px) {
   :root {
     --frame-x: 1.6rem;
     --frame-y: 1.6rem;
@@ -137,13 +137,16 @@
   .img-pad {
     display: flex;
     flex-direction: column;
-    padding: var(--frame-y) var(--frame-x);
+    padding: 0;
   }
 
   .credit {
-    padding: 2rem 0;
-    padding-bottom: 2rem;
+    padding-top: var(--frame-x);
+    padding-bottom: 4rem;
+    padding-left: var(--frame-x);
+    padding-right: var(--frame-x);
     position: relative;
+    text-align: left;
   }
 
   .img-full > .credit,
@@ -158,12 +161,14 @@
 
   .c-cover {
     position: absolute;
-    padding-left: var(--frame-x);
+    padding-left: var(--margin);
   }
 
   .c-text {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     gap: 0.4rem;
   }
 

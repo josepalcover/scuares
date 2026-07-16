@@ -33,7 +33,10 @@
 }
 
 .img-pad {
-  padding: 8rem;
+  /*vertical padding*/
+  padding-block: max(10vh, 50px);
+  /*horizontal padding*/
+  padding-inline: max(8vh, 40px);
   position: relative;
   width: 100%;
   height: 100%;
