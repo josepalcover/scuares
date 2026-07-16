@@ -206,6 +206,29 @@
     border-radius: 999rem;
     margin-top: 1rem;
   }
+
+  /* Keep the commercial page's portrait flow independent from the main site. */
+  .commercial-page .home {
+    height: auto;
+    grid-template-rows: 100vw auto;
+  }
+
+  .commercial-page .home .cover-content {
+    height: 100vw;
+  }
+
+  .commercial-page .films-proj,
+  .commercial-page .tours-proj {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .commercial-page .film-item,
+  .commercial-page .tour-item {
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
 }
 
 @media (min-aspect-ratio: 1/1) and (max-width: calc(1300em / 16)) and (min-width: calc(700em / 16)) {
