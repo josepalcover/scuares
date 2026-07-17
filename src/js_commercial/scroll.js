@@ -34,7 +34,7 @@ export function scrollInit() {
   let mm = gsap.matchMedia();
 
   mm.add(
-    "(min-width: calc(700em/16)) and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 3/1) and (min-height: calc(450em/16))",
+    "(min-width: 800px) and (min-aspect-ratio: 1.3) and (min-height: 450px)",
     () => {
       // slides mode = true
 
@@ -76,7 +76,7 @@ export function scrollInit() {
 
   // non-slides (mobile): IntersectionObserver for contact button visibility on native scroll
   mm.add(
-    "(max-aspect-ratio: 1/1), (max-width: calc(700em/16)), (max-height: calc(450em/16))",
+    "(max-aspect-ratio: 1.3), (max-width: 800px), (max-height: 450px)",
     () => {
       const contactSection = document.querySelector("#contact");
       if (!contactSection) return () => {};

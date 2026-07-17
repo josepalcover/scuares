@@ -1,3 +1,4 @@
+/*MAKE SURE TO MATCH JS FOR SLIDES*/
 @media (max-aspect-ratio: 1.3), (max-width: 800px), (max-height: 450px) {
   :root {
     --frame-x: 1.6rem;
@@ -116,6 +117,12 @@
     grid-template-columns: 1fr;
     height: auto;
     overflow: hidden;
+  }
+
+  .img-pad,
+  .images-two .img-pad:has(+ .img-pad),
+  .images-two .img-pad + .img-pad {
+    padding: 0;
   }
 
   #about {
@@ -271,93 +278,5 @@
   .images-two,
   .contact {
     height: 33vw;
-  }
-}
-
-@media (max-aspect-ratio: 1.3) and (min-width: 800px) {
-  .images-one {
-    overflow: hidden;
-    height: auto;
-    padding: var(--frame-y) var(--frame-x);
-  }
-
-  .images-two {
-    grid-template-columns: 1fr 1fr;
-    height: auto;
-    overflow: hidden;
-    padding: var(--frame-y) var(--frame-x);
-    gap: var(--frame-y) var(--frame-x);
-  }
-
-  .img-full,
-  .img-pad {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-  }
-
-  .images-two .img-full,
-  .images-two .img-pad {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 60vw auto;
-  }
-
-  .credit {
-    padding-bottom: 0;
-  }
-
-  .c-hide {
-    display: none;
-  }
-
-  .commercial-page .images-one {
-    padding: 0;
-  }
-
-  .commercial-page .images-two {
-    grid-template-columns: 1fr;
-    padding: 0;
-    gap: 0;
-  }
-
-  .commercial-page .img-full,
-  .commercial-page .img-pad,
-  .commercial-page .images-two .img-full,
-  .commercial-page .images-two .img-pad {
-    display: flex;
-    flex-direction: column;
-    padding: var(--frame-y) var(--frame-x);
-  }
-
-  .commercial-page .credit {
-    padding-bottom: 2rem;
-  }
-
-  .commercial-page .c-hide {
-    display: block;
-  }
-}
-
-@media (max-height: 450px) {
-  .credit {
-    color: var(--col-grey-dark);
-    background: transparent;
-  }
-
-  .img-full > .credit,
-  .img-pad > .credit {
-    color: var(--col-grey-dark);
-    background: transparent;
-  }
-
-  .nav-commercial .nav-links {
-    gap: 0.9rem;
-    padding-bottom: 4rem;
-  }
-
-  .email {
-    border: none;
-    bottom: 4rem;
   }
 }
