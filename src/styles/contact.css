@@ -65,18 +65,6 @@ html.contact-modal-open .nav-main {
   z-index: 100001;
 }
 
-@media (max-aspect-ratio: 1/1),
-  (max-width: calc(700em / 16)),
-  (max-height: calc(450em / 16)) {
-  #contact .centered-box {
-    padding-bottom: 150px;
-  }
-
-  .contact-modal .centered-box {
-    justify-content: center;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .contact-modal.images-one {
     transition-duration: 0ms;

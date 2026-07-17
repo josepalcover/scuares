@@ -11,6 +11,10 @@
   --col-dark-commercial: rgb(30, 30, 30);
   --frame-x: 1.6rem;
   --frame-y: 1.6rem;
+  /* img-pad paddings (vertical / horizontal) */
+  --img-pad-y: max(10vh, 50px);
+  --img-pad-x: max(8vh, 40px);
+  /*margin left for text*/
   --margin: 3.2rem;
   --radius: 0.8rem;
   --nav-text-size: 2.4rem;
