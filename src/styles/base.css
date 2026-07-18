@@ -17,6 +17,8 @@
   /*margin left for text*/
   --margin: 3.2rem;
   --radius: 0.8rem;
+  --text-size: 1.4rem;
+  --text-line-height: 1.4;
   --nav-text-size: 2.4rem;
   --nav-text-weight: 500;
   --nav-text-line-height: 0.6;
@@ -119,8 +121,8 @@ header {
 
 .text-normal {
   font-weight: 500;
-  font-size: 1.4rem;
-  line-height: 1.4;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   text-align: left;
 }
 

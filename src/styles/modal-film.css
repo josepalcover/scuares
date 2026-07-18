@@ -40,7 +40,8 @@
 
 .modal-text {
   color: white;
-  font-size: 2rem;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   padding: 0 6rem;
 }
 

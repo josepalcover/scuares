@@ -69,7 +69,7 @@ export function scrollInit() {
   }
 
   mm.add(
-    "(min-width: 800px) and (min-aspect-ratio: 1.3) and (min-height: 450px)",
+    "(min-width: 800px) and (min-aspect-ratio: 1.3) and (max-aspect-ratio: 3/1) and (min-height: 450px)",
     () => {
       // slides mode = true
       state.slides = true;

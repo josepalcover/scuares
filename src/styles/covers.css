@@ -70,8 +70,8 @@
 
 .text-1 {
   font-weight: 500;
-  font-size: 1.6rem;
-  line-height: 1.8;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   text-align: left;
 }
 

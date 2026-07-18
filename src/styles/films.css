@@ -69,6 +69,8 @@
   cursor: pointer;
   height: var(--btn-size);
   width: var(--btn-size);
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   border-radius: 50%;
   border: 3px solid white;
   background: transparent;
