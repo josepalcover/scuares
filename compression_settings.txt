@@ -1,0 +1,17 @@
+1000 pixels height (unless we think it may be cropped)
+1600 width for covers
+webp: 40
+jpeg: 4
+
+avif:
+8bit
+slowest
+best compression
+40
+-----
+
+File > Scripts > Image Processor
+
+JPEG, Quality 2, Resize to fit w: 100px h: 50px
+lowres:
+height: 50px
