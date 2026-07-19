@@ -49,3 +49,17 @@
   font-size: 3rem;
   margin-bottom: 2rem;
 }
+
+.modal-film .modal-close {
+  z-index: 100;
+  top: var(--frame-y);
+  right: var(--frame-x);
+  width: var(--nav-commercial-height);
+  height: var(--nav-commercial-height);
+  background-color: var(--col-dark-commercial);
+  border-radius: 0;
+}
+
+.modal-film .modal-close:hover {
+  transform: none;
+}

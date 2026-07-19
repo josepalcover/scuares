@@ -22,7 +22,7 @@
 	               design_thumbborder_padding="2"
 	               design_thumbborder_bgroundedge="3"
 	               design_text_css="color:#FFFFFF; font-family:Arial; font-weight:bold;"
-	               design_text_shadow="1"
+	               design_text_txtshadow="1 1 4 0x000000 1.0"
 	               />
 
 </krpano>

@@ -22,15 +22,16 @@
 	               design_thumbborder_padding="0"
 	               design_thumbborder_bgroundedge="0"
 	               design_text_css="color:#FFFFFF; font-family:Arial; font-weight:lighter;"
-	               design_text_shadow="0"
+	               design_text_txtshadow="0"
 	               />
 
 	<!-- webvr button style (adjust to match skin style) -->
 	<style name="webvr_button_style"
-	       border="false"
-	       roundedge="calc:1.0"
-	       backgroundcolor="get:skin_settings.design_bgcolor" backgroundalpha="get:skin_settings.design_bgalpha"
-	       shadow="0.01" shadowrange="10.0" shadowangle="90.0" shadowcolor="0x30261B" shadowalpha="0.50"
+	       bgborder="0"
+	       bgroundedge="calc:1.0"
+	       bgcolor="get:skin_settings.design_bgcolor"
+	       bgalpha="get:skin_settings.design_bgalpha"
+	       bgshadow="get:skin_settings.design_bgshadow"
 	       css="calc:skin_settings.design_text_css + ' font-size:' + 20*webvr_setup_scale*webvr_button_scale + 'px;'"
 	       />
 

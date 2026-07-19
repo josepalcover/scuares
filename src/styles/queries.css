@@ -38,6 +38,12 @@
     padding-left: 12px;
   }
 
+  .modal-tours .modal-close,
+  .modal-film .modal-close {
+    top: 0;
+    right: 0;
+  }
+
   .centered-box {
     justify-content: flex-start;
     padding: var(--margin);

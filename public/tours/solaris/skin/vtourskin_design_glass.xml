@@ -23,14 +23,16 @@
 	               design_thumbborder_padding="2"
 	               design_thumbborder_bgroundedge="5"
 	               design_text_css="color:#FFFFFF; font-family:Arial; font-weight:bold;"
-	               design_text_shadow="0"
+	               design_text_txtshadow="0"
 	               />
 
 	<!-- webvr button style (adjust to match default skin style) -->
 	<style name="webvr_button_style"
-	       border="true" borderwidth="2" bordercolor="0xFFFFFF" borderalpha="0.25"
-	       backgroundcolor="get:skin_settings.design_bgcolor" backgroundalpha="get:skin_settings.design_bgalpha"
-	       shadow="0"
+	       bgborder="get:skin_settings.design_bgborder"
+	       bgroundedge="get:skin_settings.design_bgroundedge"
+	       bgcolor="get:skin_settings.design_bgcolor"
+	       bgalpha="get:skin_settings.design_bgalpha"
+	       bgshadow="get:skin_settings.design_bgshadow"
 	       css="calc:skin_settings.design_text_css + ' color:#FFFFFF; font-weight:normal; font-size:' + 20*webvr_setup_scale*webvr_button_scale + 'px;'"
 	       />
 

@@ -37,6 +37,7 @@ export function panosInit() {
     //////MODAL WINDOW FOR PANO PROJECTS
 
     let toursPageIndex;
+    let toursPageScrollY;
 
     // create the
     // gsap timelines
@@ -48,18 +49,9 @@ export function panosInit() {
         { autoAlpha: 1, duration: 0.2 }
       );
 
-    const hideModalToursTl = gsap
-      .timeline({ paused: true })
-      .to(window, {
-        duration: 0,
-        scrollTo: "#tours-proj",
-        onComplete: () => {
-          state.index = Math.floor(window.scrollY / innerHeight);
-        },
-      }) //scroll back to tours
-      .to(".modal-tours", { autoAlpha: 0, duration: 0.2 });
-
     const showModalTours = (project) => {
+      toursPageIndex = state.index;
+      toursPageScrollY = window.scrollY;
       tourModalActive = true;
       //hide all panos
       document
@@ -71,9 +63,17 @@ export function panosInit() {
       showModalToursTl.restart();
     };
     const hideModalTours = () => {
-      // modal animation to hide
-      hideModalToursTl.restart();
       tourModalActive = false;
+      gsap.to(".modal-tours", {
+        autoAlpha: 0,
+        duration: 0.2,
+        onComplete: () => {
+          gsap.set(window, {
+            scrollTo: { y: toursPageScrollY, autoKill: false },
+          });
+          state.index = toursPageIndex;
+        },
+      });
     };
 
     // load panos on modal windows

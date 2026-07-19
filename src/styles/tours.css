@@ -44,8 +44,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: black;
-  padding: var(--frame-y) var(--frame-x);
+  background-color: transparent;
 }
 
 .hidden {
@@ -90,6 +89,20 @@
 
 .modal-close:hover {
   transform: rotate(-90deg);
+}
+
+.modal-tours .modal-close {
+  z-index: 100;
+  top: var(--frame-y);
+  right: var(--frame-x);
+  width: var(--nav-commercial-height);
+  height: var(--nav-commercial-height);
+  background-color: var(--col-dark-commercial);
+  border-radius: 0;
+}
+
+.modal-tours .modal-close:hover {
+  transform: none;
 }
 
 .line-close {
