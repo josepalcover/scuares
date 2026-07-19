@@ -25,6 +25,7 @@
   --cover-column: 40rem;
   --hero-height: 100vh;
   --nav-commercial-height: 48px;
+  --commercial-home-text-height: 30rem;
   --hamburger-size: 40px;
 
   --logo-left-margin: 10px;
@@ -112,13 +113,6 @@ header {
   max-width: 120ch;
 }
 
-.header-main {
-  font-size: 1.4rem;
-  font-weight: 500;
-  line-height: 1.4;
-  margin-bottom: 3rem;
-}
-
 .text-normal {
   font-weight: 500;
   font-size: var(--text-size);
@@ -168,4 +162,87 @@ header {
   width: 100%;
   height: 100%;
   object-position: center center;
+}
+
+/* Commercial covers */
+
+.header-main {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.header-sub {
+  font-size: 1.2rem;
+  letter-spacing: 0.1ch;
+  color: rgb(100, 100, 100);
+}
+
+.text-1 {
+  font-weight: 500;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
+  text-align: left;
+}
+
+.home {
+  width: 100%;
+  height: 100vh;
+  height: var(--hero-height);
+  display: grid;
+  grid-template-columns: 1fr var(--cover-column);
+  overflow: hidden;
+}
+
+.home .cover-content {
+  z-index: 0;
+}
+
+.home .cover-text {
+  background-color: white;
+}
+
+.cover {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: var(--cover-column) 1fr;
+  overflow: hidden;
+}
+
+.cover-text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding: 8rem 6rem 2rem 4rem;
+  background-color: white;
+  overflow: hidden;
+}
+
+.cover-content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.cover-content > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.video-films {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  background-color: white;
 }
