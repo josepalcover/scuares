@@ -42,6 +42,18 @@ export function navInit() {
   let navIsActive = false;
   let mmNav = gsap.matchMedia();
   let currentId = "#home";
+  const portraitMode = window.matchMedia(
+    "(max-aspect-ratio: 1.3), (max-width: 800px), (max-height: 450px)",
+  );
+
+  const getScrollTarget = (target) => {
+    if (!portraitMode.matches || target === 0) return target;
+
+    return {
+      y: target,
+      offsetY: nav.offsetHeight,
+    };
+  };
 
   navTl = gsap
     .timeline({ paused: true })
@@ -104,7 +116,7 @@ export function navInit() {
     if (goTo === "#home") goTo = 0;
 
     gsap.to(window, {
-      scrollTo: goTo,
+      scrollTo: getScrollTarget(goTo),
       duration: 1,
       onComplete: () => {
         // update index so we can continue with the scrolling animations
@@ -120,7 +132,7 @@ export function navInit() {
   contactBtn.addEventListener("click", (e) => {
     e.preventDefault();
     gsap.to(window, {
-      scrollTo: "#contact",
+      scrollTo: getScrollTarget("#contact"),
       duration: 1,
       onComplete: () => {
         state.index = Math.floor(window.scrollY / innerHeight);

@@ -16,7 +16,7 @@ export function scrollObserver() {
   let velocityOnComplete = 0; //velocity after finishing an animation
   let velocityPrevious = 0; //velocity after erach event trigger, debounced
 
-  const num_snap_pages = gsap.utils.toArray(".snap").length;
+  const num_snap_pages = gsap.utils.toArray(".snap").length - 1;
   // the same as Observer.create()
   // but without having to load observer separately
   const observer = ScrollTrigger.observe({
@@ -45,11 +45,12 @@ export function scrollObserver() {
     function scroll() {
       state.index += increment;
 
-      // update contact button visibility according to index
-      updateContactBtnVisibility();
       // keep the state.index between 0 and number of pages
       if (state.index < 0) state.index = 0;
       if (state.index > num_snap_pages) state.index = num_snap_pages;
+
+      // update contact button visibility according to the clamped index
+      updateContactBtnVisibility();
       // gsap scrolling animation
       gsap.to(window, {
         scrollTo: state.index * innerHeight,

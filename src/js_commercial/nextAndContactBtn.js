@@ -15,7 +15,7 @@ export function setContactBtnVisibilityFromSection(contactSectionInView) {
 }
 
 export function updateContactBtnVisibility() {
-  const lastIndex = document.querySelectorAll(".snap").length;
+  const lastIndex = document.querySelectorAll(".snap").length - 1;
   const contactBtn = document.querySelector(".contact-btn");
 
   if (state.index >= lastIndex) {

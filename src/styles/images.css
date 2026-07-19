@@ -44,6 +44,13 @@
   background-color: white;
 }
 
+.commercial-page .img-pad {
+  /*vertical padding*/
+  padding-block: var(--img-pad-y-com);
+  /*horizontal padding*/
+  padding-inline: var(--img-pad-x-com);
+}
+
 /* When two padded images share a slide (both .img-pad), halve the padding in
    the gutter between them so the combined inner gap equals one full padding. */
 .images-two .img-pad:has(+ .img-pad) {

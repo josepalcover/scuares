@@ -7,14 +7,14 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 export function scrollSnapping() {
   // SCROLL SNAPPING (every 100% height)
 
-  const num_snap_pages = gsap.utils.toArray(".snap").length;
+  const num_snap_divisions = gsap.utils.toArray(".snap").length - 1;
   ScrollTrigger.create({
     start: 0,
     end: "max",
 
     snap: {
       // snap every section
-      snapTo: 1 / num_snap_pages,
+      snapTo: 1 / num_snap_divisions,
 
       delay: 0,
       duration: 0.5,

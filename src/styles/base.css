@@ -14,6 +14,9 @@
   /* img-pad paddings (vertical / horizontal) */
   --img-pad-y: max(10vh, 50px);
   --img-pad-x: max(8vh, 40px);
+  /* img-pad commeercial site */
+  --img-pad-y-com: max(10vh, 75px);
+  --img-pad-x-com: max(8vh, 40px);
   /*margin left for text*/
   --margin: 3.2rem;
   --radius: 0.8rem;
@@ -25,7 +28,6 @@
   --cover-column: 40rem;
   --hero-height: 100vh;
   --nav-commercial-height: 48px;
-  --commercial-home-text-height: 30rem;
   --hamburger-size: 40px;
 
   --logo-left-margin: 10px;
