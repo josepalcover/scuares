@@ -38,8 +38,7 @@
     padding-left: 12px;
   }
 
-  .modal-tours .modal-close,
-  .modal-film .modal-close {
+  .modal-tours .modal-close {
     top: 0;
     right: 0;
   }
@@ -111,26 +110,6 @@
     display: flex;
     flex-direction: column;
     height: 300vw;
-  }
-
-  .modal-film {
-    padding: 2rem;
-  }
-
-  .modal-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    position: relative;
-  }
-
-  .modal-text {
-    color: white;
-    font-size: var(--text-size);
-    line-height: var(--text-line-height);
-    padding: 0 2rem;
-    max-width: 45ch;
   }
 
   .images-one {
@@ -317,18 +296,5 @@
 
   #contact .centered-box {
     padding-bottom: 150px;
-  }
-}
-
-@media (min-aspect-ratio: 1/1) and (max-width: calc(1300em / 16)) and (min-width: calc(700em / 16)) {
-  .modal-container {
-    grid-template-columns: 3fr 2fr;
-  }
-}
-
-@media (min-aspect-ratio: 1/1) and (max-width: calc(700em / 16)),
-  (max-aspect-ratio: 1/1) and (max-width: calc(350em / 16)) and (max-height: calc(650em / 16)) {
-  .modal-text {
-    display: none;
   }
 }

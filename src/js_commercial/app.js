@@ -14,6 +14,7 @@ import { contactModalInit } from "../js/contactModal.js";
 scrollInit();
 navInit();
 contactModalInit();
+filmModalInit();
 
 /////// ASSET LOADING
 const initialImages = gsap.utils.toArray(".img-initial");
@@ -101,21 +102,6 @@ window.addEventListener("load", () => {
     "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=";
 
   // when we load this src, either the onload or onerror event will be triggered
-
-  ////////////////////////////////////////////
-  // GENERATE FILMS MODALS AND VIMEO SCRIPT
-  ////////////////////////////////////////////
-
-  // generate film modals (includes loading the vimeo script)
-  // with scrollTrigger
-  const filmsTrigger = ScrollTrigger.create({
-    trigger: "#films",
-    start: "top 80%", //when top of the films section is 80% from top of viewmport
-    onEnter: () => {
-      filmModalInit();
-      filmsTrigger.kill();
-    },
-  });
 
   ////////////////////////////////////////////
   // PANOS

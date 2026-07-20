@@ -298,7 +298,6 @@ const commercialContactEmail = "projects@scuares.com";
           <!--SOLARIS-->
           <div
             class="film-item"
-            data-name="solaris"
             data-src="https://player.vimeo.com/video/829716759?h=762c0fae3c"
             data-title="Solaris"
             data-description="3D rendered animation of an exclusive residential development in
@@ -334,7 +333,6 @@ const commercialContactEmail = "projects@scuares.com";
           <!--VILLA-->
           <div
             class="film-item"
-            data-name="villa"
             data-src="https://player.vimeo.com/video/830866369?h=4a71b312ad"
             data-title="The Villa"
             data-description="A 3d rendered architectural walkthrough of a refurbished heritage villa. A video created to showcase both the spaces and the essence of the project. It includes fully computer generated scenes along with composites of drone footage and rendered animations."
@@ -366,7 +364,6 @@ const commercialContactEmail = "projects@scuares.com";
           <!--VERTIGO-->
           <div
             class="film-item"
-            data-name="vertigo"
             data-src="https://player.vimeo.com/video/830818477?h=af3612985e"
             data-title="Vertigo"
             data-description="3D rendered animation of an exclusive residential development in
@@ -401,13 +398,31 @@ const commercialContactEmail = "projects@scuares.com";
       </div>
     </div>
 
-    <!--=============================
-      modal-films
-    ==============================-->
-    <div>
-      <div class="film-modals"></div>
-      <!-- we insert here a script element with the vimeo script-->
-      <!-- we insert here the modals generated in JS -->
+    <!-- Film modal -->
+    <div class="film-modals">
+      <div
+        class="modal-film"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="film-modal-title"
+        hidden
+      >
+        <div class="modal-container">
+          <div class="modal-video" data-film-player></div>
+
+          <div class="modal-text">
+            <h4 id="film-modal-title" class="modal-title header-main"></h4>
+            <p class="modal-description text-1"></p>
+          </div>
+        </div>
+
+        <button class="modal-close" type="button" aria-label="Close film">
+          <span class="line-close line-close1"></span>
+          <span class="line-close line-close2"></span>
+        </button>
+      </div>
+
+      <div class="film-player-cache" hidden aria-hidden="true"></div>
     </div>
     <!--==============================
       IMAGES
