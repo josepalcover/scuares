@@ -79,6 +79,20 @@ export function navInit() {
   //////////////////
   // LINKS - SCROLL TO
 
+  const scrollToSection = (goTo) => {
+    // Keep the home link aligned with the observer's first slide index.
+    if (goTo === "#home") goTo = 0;
+
+    gsap.to(window, {
+      scrollTo: getScrollTarget(goTo),
+      duration: 1,
+      onComplete: () => {
+        // update index so we can continue with the scrolling animations
+        state.index = Math.floor(window.scrollY / innerHeight);
+      },
+    });
+  };
+
   nav.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -93,17 +107,16 @@ export function navInit() {
     let goTo = clickedLink.dataset.goto ?? clickedLink.getAttribute("href");
     if (!goTo) return;
 
-    // Keep the home link aligned with the observer's first slide index.
-    if (goTo === "#home") goTo = 0;
-
-    gsap.to(window, {
-      scrollTo: getScrollTarget(goTo),
-      duration: 1,
-      onComplete: () => {
-        // update index so we can continue with the scrolling animations
-        state.index = Math.floor(window.scrollY / innerHeight);
-      },
-    });
+    scrollToSection(goTo);
     if (navIsActive) hideNav();
+  });
+
+  document.querySelector("#about")?.addEventListener("click", (e) => {
+    const clickedLink = e.target.closest(".about-service-link");
+    if (!clickedLink) return;
+
+    e.preventDefault();
+    const goTo = clickedLink.getAttribute("href");
+    if (goTo) scrollToSection(goTo);
   });
 }
