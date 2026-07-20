@@ -8,28 +8,6 @@ export function navInit() {
   // hamburger
   const nav = document.querySelector(".nav-commercial");
   const hamburger = document.querySelector(".hamburger-box");
-  const lineTop = document.querySelector(".line-top");
-  const lineMid = document.querySelector(".line-mid");
-  const lineBottom = document.querySelector(".line-bottom");
-
-  let hamburgerClickCount = 0;
-  const hamburgerNavAnim = () => {
-    if (hamburgerClickCount === 0) {
-      /*we don't use an animation in the line to avoid animation on load */
-      lineTop.classList.toggle("anim-line-top");
-      lineMid.classList.toggle("anim-line-mid");
-      lineBottom.classList.toggle("anim-line-bottom");
-      //nav.classList.toggle("nav-in");
-      hamburgerClickCount++;
-    } else {
-      lineTop.classList.toggle("anim-line-top");
-      lineMid.classList.toggle("anim-line-mid");
-      lineBottom.classList.toggle("anim-line-bottom");
-      lineTop.classList.toggle("anim-line-top-rev");
-      lineMid.classList.toggle("anim-line-mid-rev");
-      lineBottom.classList.toggle("anim-line-bottom-rev");
-    }
-  };
 
   /////////////////
   // SHOW / HIDE NAV ANIMATION
@@ -67,7 +45,6 @@ export function navInit() {
     navTl.restart();
     logo.classList.add("logo-nav-active");
     hamburger.classList.add("hamburger-nav-active");
-    hamburgerNavAnim();
     logoBox?.classList.add("fixed");
     hamburger.classList.add("transparent");
   }
@@ -77,7 +54,6 @@ export function navInit() {
     navTl.reverse();
     logo.classList.remove("logo-nav-active");
     hamburger.classList.remove("hamburger-nav-active");
-    hamburgerNavAnim();
     logoBox?.classList.remove("fixed");
     hamburger.classList.remove("transparent");
   }

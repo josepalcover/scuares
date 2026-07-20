@@ -87,10 +87,6 @@ html.contact-modal-open .nav-commercial {
   z-index: 100001;
 }
 
-html.contact-modal-open .nav-commercial {
-  background: transparent;
-}
-
 .commercial-page .contact-heading {
   font-size: 20px;
   font-weight: 700;

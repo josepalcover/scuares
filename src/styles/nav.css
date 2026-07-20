@@ -209,11 +209,10 @@ html.contact-modal-open .nav-commercial .contact-modal-close {
   background-color: var(--col-dark-commercial);
 }
 
-/*hamburger geometry and anim*/
+/*hamburger geometry*/
 
 .hamburger-lines {
   font-size: 2px;
-  --anim-time: 400ms;
   z-index: 999;
   height: 10em;
   width: 10em;
@@ -225,10 +224,6 @@ html.contact-modal-open .nav-commercial .contact-modal-close {
   height: var(--line-thickness);
   border-radius: 99px;
   width: 100%;
-  transition:
-    top 300ms ease-in-out,
-    bottom 300ms ease-in-out,
-    transform 300ms ease-in-out;
   position: absolute;
   z-index: 999;
 }
@@ -249,122 +244,16 @@ html.contact-modal-open .nav-commercial .contact-modal-close {
   bottom: 2px;
 }
 
-.anim-line-top {
-  animation: lineTopAnim var(--anim-time) ease-in-out normal forwards;
+.hamburger-nav-active .line-top {
+  top: calc(5em - var(--line-thickness) / 2);
+  transform: rotate(45deg) scaleX(150%);
 }
 
-.anim-line-mid {
-  animation: lineMidAnim var(--anim-time) ease-in-out normal forwards;
+.hamburger-nav-active .line-mid {
+  display: none;
 }
 
-.anim-line-bottom {
-  animation: lineBottomAnim var(--anim-time) ease-in-out normal forwards;
-}
-
-.anim-line-top-rev {
-  animation: lineTopAnimRev var(--anim-time) ease-in-out forwards;
-}
-
-.anim-line-mid-rev {
-  animation: lineMidAnimRev var(--anim-time) ease-in-out forwards;
-}
-
-.anim-line-bottom-rev {
-  animation: lineBottomAnimRev var(--anim-time) ease-in-out forwards;
-}
-
-@keyframes lineTopAnim {
-  0% {
-    top: 2px;
-    transform: rotate(0deg);
-  }
-
-  30% {
-    top: calc(5em - var(--line-thickness) / 2);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    top: calc(5em - var(--line-thickness) / 2);
-    transform: rotate(45deg) scaleX(150%);
-  }
-}
-
-@keyframes lineTopAnimRev {
-  0% {
-    top: calc(5em - var(--line-thickness) / 2);
-    transform: rotate(45deg) scaleX(150%);
-  }
-
-  30% {
-    top: calc(5em - var(--line-thickness) / 2);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    top: 2px;
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes lineMidAnim {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  30% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(45deg);
-  }
-}
-
-@keyframes lineMidAnimRev {
-  0% {
-    transform: rotate(45deg);
-  }
-
-  30% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes lineBottomAnim {
-  0% {
-    bottom: 2px;
-    transform: rotate(0deg);
-  }
-
-  30% {
-    bottom: calc(5em - var(--line-thickness) / 2);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    bottom: calc(5em - var(--line-thickness) / 2);
-    transform: rotate(-45deg) scaleX(150%);
-  }
-}
-
-@keyframes lineBottomAnimRev {
-  0% {
-    bottom: calc(5em - var(--line-thickness) / 2);
-    transform: rotate(-45deg) scaleX(150%);
-  }
-
-  30% {
-    bottom: calc(5em - var(--line-thickness) / 2);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    bottom: 2px;
-    transform: rotate(0deg);
-  }
+.hamburger-nav-active .line-bottom {
+  bottom: calc(5em - var(--line-thickness) / 2);
+  transform: rotate(-45deg) scaleX(150%);
 }
