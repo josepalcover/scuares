@@ -6,7 +6,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 export function panosInit() {
-  //hide pano overlay for dubai pano on click
+  //hide cover pano overlay on click
   const panoOverlay = document.querySelector(".pano-overlay");
   panoOverlay.addEventListener("click", () => {
     panoOverlay.classList.add("pano-overlay-hidden");
@@ -20,9 +20,11 @@ export function panosInit() {
 
   krpanoScript.addEventListener("load", () => {
     // embed the panos
+    const coverPano = document.getElementById("pano-cover");
+
     embedpano({
-      xml: "/tours/dubai/pano.xml",
-      target: "pano-dubai", // the id of the div without #
+      xml: `/tours/${coverPano.dataset.panoFolder}/pano.xml`,
+      target: coverPano.id,
     });
 
     embedpano({

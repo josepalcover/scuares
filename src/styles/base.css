@@ -167,27 +167,26 @@ header {
 }
 
 /* Commercial covers */
-
-.header-main {
+.commercial-page .header-main {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 15px;
 }
 
-.header-sub {
+.commercial-page .header-sub {
   font-size: 1.2rem;
   letter-spacing: 0.1ch;
   color: rgb(100, 100, 100);
 }
 
-.text-1 {
+.commercial-page .text-1 {
   font-weight: 500;
   font-size: var(--text-size);
   line-height: var(--text-line-height);
   text-align: left;
 }
 
-.home {
+.commercial-page .home {
   width: 100%;
   height: 100vh;
   height: var(--hero-height);
