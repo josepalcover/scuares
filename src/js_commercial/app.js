@@ -8,10 +8,12 @@ import { scrollInit } from "./scroll.js";
 import { filmModalInit } from "./filmModal.js";
 import { panosInit } from "./panos.js";
 import { heroInit } from "../js/hero.js";
+import { contactModalInit } from "../js/contactModal.js";
 
 // initialize scroll behavior and navigation
 scrollInit();
 navInit();
+contactModalInit();
 
 /////// ASSET LOADING
 const initialImages = gsap.utils.toArray(".img-initial");

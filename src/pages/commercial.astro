@@ -10,6 +10,15 @@ import "../styles/contact.css";
 import "../styles/queries.css";
 
 import Credit from "../components/Credit.astro";
+import Contact from "../components/Contact.astro";
+
+const commercialContactText = `We work with developers,
+real estate marketing agencies
+and builders internationally.
+in English, Spanish and Catalan.
+Tell us about your project
+and we'll get back to you.`;
+const commercialContactEmail = "projects@scuares.com";
 ---
 
 <!doctype html>
@@ -66,6 +75,7 @@ import Credit from "../components/Credit.astro";
       <button
         class="nav-logo-box link"
         data-goto="#home"
+        data-contact-logo
         aria-label="scroll to the top of the page"
       >
         <span class="scuares">scuares</span>
@@ -74,8 +84,19 @@ import Credit from "../components/Credit.astro";
       <!-- RIGHT BOX -->
       <div class="nav-right-box">
         <!-- CONTACT BUTTON -->
-        <button class="contact-btn" aria-label="scroll to the contact section">
-          contact
+        <button
+          class="contact-btn"
+          type="button"
+          data-contact-toggle
+          aria-controls="contact-modal"
+          aria-expanded="false"
+          aria-label="Open contact dialog"
+        >
+          <span class="contact-btn__label">contact</span>
+          <span class="contact-btn__close" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </span>
         </button>
 
         <!-- HAMBURGER -->
@@ -86,6 +107,16 @@ import Credit from "../components/Credit.astro";
             <div class="line line-bottom"></div>
           </div>
         </div>
+
+        <button
+          class="contact-modal-close"
+          type="button"
+          data-contact-close
+          aria-label="Close contact dialog"
+        >
+          <span class="line-close line-close1"></span>
+          <span class="line-close line-close2"></span>
+        </button>
       </div>
 
       <!-- NAVIGATION OFF SCREEN -->
@@ -127,13 +158,18 @@ import Credit from "../components/Credit.astro";
           <li>
             <a
               class="link contact-link"
-              href="#contact"
-              aria-label="scroll to the contact section">Contact</a
+              href="#contact-modal"
+              data-contact-open
+              aria-controls="contact-modal"
+              aria-haspopup="dialog"
+              aria-label="Open contact dialog">Contact</a
             >
           </li>
         </ul>
       </div>
     </nav>
+
+    <main id="page-content">
 
     <header>
       <!--====================
@@ -847,55 +883,8 @@ import Credit from "../components/Credit.astro";
     <!--=============================
       CONTACT
     ==============================-->
-    <div class="section" id="contact">
-      <section class="cover contact snap">
-        <div class="cover-text">
-          <h2 class="header-sub">CONTACT</h2>
-          <h3 class="header-main">
-            Let's do something<br />
-            great together
-          </h3>
-          <p class="text-1">
-            We collaborate with architects, designers, developers and real
-            estate agencies worldwide. We work in English, Spanish and Catalan.
-            Get in touch to discuss your project or request a quote.
-          </p>
+    <Contact text={commercialContactText} email={commercialContactEmail} />
 
-          <div class="contact-details">
-            <h4>info@scuares.com</h4>
-
-            <a
-              href="https://www.instagram.com/scuares.studio/"
-              target="_blank"
-              aria-label="Go to the instagram page of Scuares Studio"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="100"
-                height="100"
-                viewBox="0 0 24 24"
-                class="instagram"
-              >
-                <path
-                  d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div class="cover-content">
-          <img
-            src="/images/pixel.jpg"
-            data-src="room"
-            class="img-lazy"
-            alt="Photorealistic interior 3D Rendering of an empty room with skylights. Abstract shapes nicely illuminated. Conceptual architectural project. Still CG Image produced by Scuares, an architectural visualization studio"
-          />
-          <h5 class="contact-email">info@scuares.com</h5>
-        </div>
-      </section>
-    </div>
     <!-- Event snippet for Viewed contact section conversion page -->
     <script is:inline>
       document.addEventListener("DOMContentLoaded", function () {
@@ -919,5 +908,12 @@ import Credit from "../components/Credit.astro";
         observer.observe(contactSection);
       });
     </script>
+    </main>
+
+    <Contact
+      variant="modal"
+      text={commercialContactText}
+      email={commercialContactEmail}
+    />
   </body>
 </html>

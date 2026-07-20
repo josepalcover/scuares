@@ -7,7 +7,9 @@ export function contactModalInit() {
   const modal = document.querySelector("#contact-modal");
   const pageContent = document.querySelector("#page-content");
   const toggle = document.querySelector("[data-contact-toggle]");
-  const logo = document.querySelector(".nav-main .logo");
+  const openers = document.querySelectorAll("[data-contact-open]");
+  const close = document.querySelector("[data-contact-close]");
+  const logo = document.querySelector("[data-contact-logo]");
   const navDockSection = document.querySelector(".nav-dock-section");
   const mobileLayout = window.matchMedia(
     "(max-aspect-ratio: 1/1), (max-width: 43.75em), (max-height: 28.125em)",
@@ -74,14 +76,7 @@ export function contactModalInit() {
     }
   }
 
-  toggle.addEventListener("click", () => {
-    const shouldOpen = toggle.getAttribute("aria-expanded") !== "true";
-
-    if (!shouldOpen) {
-      setOpen(false);
-      return;
-    }
-
+  function openModal() {
     const shouldDockFirst =
       mobileLayout.matches &&
       navDockSection &&
@@ -108,6 +103,28 @@ export function contactModalInit() {
         isDockingForModal = false;
       },
     });
+  }
+
+  toggle.addEventListener("click", () => {
+    const shouldOpen = toggle.getAttribute("aria-expanded") !== "true";
+
+    if (!shouldOpen) {
+      setOpen(false);
+      return;
+    }
+
+    openModal();
+  });
+
+  openers.forEach((opener) => {
+    opener.addEventListener("click", (event) => {
+      event.preventDefault();
+      openModal();
+    });
+  });
+
+  close?.addEventListener("click", () => {
+    setOpen(false);
   });
 
   modal.addEventListener("click", (event) => {

@@ -1,11 +1,21 @@
 ---
 interface Props {
   variant?: "inline" | "modal";
+  text?: string;
+  email?: string;
 }
 
-const { variant = "inline" } = Astro.props;
+const {
+  variant = "inline",
+  text = `We work with architects worldwide,
+in English, Spanish and Catalan.
+Tell us about your project,
+we'll get back to you.`,
+  email = "info@scuares.com",
+} = Astro.props;
 const isModal = variant === "modal";
 const copyStatusId = `email-copy-status-${variant}`;
+const textLines = text.split("\n");
 ---
 
 <section
@@ -22,39 +32,37 @@ const copyStatusId = `email-copy-status-${variant}`;
 >
   <div class="centered-box">
     <div class="text-box">
-      <!-- 
-      <h3 class="header-main">
-        Get in<br />
-        touch.
-      </h3>
-      -->
       <p class="text-normal">
-        Get in<br />
-        touch.<br />
-        <br />
-        We work with architects worldwide,<br />
-        in English, Spanish and Catalan.<br />
-        Tell us about your project,<br />
-        we'll get back to you.<br />
-        <br />
-        <br />
-        <button
-          class="email"
-          type="button"
-          data-email="info@scuares.com"
-          data-email-copy
-          aria-describedby={copyStatusId}>info@scuares.com</button
-        >
-        <span
-          id={copyStatusId}
-          class="email-copy-status"
-          data-email-copy-status
-          aria-live="polite"
-          hidden>[email copied]</span
-        >
-        <br />
-        <br />
-        <br />
+        <span class="contact-heading">
+          Get in<br />
+          touch.
+        </span>
+        <span class="contact-copy">
+          {
+            textLines.map((line, index) => (
+              <>
+                {line}
+                {index < textLines.length - 1 && <br />}
+              </>
+            ))
+          }
+        </span>
+        <span class="contact-email-row">
+          <button
+            class="email contact-email"
+            type="button"
+            data-email={email}
+            data-email-copy
+            aria-describedby={copyStatusId}>{email}</button
+          >
+          <span
+            id={copyStatusId}
+            class="email-copy-status"
+            data-email-copy-status
+            aria-live="polite"
+            hidden>[email copied]</span
+          >
+        </span>
         <a
           class="instagram-link"
           href="https://instagram.com/scuares.studio"

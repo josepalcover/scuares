@@ -171,6 +171,27 @@
   font-weight: 600;
 }
 
+.nav-commercial .contact-modal-close {
+  position: relative;
+  flex-shrink: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: var(--nav-commercial-height);
+  height: var(--nav-commercial-height);
+  background-color: var(--col-dark-commercial);
+  cursor: pointer;
+}
+
+html.contact-modal-open .nav-commercial .contact-btn,
+html.contact-modal-open .nav-commercial .hamburger-box {
+  display: none;
+}
+
+html.contact-modal-open .nav-commercial .contact-modal-close {
+  display: flex;
+}
+
 /* HAMBURGER*/
 
 .nav-commercial .hamburger-box {

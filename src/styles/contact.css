@@ -6,6 +6,25 @@
   max-width: 70ch;
 }
 
+.contact-heading,
+.contact-copy,
+.contact-email-row {
+  display: block;
+}
+
+.contact-heading {
+  margin-bottom: calc(var(--text-size) * var(--text-line-height));
+}
+
+.contact-copy,
+.contact-email-row {
+  margin-bottom: calc(2 * var(--text-size) * var(--text-line-height));
+}
+
+.contact-email-row {
+  position: relative;
+}
+
 .email {
   color: inherit;
   font: inherit;
@@ -17,7 +36,9 @@
 }
 
 .email-copy-status {
-  margin-left: 1ch;
+  position: absolute;
+  top: calc(100% + 3px);
+  left: 0;
 }
 
 .instagram-link {
@@ -61,8 +82,24 @@ html.contact-modal-open body {
   overflow: hidden;
 }
 
-html.contact-modal-open .nav-main {
+html.contact-modal-open .nav-main,
+html.contact-modal-open .nav-commercial {
   z-index: 100001;
+}
+
+html.contact-modal-open .nav-commercial {
+  background: transparent;
+}
+
+.commercial-page .contact-heading {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 15px;
+}
+
+.commercial-page .contact-email {
+  font-size: 1.6rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

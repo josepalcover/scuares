@@ -1,11 +1,5 @@
 ## Development
 
-Just modify the code and make sure it is correct and notify me.
-Don't try to test the code.
-Don't run any development server.
-Don't run the browser.
-Don't run npm run build, just do what I ask and notify me when you finish.
-
 ## Documentation
 
 Full documentation: https://docs.astro.build

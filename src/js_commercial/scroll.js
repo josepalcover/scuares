@@ -9,7 +9,6 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { scrollObserver } from "./scrollObserver.js";
 import { scrollSnapping } from "./scrollSnapping.js";
 import { state } from "./state.js";
-import { setContactBtnVisibilityFromSection } from "./nextAndContactBtn.js";
 
 export function scrollInit() {
   ////////////////////////////
@@ -74,32 +73,4 @@ export function scrollInit() {
     },
   );
 
-  // non-slides (mobile): IntersectionObserver for contact button visibility on native scroll
-  mm.add(
-    "(max-aspect-ratio: 1.3), (max-width: 800px), (max-height: 450px)",
-    () => {
-      const contactSection = document.querySelector("#contact");
-      if (!contactSection) return () => {};
-
-      const contactObserver = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            setContactBtnVisibilityFromSection(entry.isIntersecting);
-          }
-        },
-        { threshold: 0.1 },
-      );
-
-      contactObserver.observe(contactSection);
-
-      // Initial check in case page loads in contact section
-      const rect = contactSection.getBoundingClientRect();
-      const inView = rect.top < window.innerHeight && rect.bottom > 0;
-      setContactBtnVisibilityFromSection(inView);
-
-      return () => {
-        contactObserver.disconnect();
-      };
-    },
-  );
 }

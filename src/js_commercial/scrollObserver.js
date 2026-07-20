@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 import { state } from "./state.js";
-import { updateContactBtnVisibility } from "./nextAndContactBtn.js";
 
 export function scrollObserver() {
   // scroll fullpage animation using Observer
@@ -49,8 +48,6 @@ export function scrollObserver() {
       if (state.index < 0) state.index = 0;
       if (state.index > num_snap_pages) state.index = num_snap_pages;
 
-      // update contact button visibility according to the clamped index
-      updateContactBtnVisibility();
       // gsap scrolling animation
       gsap.to(window, {
         scrollTo: state.index * innerHeight,

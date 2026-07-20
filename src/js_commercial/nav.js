@@ -3,7 +3,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { state } from "./state.js";
-import { updateContactBtnVisibility } from "./nextAndContactBtn.js";
 
 export function navInit() {
   // hamburger
@@ -109,6 +108,12 @@ export function navInit() {
 
     const clickedLink = e.target.closest(".link");
     if (!clickedLink) return;
+
+    if (clickedLink.hasAttribute("data-contact-open")) {
+      if (navIsActive) hideNav();
+      return;
+    }
+
     let goTo = clickedLink.dataset.goto ?? clickedLink.getAttribute("href");
     if (!goTo) return;
 
@@ -121,22 +126,6 @@ export function navInit() {
       onComplete: () => {
         // update index so we can continue with the scrolling animations
         state.index = Math.floor(window.scrollY / innerHeight);
-        updateContactBtnVisibility();
-      },
-    });
-    if (navIsActive) hideNav();
-  });
-
-  /// CONTACT BUTTON SCROLL TO
-  const contactBtn = document.querySelector(".contact-btn");
-  contactBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    gsap.to(window, {
-      scrollTo: getScrollTarget("#contact"),
-      duration: 1,
-      onComplete: () => {
-        state.index = Math.floor(window.scrollY / innerHeight);
-        updateContactBtnVisibility();
       },
     });
     if (navIsActive) hideNav();
