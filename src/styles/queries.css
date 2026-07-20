@@ -209,7 +209,7 @@
     height: 200vw;
   }
 
-  .pano-overlay {
+  .commercial-page .pano-overlay {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
