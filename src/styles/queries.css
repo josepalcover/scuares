@@ -305,6 +305,16 @@
     aspect-ratio: 1 / 1;
   }
 
+  /*
+   * The lazy gallery starts with a square pixel placeholder. Use the real
+   * aspect ratio supplied by the markup so loading an image cannot move every
+   * section below it (notably the #tours navigation target).
+   */
+  .commercial-page .images-one .img-lazy,
+  .commercial-page .images-two .img-lazy {
+    height: auto;
+  }
+
   #contact .centered-box {
     padding-bottom: 150px;
   }
