@@ -2,7 +2,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { SINGLE_COLUMN_QUERY } from "../config/layout.js";
+import { SINGLE_COLUMN_QUERY } from "../styles/breakpoints.js";
 import { state } from "./state.js";
 
 export function navInit() {

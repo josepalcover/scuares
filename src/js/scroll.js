@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-import { TWO_COLUMN_QUERY } from "../config/layout.js";
+import { TWO_COLUMN_QUERY } from "../styles/breakpoints.js";
 import { scrollObserver } from "./scrollObserver.js";
 import { scrollSnapping } from "./scrollSnapping.js";
 import { state } from "./state.js";

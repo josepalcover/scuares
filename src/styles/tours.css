@@ -123,7 +123,7 @@
   transform: translateY(-50%) rotate(-45deg);
 }
 
-@media (min-aspect-ratio: 3/1) {
+@media (--ultra-wide) {
   .tours-proj {
     height: 50vw;
   }

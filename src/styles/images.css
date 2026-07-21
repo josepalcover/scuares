@@ -102,7 +102,7 @@
 .c-text {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
   font-size: var(--text-size);
   line-height: var(--text-line-height);
@@ -112,13 +112,14 @@
 .c-author,
 .c-project {
   font: inherit;
+  white-space: nowrap;
 }
 
 .c-author::after {
   content: ",\00a0";
 }
 
-@media (min-aspect-ratio: 3/1) {
+@media (--ultra-wide) {
   .images-one,
   .images-two {
     height: 50vw;
