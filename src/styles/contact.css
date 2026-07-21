@@ -98,12 +98,6 @@ html.contact-modal-open .nav-commercial {
   font-size: 1.6rem;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .contact-modal.images-one {
-    transition-duration: 0ms;
-  }
-}
-
 .contact-details {
   margin-top: 3rem;
 }
@@ -124,4 +118,34 @@ html.contact-modal-open .nav-commercial {
   height: 2.6rem;
   width: 2.6rem;
   transform: translateX(-15%);
+}
+
+@media (min-aspect-ratio: 3/1) {
+  .contact {
+    height: 50vw;
+  }
+}
+
+@media (--single-column) {
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .contact .cover-content {
+    height: 100vw;
+  }
+
+  .contact-modal .centered-box {
+    justify-content: center;
+  }
+
+  #contact .centered-box {
+    padding-bottom: 150px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-modal.images-one {
+    transition-duration: 0ms;
+  }
 }

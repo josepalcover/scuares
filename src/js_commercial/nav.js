@@ -2,6 +2,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { SINGLE_COLUMN_QUERY } from "../config/layout.js";
 import { state } from "./state.js";
 
 export function navInit() {
@@ -19,9 +20,7 @@ export function navInit() {
   let navIsActive = false;
   let mmNav = gsap.matchMedia();
   let currentId = "#home";
-  const portraitMode = window.matchMedia(
-    "(max-aspect-ratio: 1.3), (max-width: 800px), (max-height: 450px)",
-  );
+  const portraitMode = window.matchMedia(SINGLE_COLUMN_QUERY);
 
   const getScrollTarget = (target) => {
     if (!portraitMode.matches || target === 0) return target;

@@ -257,3 +257,20 @@ html.contact-modal-open .nav-commercial .contact-modal-close {
   bottom: calc(5em - var(--line-thickness) / 2);
   transform: rotate(-45deg) scaleX(150%);
 }
+
+@media (--single-column) {
+  .nav-main {
+    background: white;
+  }
+
+  .nav-commercial {
+    background: var(--col-dark-commercial);
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .nav-commercial .nav-logo-box {
+    padding-left: 12px;
+  }
+}

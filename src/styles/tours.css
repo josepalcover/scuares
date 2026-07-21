@@ -122,3 +122,68 @@
 .line-close2 {
   transform: translateY(-50%) rotate(-45deg);
 }
+
+@media (min-aspect-ratio: 3/1) {
+  .tours-proj {
+    height: 50vw;
+  }
+}
+
+@media (--single-column) {
+  .commercial-page .modal-tours .modal-close {
+    top: 0;
+    right: 0;
+  }
+
+  .tours-main .cover-content {
+    height: 100vw;
+  }
+
+  .tours-proj {
+    grid-template-columns: 1fr;
+  }
+
+  .tours-proj {
+    display: flex;
+    flex-direction: column;
+    height: 200vw;
+  }
+
+  .commercial-page .pano-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: var(--frame-y) var(--frame-x);
+    cursor: pointer;
+  }
+
+  .pano-click-text {
+    color: white;
+    font-size: var(--text-size);
+    line-height: var(--text-line-height);
+    font-weight: 700;
+  }
+
+  .pano-play {
+    background-color: var(--col-grey-dark);
+    color: white;
+    font-size: var(--text-size);
+    line-height: var(--text-line-height);
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border-radius: 999rem;
+    margin-top: 1rem;
+  }
+
+  .commercial-page .tours-proj {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .commercial-page .tour-item {
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+}

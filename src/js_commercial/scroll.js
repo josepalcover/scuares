@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
+import { TWO_COLUMN_QUERY } from "../config/layout.js";
 import { scrollObserver } from "./scrollObserver.js";
 import { scrollSnapping } from "./scrollSnapping.js";
 import { state } from "./state.js";
@@ -33,7 +34,7 @@ export function scrollInit() {
   let mm = gsap.matchMedia();
 
   mm.add(
-    "(min-width: 800px) and (min-aspect-ratio: 1.3) and (max-aspect-ratio: 3/1) and (min-height: 450px)",
+    `${TWO_COLUMN_QUERY} and (max-aspect-ratio: 3/1)`,
     () => {
       // slides mode = true
 

@@ -257,3 +257,123 @@ header {
   z-index: 0;
   background-color: white;
 }
+
+/* Too wide but short: keep two columns with fixed-height normal scrolling. */
+@media (min-aspect-ratio: 3/1) {
+  .empty {
+    display: none;
+  }
+
+  .home,
+  .cover {
+    height: 50vw;
+  }
+}
+
+@media (--single-column) {
+  :root {
+    --frame-x: 1.6rem;
+    --frame-y: 1.6rem;
+  }
+
+  .centered-box {
+    justify-content: flex-start;
+    padding: var(--margin);
+  }
+
+  .text-box {
+    max-width: 60ch;
+  }
+
+  #home .centered-box {
+    padding-top: 12rem;
+  }
+
+  .home {
+    height: 100svh;
+  }
+
+  .home,
+  .cover {
+    grid-template-columns: 1fr;
+  }
+
+  .home {
+    grid-template-rows: 1fr auto;
+  }
+
+  .cover {
+    grid-template-rows: auto 1fr;
+  }
+
+  .about,
+  .cover {
+    height: auto;
+  }
+
+  .cover-text {
+    padding: 5rem;
+    padding-top: 0rem;
+  }
+
+  .home .cover-text {
+    padding-top: 0rem;
+  }
+
+  .about .cover-text {
+    padding-top: 3rem;
+  }
+
+  .cover-text .text-1 {
+    max-width: 55ch;
+  }
+
+  #about.nav-dock-section {
+    padding-top: 75px;
+  }
+
+  #about.nav-dock-section .text-box {
+    padding-bottom: 45px;
+  }
+
+  .hero-full {
+    height: 100vh;
+    height: var(--hero-height);
+  }
+
+  .hero-full .img-hero {
+    display: block;
+    height: 100%;
+    padding: 0;
+  }
+
+  /* Keep the commercial page's single-column flow page-scoped. */
+  .commercial-page .home,
+  .commercial-page .cover {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .commercial-page .home {
+    height: var(--hero-height);
+    padding-top: var(--nav-commercial-height);
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .commercial-page .cover {
+    height: auto;
+    grid-template-rows: auto 100vw;
+  }
+
+  .commercial-page .cover-text {
+    padding: var(--margin);
+  }
+
+  .commercial-page .home .cover-text {
+    height: auto;
+  }
+
+  .commercial-page .home .cover-content {
+    height: 100%;
+    min-height: 0;
+  }
+}
