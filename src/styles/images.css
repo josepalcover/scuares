@@ -24,7 +24,14 @@
   background-color: white;
 }
 
-.img-full > img {
+.img-full > picture,
+.img-pad > picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.img-full > picture > img {
   object-fit: cover;
   display: block;
   width: 100%;
@@ -61,7 +68,7 @@
   padding-left: calc(var(--img-pad-x) / 2);
 }
 
-.img-pad > img {
+.img-pad > picture > img {
   object-fit: contain;
   display: block;
   width: 100%;
@@ -196,9 +203,15 @@
     content: none;
   }
 
-  /* Preserve image aspect ratios while commercial gallery images load. */
-  .commercial-page .images-one .img-lazy,
-  .commercial-page .images-two .img-lazy {
+  /* Let intrinsic dimensions reserve every gallery image before it loads. */
+  .images-one .img-full > picture,
+  .images-one .img-pad > picture,
+  .images-two .img-full > picture,
+  .images-two .img-pad > picture,
+  .images-one .img-full > picture > img,
+  .images-one .img-pad > picture > img,
+  .images-two .img-full > picture > img,
+  .images-two .img-pad > picture > img {
     height: auto;
   }
 }

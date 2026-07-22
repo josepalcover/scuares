@@ -15,67 +15,71 @@ function getLogoTheme(theme) {
   return theme === "dark" ? "dark" : "light";
 }
 
-function getSlides(template, imgFormat) {
-  return [...template.content.querySelectorAll("img[data-src]")]
-    .map((img) => {
-      const name = img.dataset.src?.trim();
-      if (!name) return null;
-
-      return {
-        name,
-        src: `/images/${name}.${imgFormat}`,
-        alt: img.getAttribute("alt") ?? "",
-        logoTheme: getLogoTheme(img.dataset.logo),
-      };
-    })
-    .filter(Boolean);
+function getSlides(template) {
+  return [...template.content.querySelectorAll("picture[data-hero-slide]")].map(
+    (picture) => ({
+      picture,
+      logoTheme: getLogoTheme(picture.dataset.logo),
+    }),
+  );
 }
 
-function preload(slide) {
-  if (!slide.loadPromise) {
-    slide.loadPromise = new Promise((resolve, reject) => {
-      const img = new Image();
-      img.decoding = "async";
-      slide.image = img;
-
-      img.onload = async () => {
-        if (img.decode) {
-          await img.decode().catch(() => {});
-        }
-        resolve();
-      };
-
-      img.onerror = () => {
-        reject(new Error(`Could not load hero image: ${slide.src}`));
-      };
-
-      img.src = slide.src;
-    });
+function waitForImage(image) {
+  if (image.complete) {
+    return image.naturalWidth > 0
+      ? Promise.resolve()
+      : Promise.reject(new Error(`Could not load hero image: ${image.src}`));
   }
 
-  return slide.loadPromise;
+  return new Promise((resolve, reject) => {
+    image.addEventListener("load", resolve, { once: true });
+    image.addEventListener(
+      "error",
+      () => reject(new Error(`Could not load hero image: ${image.src}`)),
+      { once: true },
+    );
+  });
 }
 
-function applySlide(currentImage, logo, slide) {
-  currentImage.src = slide.src;
-  currentImage.alt = slide.alt;
+async function prepareSlide(frame, slide) {
+  const picture = slide.picture.cloneNode(true);
+  const image = picture.querySelector("img");
+  if (!image) {
+    throw new Error("Hero slide is missing its fallback image");
+  }
+
+  picture.removeAttribute("data-hero-slide");
+  picture.setAttribute("data-hero-pending", "");
+  picture.setAttribute("aria-hidden", "true");
+  image.loading = "eager";
+  image.decoding = "async";
+  frame.append(picture);
+
+  try {
+    await waitForImage(image);
+    await image.decode?.().catch(() => {});
+    return picture;
+  } catch (error) {
+    picture.remove();
+    throw error;
+  }
+}
+
+function applySlide(currentPicture, logo, slide, nextPicture) {
+  currentPicture.replaceWith(nextPicture);
+  nextPicture.removeAttribute("data-hero-pending");
+  nextPicture.removeAttribute("aria-hidden");
+  nextPicture.setAttribute("data-hero-current", "");
 
   if (logo) {
     logo.dataset.theme = slide.logoTheme;
   }
+
+  return nextPicture;
 }
 
-async function runSequence(currentImage, logo, slides, interval) {
+async function runSequence(frame, currentPicture, logo, slides, interval) {
   let currentIndex = 0;
-
-  try {
-    await preload(slides[currentIndex]);
-  } catch (error) {
-    console.warn(error);
-    return;
-  }
-
-  applySlide(currentImage, logo, slides[currentIndex]);
 
   if (slides.length === 1) return;
 
@@ -85,11 +89,16 @@ async function runSequence(currentImage, logo, slides, interval) {
 
     const results = await Promise.allSettled([
       delay(interval),
-      preload(nextSlide),
+      prepareSlide(frame, nextSlide),
     ]);
 
     if (results[1].status === "fulfilled") {
-      applySlide(currentImage, logo, nextSlide);
+      currentPicture = applySlide(
+        currentPicture,
+        logo,
+        nextSlide,
+        results[1].value,
+      );
     } else {
       console.warn(results[1].reason);
     }
@@ -98,17 +107,18 @@ async function runSequence(currentImage, logo, slides, interval) {
   }
 }
 
-export function heroInit(imgFormat) {
+export function heroInit() {
   const heroes = document.querySelectorAll("[data-hero-sequence]");
 
   heroes.forEach((hero) => {
     if (initializedHeroes.has(hero)) return;
 
-    const currentImage = hero.querySelector("[data-hero-current]");
+    const frame = hero.querySelector(".img-hero");
+    const currentPicture = frame?.querySelector("picture[data-hero-current]");
     const template = hero.querySelector("template[data-hero-slides]");
-    if (!currentImage || !template) return;
+    if (!frame || !currentPicture || !template) return;
 
-    const slides = getSlides(template, imgFormat);
+    const slides = getSlides(template);
     if (slides.length === 0) return;
 
     initializedHeroes.add(hero);
@@ -116,6 +126,6 @@ export function heroInit(imgFormat) {
     const logo = hero.querySelector("[data-hero-logo]");
     const interval = getInterval(hero);
 
-    runSequence(currentImage, logo, slides, interval);
+    runSequence(frame, currentPicture, logo, slides, interval);
   });
 }

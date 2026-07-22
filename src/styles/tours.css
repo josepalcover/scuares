@@ -23,7 +23,13 @@
   cursor: pointer;
 }
 
-.tour-item > img {
+.tour-item > picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.tour-item > picture > img {
   display: block;
   width: 100%;
   height: 100%;

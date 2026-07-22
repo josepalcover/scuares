@@ -1,5 +1,7 @@
 ---
+import aboutImage from "../assets/images/about_image.jpg";
 import Credit from "./Credit.astro";
+import PictureGallery from "./PictureGallery.astro";
 ---
 
 <!--==============================
@@ -18,7 +20,7 @@ import Credit from "./Credit.astro";
         unbuilt<br />
         architecture<br />
         <br />
-    
+
         Scuares is an architectural<br />
         image studio founded in Barcelona<br />
         by architect Josep Alcover.
@@ -27,10 +29,8 @@ import Credit from "./Credit.astro";
   </div>
 
   <div class="img-full">
-    <img
-      src="/images/pixel.jpg"
-      data-src="about_image"
-      class="img-initial"
+    <PictureGallery
+      src={aboutImage}
       alt="Photorealistic exterior 3D Rendering of a real estate residential deveoplment in Gland, Switzerland. Human eye level view. Facade detail at sunset. Still CG image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="Architect" project="Housing project in Gland" />

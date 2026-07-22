@@ -163,12 +163,25 @@ header {
 }
 
 [data-hero-sequence] .img-hero {
+  position: relative;
   width: 100%;
   height: 100%;
   padding: 0;
 }
 
-[data-hero-sequence] .img-hero > img {
+[data-hero-sequence] .img-hero > picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+[data-hero-sequence] .img-hero > picture[data-hero-pending] {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+}
+
+[data-hero-sequence] .img-hero > picture > img {
   object-fit: cover;
   display: block;
   width: 100%;
@@ -242,7 +255,13 @@ header {
   position: relative;
 }
 
-.cover-content > img {
+.cover-content > picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cover-content > picture > img {
   display: block;
   width: 100%;
   height: 100%;

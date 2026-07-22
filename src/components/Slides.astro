@@ -1,17 +1,43 @@
 ---
+import antiparosB from "../assets/images/antiparos_b.jpg";
+import antiparosD from "../assets/images/antiparos_d.jpg";
+import baselA from "../assets/images/basel_a.jpg";
+import baselB from "../assets/images/basel_b.jpg";
+import bedroom from "../assets/images/bedroom.jpg";
+import codinesA from "../assets/images/codines_a.jpg";
+import codinesB from "../assets/images/codines_b.jpg";
+import dining from "../assets/images/dining.jpg";
+import doha from "../assets/images/doha.jpg";
+import gregorExt from "../assets/images/gregor_ext.jpg";
+import gregorInt from "../assets/images/gregor_int.jpg";
+import lakehouseExt from "../assets/images/lakehouse_ext.jpg";
+import lakehouseInt from "../assets/images/lakehouse_int.jpg";
+import offices from "../assets/images/offices.jpg";
+import pool from "../assets/images/pool.jpg";
+import puglia from "../assets/images/puglia.jpg";
+import robotA from "../assets/images/robot_a.jpg";
+import robotB from "../assets/images/robot_b.jpg";
+import ter from "../assets/images/ter.jpg";
+import voltaA from "../assets/images/volta_a.jpg";
+import voltaB from "../assets/images/volta_b.jpg";
+import walkewegA from "../assets/images/walkeweg_a.jpg";
+import walkewegB from "../assets/images/walkeweg_b.jpg";
+import washingtonAerial from "../assets/images/washington_aerial.jpg";
+import washingtonStreet from "../assets/images/washington_street.jpg";
+import williamsburg from "../assets/images/williamsburg.jpg";
+import zurichExt from "../assets/images/zurich_ext.jpg";
+import zurichInt from "../assets/images/zurich_int.jpg";
 import Credit from "./Credit.astro";
+import PictureGallery from "./PictureGallery.astro";
 ---
 
 <!--==============================
   IMAGES
- ==============================-->
- <!-- washington -->
+ ==============================--><!-- washington -->
 <section class="images-two snap" data-logo="dark" data-contact="dark">
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="washington_aerial"
-      class="img-lazy"
+    <PictureGallery
+      src={washingtonAerial}
       alt="Aerial photorealistic exterior 3D Rendering of a modern multifunctional complex in an urban context in Washington. Still CG image produced by Scuares, an architectural visualization studio"
     />
     <Credit
@@ -20,10 +46,8 @@ import Credit from "./Credit.astro";
     />
   </div>
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="washington_street"
-      class="img-lazy img-cover img-square"
+    <PictureGallery
+      src={washingtonStreet}
       alt="Photorealistic exterior 3D Rendering of a modern multifunctional complex in an urban context in Washington. View from a human eye level. Still CG image produced by Scuares, an architectural visualization studio"
     />
     <Credit
@@ -37,19 +61,15 @@ import Credit from "./Credit.astro";
 <!-- bedroom - dining -->
 <section class="images-two snap" data-logo="light" data-contact="dark">
   <div class="img-full">
-    <img
-      src="/images/pixel.jpg"
-      data-src="bedroom"
-      class="img-lazy"
+    <PictureGallery
+      src={bedroom}
       alt="Photorealistic interior 3D Rendering of a modern dining room in an apartment in Berlin, designed by JM Designs. Mix of contemporary furniture with classical architecture. Real Estate residential project. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="JM Designs" project="Apartment in Berlin" />
   </div>
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="dining"
-      class="img-lazy"
+    <PictureGallery
+      src={dining}
       alt="Photorealistic interior 3D Rendering of a modern bedroom in an apartment in Berlin, designed by JM Designs. Mix of contemporary furniture with classical architecture.Real Estate residential project. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit hidden={true} author="JM Designs" project="Apartment in Berlin" />
@@ -59,10 +79,8 @@ import Credit from "./Credit.astro";
 <!-- puglia -->
 <section class="images-one snap" data-logo="light" data-contact="light">
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="puglia"
-      class="img-lazy"
+    <PictureGallery
+      src={puglia}
       alt="Photorealistic exterior 3D Rendering of a modern house in a beautiful landscape in Puglia designed by Bergnes de las Casas Arquitectos. Contemporary facade design with concrete and wood. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="Bergnes de las Casas" project="Villa in Puglia" />
@@ -72,42 +90,38 @@ import Credit from "./Credit.astro";
 <!-- walkeweg -->
 <section class="images-two snap" data-logo="dark" data-contact="dark">
   <div class="img-full">
-    <img
-      src="/images/pixel.jpg"
-      data-src="walkeweg_a"
-      class="img-lazy"
+    <PictureGallery
+      src={walkewegA}
       alt="Photorealistic exterior 3D Rendering of a modern housing complex in Walkeweg, designed by Parabase Architects. First prize in an architectural competition. Building made of recycled concrete components. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="Parabase" project="Areal Walkeweg Nord Basel" />
   </div>
 
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="walkeweg_b"
-      class="img-lazy"
+    <PictureGallery
+      src={walkewegB}
       alt="Photorealistic exterior 3D Rendering of a modern housing complex in Walkeweg, designed by Parabase Architects. First prize in an architectural competition. Building made of recycled concrete components. Still CG Image produced by Scuares, an architectural visualization studio"
     />
-    <Credit hidden={true} author="Parabase" project="Areal Walkeweg Nord Basel" />
+    <Credit
+      hidden={true}
+      author="Parabase"
+      project="Areal Walkeweg Nord Basel"
+    />
   </div>
 </section>
 
 <!-- gregor -->
 <section class="images-two snap" data-logo="dark" data-contact="light">
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="gregor_int"
-      class="img-lazy"
+    <PictureGallery
+      src={gregorInt}
       alt="Photorealistic interior 3D Rendering of a modern house designed by Gregor Pils Architects. Contemporary interior design with wood and plaster. Building next to vineyards. Real Estate residential project. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="Gregor Pils" project="Weinbergloft Houses" />
   </div>
   <div class="img-full">
-    <img
-      src="/images/pixel.jpg"
-      data-src="gregor_ext"
-      class="img-lazy"
+    <PictureGallery
+      src={gregorExt}
       alt="Photorealistic exterior 3D Rendering of a modern house designed by Gregor Pils Architects. Contemporary facade design with wood and plaster. Building next to vineyards. Real Estate residential project.  Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit hidden={true} author="Gregor Pils" project="Weinbergloft Houses" />
@@ -117,20 +131,16 @@ import Credit from "./Credit.astro";
 <!-- antiparos -->
 <section class="images-two snap" data-logo="dark" data-contact="dark">
   <div class="img-full">
-    <img
-      src="/images/pixel.jpg"
-      data-src="antiparos_b"
-      class="img-lazy"
+    <PictureGallery
+      src={antiparosB}
       alt="Photorealistic exterior 3D Rendering of a modern house made of stone in a Greek Island. Luxury villa with sea view and beautiful landscape. Real Estate residential project. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="West Valley" project="Villas in Antiparos" />
   </div>
 
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="antiparos_d"
-      class="img-lazy"
+    <PictureGallery
+      src={antiparosD}
       alt="Photorealistic exterior 3D Rendering of a modern house made of stone in a Greek Island. Luxury villa with sea view and beautiful landscape. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit hidden={true} author="West Valley" project="Villas in Antiparos" />
@@ -140,20 +150,20 @@ import Credit from "./Credit.astro";
 <!-- basel -->
 <section class="images-two snap" data-logo="light" data-contact="dark">
   <div class="img-full">
-    <img
-      src="/images/pixel.jpg"
-      data-src="basel_a"
-      class="img-lazy"
+    <PictureGallery
+      src={baselA}
       alt="Photorealistic exterior 3D Rendering of a modern multifamily housing building made of metal and concrete in Basel designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
     />
-    <Credit hidden={true} author="Parabase" project="Burgfelderstrasse Housing, Basel" />
+    <Credit
+      hidden={true}
+      author="Parabase"
+      project="Burgfelderstrasse Housing, Basel"
+    />
   </div>
 
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="basel_b"
-      class="img-lazy"
+    <PictureGallery
+      src={baselB}
       alt="Photorealistic exterior 3D Rendering of a modern multifamily housing building made of metal and concrete in Basel designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="Parabase" project="Burgfelderstrasse Housing, Basel" />
@@ -163,19 +173,15 @@ import Credit from "./Credit.astro";
 <!-- ter- williamsburg -->
 <section class="images-two snap" data-logo="dark" data-contact="dark">
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="ter"
-      class="img-lazy"
+    <PictureGallery
+      src={ter}
       alt="Photorealistic exterior 3D Rendering of a modern house in a beautiful landscape designed by Mesura Architects. Architectural project with traditional materials and a swimming pool. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="Mesura" project="Ter House" />
   </div>
   <div class="img-full">
-    <img
-      src="/images/pixel.jpg"
-      data-src="williamsburg"
-      class="img-lazy"
+    <PictureGallery
+      src={williamsburg}
       alt="Photorealistic exterior 3D Rendering of a modern co-living building in Williamsburg, New York. Architectural project designed by The Collective with a contemporary facade design made of brick. Real Estate project. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="The Collective" project="Hotel in Williamsburg (NY)" />
@@ -185,68 +191,68 @@ import Credit from "./Credit.astro";
 <!-- codines -->
 <section class="images-two snap" data-logo="dark" data-contact="dark">
   <div class="img-full">
-    <img
-      src="/images/pixel.jpg"
-      data-src="codines_a"
-      class="img-lazy"
+    <PictureGallery
+      src={codinesA}
       alt="Photorealistic exterior 3D Rendering of a modern house made of brick designed by Bergnes de las Casas Architects. Contemporary design building.Residential architecture. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="Bergnes de las Casas" project="House in St. F. Codines" />
   </div>
 
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="codines_b"
-      class="img-lazy"
+    <PictureGallery
+      src={codinesB}
       alt="Photorealistic exterior 3D Rendering of a modern house made of brick designed by Bergnes de las Casas Architects. Contemporary design building.Residential architecture. Still CG Image produced by Scuares, an architectural visualization studio"
     />
-    <Credit hidden={true} author="Bergnes de las Casas" project="House in St. F. Codines" />
+    <Credit
+      hidden={true}
+      author="Bergnes de las Casas"
+      project="House in St. F. Codines"
+    />
   </div>
 </section>
 
 <!-- lakehouse -->
 <section class="images-two snap" data-logo="dark" data-contact="light">
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="lakehouse_int"
-      class="img-lazy"
+    <PictureGallery
+      src={lakehouseInt}
       alt="Photorealistic interior 3D Rendering of a modern house next to a lake in Texas. Interior Design with wood and fabric. Soft color palette. Contemporary design building. Residential Real Estate project. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="Private Client" project="Lakehouse in Texas" />
   </div>
   <div class="img-full">
-    <img
-      src="/images/pixel.jpg"
-      data-src="lakehouse_ext"
-      class="img-lazy"
+    <PictureGallery
+      src={lakehouseExt}
       alt="Photorealistic exterior 3D Rendering of a modern  wooden house next to a lake in Texas. White house made of wood. Traditional american architecture style Beautiful landscape and contemporary design building. Residential Real Estate project. Still CG Image produced by Scuares, an architectural visualization studio"
     />
-    <Credit hidden={true} author="Private Client" project="Lakehouse in Texas" />
+    <Credit
+      hidden={true}
+      author="Private Client"
+      project="Lakehouse in Texas"
+    />
   </div>
 </section>
 
 <!-- zurich -->
 <section class="images-two snap" data-logo="dark" data-contact="dark">
   <div class="img-full">
-    <img
-      src="/images/pixel.jpg"
-      data-src="zurich_ext"
-      class="img-lazy"
+    <PictureGallery
+      src={zurichExt}
       alt="Photorealistic exterior 3D Rendering of a courthouse in Zurich designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="Parabase" project="Hinwil Courthouse, Zurich" />
   </div>
 
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="zurich_int"
-      class="img-lazy"
+    <PictureGallery
+      src={zurichInt}
       alt="Photorealistic interior 3D Rendering of a courthouse in Zurich designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
     />
-    <Credit hidden={true} author="Parabase" project="Hinwil Courthouse, Zurich" />
+    <Credit
+      hidden={true}
+      author="Parabase"
+      project="Hinwil Courthouse, Zurich"
+    />
   </div>
 </section>
 
@@ -254,10 +260,8 @@ import Credit from "./Credit.astro";
 
 <section class="images-one snap" data-logo="dark" data-contact="dark">
   <div class="img-full">
-    <img
-      src="/images/pixel.jpg"
-      data-src="pool"
-      class="img-lazy"
+    <PictureGallery
+      src={pool}
       alt="Photorealistic exterior 3D Rendering of a contemporary luxury Villa with a swimmig pool designed by JM Designs. Residential real estate project. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="JM Designs" project="N House" />
@@ -267,20 +271,16 @@ import Credit from "./Credit.astro";
 <!-- doha - offices -->
 <section class="images-two snap" data-logo="dark" data-contact="dark">
   <div class="img-full">
-    <img
-      src="/images/pixel.jpg"
-      data-src="doha"
-      class="img-lazy"
+    <PictureGallery
+      src={doha}
       alt="Photorealistic exterior 3D Rendering of a park in Doha designed by Yaseen Raad. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="Yaseen Raad" project="Conference Street Park (Doha)" />
   </div>
 
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="offices"
-      class="img-lazy"
+    <PictureGallery
+      src={offices}
       alt="Photorealistic exterior 3D Rendering of an office building in Basel designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="Parabase" project="BRCCH Offices, Basel" />
@@ -290,20 +290,16 @@ import Credit from "./Credit.astro";
 <!-- robotic -->
 <section class="images-two snap" data-logo="dark" data-contact="dark">
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="robot_a"
-      class="img-lazy"
+    <PictureGallery
+      src={robotA}
       alt="Photorealistic exterior 3D Rendering of robotically fabricated wooden pavilion in a beautiful landscape designed by Josep Alcover. Parametric architecture project. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="Josep Alcover" project="Wooden Pavilions" />
   </div>
 
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="robot_b"
-      class="img-lazy"
+    <PictureGallery
+      src={robotB}
       alt="Photorealistic exterior 3D Rendering of robotically fabricated wooden pavilion in a beautiful landscape designed by Josep Alcover. Parametric architecture project. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit hidden={true} author="Josep Alcover" project="Wooden Pavilions" />
@@ -313,22 +309,22 @@ import Credit from "./Credit.astro";
 <!-- volta -->
 <section class="images-two snap" data-logo="dark" data-contact="dark">
   <div class="img-full">
-    <img
-      src="/images/pixel.jpg"
-      data-src="volta_a"
-      class="img-lazy"
+    <PictureGallery
+      src={voltaA}
       alt="Photorealistic exterior 3D Rendering of a residential building in Volta designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="Parabase" project="Stadtbaustein Volta Nord" />
   </div>
 
   <div class="img-pad">
-    <img
-      src="/images/pixel.jpg"
-      data-src="volta_b"
-      class="img-lazy"
+    <PictureGallery
+      src={voltaB}
       alt="Photorealistic exterior 3D Rendering of a residential building in Volta designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
     />
-    <Credit hidden={true} author="Parabase" project="Stadtbaustein Volta Nord" />
+    <Credit
+      hidden={true}
+      author="Parabase"
+      project="Stadtbaustein Volta Nord"
+    />
   </div>
 </section>
