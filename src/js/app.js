@@ -1,17 +1,13 @@
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-
-import { scrollInit } from "./scroll.js";
+import { gsap, ScrollTrigger } from "./gsap.js";
 import { navInit } from "./nav.js";
 import { heroInit } from "./hero.js";
 import { contactModalInit } from "./contactModal.js";
+import { createScrollController } from "./scroll/controller.js";
 
 // initialize scroll behavior and navigation
-scrollInit();
-navInit();
-contactModalInit();
+const scrollController = createScrollController();
+navInit(scrollController);
+contactModalInit(scrollController);
 
 /////// LOADING
 

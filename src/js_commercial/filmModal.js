@@ -1,6 +1,4 @@
-import { state } from "./state.js";
-
-export function filmModalInit() {
+export function filmModalInit(scrollController) {
   const films = document.querySelector(".films-proj");
   const modal = document.querySelector(".modal-film");
   const playerHost = modal?.querySelector("[data-film-player]");
@@ -61,8 +59,10 @@ export function filmModalInit() {
     if (currentPlayer) playerCache.append(currentPlayer);
     currentPlayer = undefined;
     modal.hidden = true;
-    films.scrollIntoView({ block: "start" });
-    state.index = Math.floor(window.scrollY / window.innerHeight);
+    scrollController.scrollTo(films, {
+      duration: 0,
+      onComplete: () => scrollController.syncIndex(),
+    });
     opener?.focus();
   };
 

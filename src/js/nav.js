@@ -1,47 +1,75 @@
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { state } from "./state.js";
+import { gsap, ScrollTrigger } from "./gsap.js";
+import { SCROLL_CONFIG } from "./scroll/config.js";
 
-export function navInit() {
-  //////////////////
-  // LINKS - SCROLL TO
-
+export function navInit(scrollController) {
   const nav = document.querySelector(".nav-main");
+  const navDockSection = document.querySelector(".nav-dock-section");
+  const logo = nav?.querySelector(".logo");
+  const contactButton = nav?.querySelector(".contact-btn");
 
-  nav.addEventListener("click", (e) => {
-    e.preventDefault();
+  if (!nav || !logo || !contactButton) return;
 
-    const clickedLink = e.target.closest(".link");
+  nav.addEventListener("click", (event) => {
+    const clickedLink = event.target.closest(".link");
     if (!clickedLink) return;
-    let goTo = clickedLink.dataset.goto;
 
-    // only if we are in slides mode, we replace the ID with the actual // scroll position because otherwise it doesn't work
-    if (state.slides === true) {
-      // if (goTo === "#about") goTo = 1 * window.innerHeight;
-      //if (goTo === "#films") goTo = 3 * window.innerHeight;
-    }
-
-    gsap.to(window, {
-      scrollTo: goTo,
-      duration: 1,
-      onComplete: () => {
-        // update index so we can continue with the scrolling animations
-        state.index = Math.floor(window.scrollY / innerHeight);
-      },
-    });
+    event.preventDefault();
+    const target = clickedLink.dataset.goto ?? clickedLink.getAttribute("href");
+    if (target) scrollController.scrollTo(target);
   });
-  // click hero and scroll to about (always, even in portrait)
-  const hero = document.querySelector("#home");
 
-  hero?.addEventListener("click", () => {
-    gsap.to(window, {
-      scrollTo: "#about",
-      duration: 0.5,
-      onComplete: () => {
-        state.index = 1;
-      },
+  function updateDocking(isFixed) {
+    nav.classList.toggle("nav-main--fixed", isFixed);
+    nav.classList.toggle("nav-main--docked", !isFixed);
+  }
+
+  function syncDocking() {
+    if (!navDockSection) return;
+    updateDocking(navDockSection.getBoundingClientRect().top <= 0);
+  }
+
+  if (navDockSection) {
+    ScrollTrigger.create({
+      trigger: navDockSection,
+      start: "top top",
+      end: "max",
+      invalidateOnRefresh: true,
+      onEnter: () => updateDocking(true),
+      onLeaveBack: () => updateDocking(false),
+      onRefresh: syncDocking,
     });
+    syncDocking();
+  }
+
+  function updateTheme(slide) {
+    logo.classList.toggle("logo-light", slide.dataset.logo === "light");
+    contactButton.classList.toggle(
+      "contact-btn-light",
+      (slide.dataset.contact ?? slide.dataset.logo) === "light",
+    );
+  }
+
+  const mediaContext = gsap.matchMedia();
+  mediaContext.add(SCROLL_CONFIG.slideMediaQuery, () => {
+    const slides = gsap.utils.toArray(SCROLL_CONFIG.slideSelector);
+    const themeTriggers = slides.map((slide) =>
+      ScrollTrigger.create({
+        trigger: slide,
+        start: "top 1%",
+        end: "+=100%",
+        invalidateOnRefresh: true,
+        onEnter: () => updateTheme(slide),
+        onEnterBack: () => updateTheme(slide),
+      }),
+    );
+
+    const currentSlide = slides[scrollController.index];
+    if (currentSlide) updateTheme(currentSlide);
+
+    return () => {
+      themeTriggers.forEach((trigger) => trigger.kill());
+      logo.classList.remove("logo-light");
+      contactButton.classList.remove("contact-btn-light");
+    };
   });
 }

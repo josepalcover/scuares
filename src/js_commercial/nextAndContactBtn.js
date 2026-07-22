@@ -1,5 +1,3 @@
-import { state } from "./state";
-
 /**
  * Toggles contact button visibility based on whether the contact section is in view.
  * Used in non-slides (mobile) mode with IntersectionObserver.
@@ -14,11 +12,11 @@ export function setContactBtnVisibilityFromSection(contactSectionInView) {
   }
 }
 
-export function updateContactBtnVisibility() {
+export function updateContactBtnVisibility(scrollController) {
   const lastIndex = document.querySelectorAll(".snap").length - 1;
   const contactBtn = document.querySelector(".contact-btn");
 
-  if (state.index >= lastIndex) {
+  if (scrollController.index >= lastIndex) {
     contactBtn.classList.add("contact-btn-hidden");
   } else {
     contactBtn.classList.remove("contact-btn-hidden");

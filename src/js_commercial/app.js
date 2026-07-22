@@ -1,20 +1,38 @@
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { gsap, ScrollTrigger } from "../js/gsap.js";
 
 import { navInit } from "./nav.js";
-import { scrollInit } from "./scroll.js";
 import { filmModalInit } from "./filmModal.js";
 import { panosInit } from "./panos.js";
 import { heroInit } from "../js/hero.js";
 import { contactModalInit } from "../js/contactModal.js";
+import { createScrollController } from "../js/scroll/controller.js";
+import { SINGLE_COLUMN_QUERY } from "../styles/breakpoints.js";
 
 // initialize scroll behavior and navigation
-scrollInit();
-navInit();
-contactModalInit();
-filmModalInit();
+const singleColumnLayout = window.matchMedia(SINGLE_COLUMN_QUERY);
+const commercialNav = document.querySelector(".nav-commercial");
+const scrollController = createScrollController({
+  resolveAnchorOffset: ({ target }) => {
+    if (
+      !singleColumnLayout.matches ||
+      typeof target !== "string" ||
+      target === "#home"
+    ) {
+      return 0;
+    }
+
+    return commercialNav?.offsetHeight ?? 0;
+  },
+  onSlideModeExit: () => {
+    document
+      .querySelector(".pano-overlay")
+      ?.classList.remove("pano-overlay-hidden");
+  },
+});
+
+navInit(scrollController);
+contactModalInit(scrollController);
+filmModalInit(scrollController);
 
 /////// ASSET LOADING
 const initialImages = gsap.utils.toArray(".img-initial");
@@ -117,7 +135,7 @@ window.addEventListener("load", () => {
     start: "top 250%", //when top of the films section is 50% from top of viewmport
     onEnter: () => {
       if (!panosCreated) {
-        panosInit();
+        panosInit(scrollController);
         panosCreated = true; // so we don't create them again
       }
       toursTrigger.kill();

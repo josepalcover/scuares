@@ -1,9 +1,6 @@
-import { gsap } from "gsap";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { SINGLE_COLUMN_QUERY } from "../styles/breakpoints.js";
 
-gsap.registerPlugin(ScrollToPlugin);
-
-export function contactModalInit() {
+export function contactModalInit(scrollController) {
   const modal = document.querySelector("#contact-modal");
   const pageContent = document.querySelector("#page-content");
   const toggle = document.querySelector("[data-contact-toggle]");
@@ -11,9 +8,7 @@ export function contactModalInit() {
   const close = document.querySelector("[data-contact-close]");
   const logo = document.querySelector("[data-contact-logo]");
   const navDockSection = document.querySelector(".nav-dock-section");
-  const mobileLayout = window.matchMedia(
-    "(max-aspect-ratio: 1/1), (max-width: 43.75em), (max-height: 28.125em)",
-  );
+  const mobileLayout = window.matchMedia(SINGLE_COLUMN_QUERY);
 
   if (!modal || !pageContent || !toggle || !logo) return;
 
@@ -29,7 +24,7 @@ export function contactModalInit() {
     isClosing = false;
     clearTimeout(closeFallbackTimeout);
     modal.removeEventListener("transitionend", handleModalTransitionEnd);
-    document.documentElement.classList.remove("contact-modal-open");
+    scrollController.unlock();
     logo.classList.toggle("logo-light", logoWasLight);
     toggle.classList.toggle("contact-btn-light", buttonWasLight);
   }
@@ -51,7 +46,7 @@ export function contactModalInit() {
         buttonWasLight = toggle.classList.contains("contact-btn-light");
       }
 
-      document.documentElement.classList.add("contact-modal-open");
+      scrollController.lock();
     }
 
     modal.classList.toggle("contact-modal--open", isOpen);
@@ -90,11 +85,9 @@ export function contactModalInit() {
     if (isDockingForModal) return;
     isDockingForModal = true;
 
-    gsap.to(window, {
-      scrollTo: navDockSection,
+    scrollController.scrollTo(navDockSection, {
       duration: 0.5,
       ease: "power2.out",
-      overwrite: "auto",
       onComplete: () => {
         isDockingForModal = false;
         requestAnimationFrame(() => setOpen(true));

@@ -1,11 +1,6 @@
-import { state } from "./state.js";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { gsap } from "../js/gsap.js";
 
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
-
-export function panosInit() {
+export function panosInit(scrollController) {
   //hide cover pano overlay on click
   const panoOverlay = document.querySelector(".pano-overlay");
   panoOverlay.addEventListener("click", () => {
@@ -38,8 +33,7 @@ export function panosInit() {
 
     //////MODAL WINDOW FOR PANO PROJECTS
 
-    let toursPageIndex;
-    let toursPageScrollY;
+    let toursPagePosition;
 
     // create the
     // gsap timelines
@@ -52,8 +46,7 @@ export function panosInit() {
       );
 
     const showModalTours = (project) => {
-      toursPageIndex = state.index;
-      toursPageScrollY = window.scrollY;
+      toursPagePosition = scrollController.capturePosition();
       tourModalActive = true;
       //hide all panos
       document
@@ -70,10 +63,7 @@ export function panosInit() {
         autoAlpha: 0,
         duration: 0.2,
         onComplete: () => {
-          gsap.set(window, {
-            scrollTo: { y: toursPageScrollY, autoKill: false },
-          });
-          state.index = toursPageIndex;
+          scrollController.restorePosition(toursPagePosition);
         },
       });
     };
