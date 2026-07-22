@@ -1,32 +1,54 @@
-import { SINGLE_COLUMN_QUERY } from "../styles/breakpoints.js";
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+const CLOSE_FALLBACK_DELAY = 350;
 
-export function contactModalInit(scrollController) {
+export function createContactModal(scrollController) {
   const modal = document.querySelector("#contact-modal");
   const pageContent = document.querySelector("#page-content");
-  const toggle = document.querySelector("[data-contact-toggle]");
-  const openers = document.querySelectorAll("[data-contact-open]");
-  const close = document.querySelector("[data-contact-close]");
-  const logo = document.querySelector("[data-contact-logo]");
-  const navDockSection = document.querySelector(".nav-dock-section");
-  const mobileLayout = window.matchMedia(SINGLE_COLUMN_QUERY);
 
-  if (!modal || !pageContent || !toggle || !logo) return;
+  if (!modal || !pageContent) return null;
 
-  let logoWasLight = false;
-  let buttonWasLight = false;
-  let isDockingForModal = false;
-  let isClosing = false;
+  const listeners = new Set();
+  let phase = "closed";
+  let opener;
   let closeFallbackTimeout;
 
-  function finishClosing() {
-    if (!isClosing || modal.classList.contains("contact-modal--open")) return;
+  function getState() {
+    return {
+      phase,
+      isOpen: phase === "open",
+      isClosing: phase === "closing",
+    };
+  }
 
-    isClosing = false;
+  function notify() {
+    const state = getState();
+    listeners.forEach((listener) => listener(state));
+  }
+
+  function cancelClosing() {
     clearTimeout(closeFallbackTimeout);
     modal.removeEventListener("transitionend", handleModalTransitionEnd);
+  }
+
+  function finishClosing() {
+    if (
+      phase !== "closing" ||
+      modal.classList.contains("contact-modal--open")
+    ) {
+      return;
+    }
+
+    cancelClosing();
+    phase = "closed";
+    pageContent.removeAttribute("inert");
     scrollController.unlock();
-    logo.classList.toggle("logo-light", logoWasLight);
-    toggle.classList.toggle("contact-btn-light", buttonWasLight);
+    notify();
+
+    const focusTarget = opener;
+    opener = undefined;
+    if (focusTarget?.isConnected) {
+      focusTarget.focus({ preventScroll: true });
+    }
   }
 
   function handleModalTransitionEnd(event) {
@@ -35,107 +57,65 @@ export function contactModalInit(scrollController) {
     }
   }
 
-  function setOpen(isOpen) {
-    if (isOpen) {
-      if (isClosing) {
-        isClosing = false;
-        clearTimeout(closeFallbackTimeout);
-        modal.removeEventListener("transitionend", handleModalTransitionEnd);
-      } else {
-        logoWasLight = logo.classList.contains("logo-light");
-        buttonWasLight = toggle.classList.contains("contact-btn-light");
-      }
+  function open({ opener: nextOpener } = {}) {
+    if (nextOpener instanceof HTMLElement) opener = nextOpener;
+    if (phase === "open") return;
 
-      scrollController.lock();
-    }
+    if (phase === "closing") cancelClosing();
 
-    modal.classList.toggle("contact-modal--open", isOpen);
-    toggle.classList.toggle("contact-btn--close", isOpen);
-    toggle.setAttribute("aria-expanded", String(isOpen));
-    modal.setAttribute("aria-hidden", String(!isOpen));
-    modal.toggleAttribute("inert", !isOpen);
-    pageContent.toggleAttribute("inert", isOpen);
+    phase = "open";
+    scrollController.lock();
+    modal.classList.add("contact-modal--open");
+    modal.setAttribute("aria-hidden", "false");
+    modal.removeAttribute("inert");
+    pageContent.setAttribute("inert", "");
+    notify();
+  }
 
-    if (isOpen) {
-      logo.classList.remove("logo-light");
-      toggle.classList.remove("contact-btn-light");
+  function close() {
+    if (phase !== "open") return;
+
+    phase = "closing";
+    modal.classList.remove("contact-modal--open");
+    modal.setAttribute("aria-hidden", "true");
+    modal.setAttribute("inert", "");
+    modal.addEventListener("transitionend", handleModalTransitionEnd);
+    notify();
+
+    if (window.matchMedia(REDUCED_MOTION_QUERY).matches) {
+      requestAnimationFrame(finishClosing);
     } else {
-      isClosing = true;
-      modal.addEventListener("transitionend", handleModalTransitionEnd);
-
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        requestAnimationFrame(finishClosing);
-      } else {
-        closeFallbackTimeout = setTimeout(finishClosing, 350);
-      }
+      closeFallbackTimeout = setTimeout(finishClosing, CLOSE_FALLBACK_DELAY);
     }
   }
 
-  function openModal() {
-    const shouldDockFirst =
-      mobileLayout.matches &&
-      navDockSection &&
-      navDockSection.getBoundingClientRect().top > 0;
-
-    if (!shouldDockFirst) {
-      setOpen(true);
-      return;
+  function toggle(options = {}) {
+    if (phase === "open") {
+      close();
+    } else {
+      open(options);
     }
-
-    if (isDockingForModal) return;
-    isDockingForModal = true;
-
-    scrollController.scrollTo(navDockSection, {
-      duration: 0.5,
-      ease: "power2.out",
-      onComplete: () => {
-        isDockingForModal = false;
-        requestAnimationFrame(() => setOpen(true));
-      },
-      onInterrupt: () => {
-        isDockingForModal = false;
-      },
-    });
   }
 
-  toggle.addEventListener("click", () => {
-    const shouldOpen = toggle.getAttribute("aria-expanded") !== "true";
+  function isOpen() {
+    return phase === "open";
+  }
 
-    if (!shouldOpen) {
-      setOpen(false);
-      return;
-    }
-
-    openModal();
-  });
-
-  openers.forEach((opener) => {
-    opener.addEventListener("click", (event) => {
-      event.preventDefault();
-      openModal();
-    });
-  });
-
-  close?.addEventListener("click", () => {
-    setOpen(false);
-  });
+  function subscribe(listener) {
+    listeners.add(listener);
+    listener(getState());
+    return () => listeners.delete(listener);
+  }
 
   modal.addEventListener("click", (event) => {
     const target = event.target;
-
     if (target instanceof Element && target.closest(".text-box")) return;
-    setOpen(false);
+    close();
   });
 
   document.addEventListener("keydown", (event) => {
-    if (
-      event.key !== "Escape" ||
-      toggle.getAttribute("aria-expanded") !== "true"
-    ) {
-      return;
-    }
-
-    setOpen(false);
-    toggle.focus();
+    if (event.key === "Escape" && phase === "open") close();
   });
+
+  return { open, close, toggle, isOpen, subscribe };
 }

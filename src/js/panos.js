@@ -1,20 +1,19 @@
-import { gsap } from "../js/gsap.js";
+import { gsap } from "./gsap.js";
 
 export function panosInit(scrollController) {
-  //hide cover pano overlay on click
+  // Hide the cover panorama overlay on click.
   const panoOverlay = document.querySelector(".pano-overlay");
   panoOverlay.addEventListener("click", () => {
     panoOverlay.classList.add("pano-overlay-hidden");
   });
-  //load krpano script
-  // when loaded, create the panos
-  let krpanoScript = document.createElement("script");
+
+  // Load the krpano script, then create the panoramas.
+  const krpanoScript = document.createElement("script");
   krpanoScript.setAttribute("src", "/tours/krpano.js");
   krpanoScript.setAttribute("type", "text/javascript");
   document.body.appendChild(krpanoScript);
 
   krpanoScript.addEventListener("load", () => {
-    // embed the panos
     const coverPano = document.getElementById("pano-cover");
 
     embedpano({
@@ -24,39 +23,32 @@ export function panosInit(scrollController) {
 
     embedpano({
       xml: "/tours/solaris/tour.xml",
-      target: "pano-solaris", // the id without #
+      target: "pano-solaris",
     });
     embedpano({
       xml: "/tours/vertigo/tour.xml",
-      target: "pano-vertigo", // the id without #
+      target: "pano-vertigo",
     });
 
-    //////MODAL WINDOW FOR PANO PROJECTS
-
     let toursPagePosition;
-
-    // create the
-    // gsap timelines
     const showModalToursTl = gsap
       .timeline({ paused: true })
       .fromTo(
         ".modal-tours",
         { autoAlpha: 0 },
-        { autoAlpha: 1, duration: 0.2 }
+        { autoAlpha: 1, duration: 0.2 },
       );
 
     const showModalTours = (project) => {
       toursPagePosition = scrollController.capturePosition();
       tourModalActive = true;
-      //hide all panos
       document
         .querySelectorAll(".modal-pano")
-        .forEach((panoEl) => panoEl.classList.add("hidden"));
-      //show the selected pano
+        .forEach((panoElement) => panoElement.classList.add("hidden"));
       document.querySelector(`#pano-${project}`).classList.remove("hidden");
-      // modal animation to show
       showModalToursTl.restart();
     };
+
     const hideModalTours = () => {
       tourModalActive = false;
       gsap.to(".modal-tours", {
@@ -68,27 +60,20 @@ export function panosInit(scrollController) {
       });
     };
 
-    // load panos on modal windows
     const toursProjects = document.querySelector(".tours-proj");
-    const btnClose = document.querySelector(".modal-tours .modal-close");
-
+    const closeButton = document.querySelector(".modal-tours .modal-close");
     let tourModalActive = false;
-    toursProjects.addEventListener("click", (e) => {
-      const projClicked = e.target.closest(".tour-item");
-      if (!projClicked) return;
-      const project = projClicked.dataset.project;
-      showModalTours(project);
+
+    toursProjects.addEventListener("click", (event) => {
+      const projectElement = event.target.closest(".tour-item");
+      if (!projectElement) return;
+      showModalTours(projectElement.dataset.project);
     });
 
-    btnClose.addEventListener("click", () => {
-      hideModalTours();
-    });
+    closeButton.addEventListener("click", hideModalTours);
 
-    // also hide modal on escape
-    window.addEventListener("keydown", function (e) {
-      // close
-      if (tourModalActive && e.key === "Escape") hideModalTours();
+    window.addEventListener("keydown", (event) => {
+      if (tourModalActive && event.key === "Escape") hideModalTours();
     });
   });
-  // end of "load" event listener
 }
