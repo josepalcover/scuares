@@ -57,7 +57,9 @@ export function navCommercialInit(scrollController, contact) {
   offscreenNav.addEventListener("click", hideNav);
 
   const scrollToSection = (target) => {
-    scrollController.scrollTo(target === "#home" ? 0 : target);
+    scrollController.scrollTo(target === "#home" ? 0 : target, {
+      autoKill: false,
+    });
   };
 
   nav.addEventListener("click", (event) => {

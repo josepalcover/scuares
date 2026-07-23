@@ -227,7 +227,9 @@ const commercialContactEmail = "projects@scuares.com";
               <PictureHero
                 src={HERO_SLIDES[0].src}
                 alt={HERO_ALT}
-                priority
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
                 pictureAttributes={{
                   "data-hero-current": "",
                   "data-logo": HERO_SLIDES[0].logoTheme,
@@ -329,10 +331,10 @@ const commercialContactEmail = "projects@scuares.com";
                 class="video-films"
                 muted
                 playsinline
-                autoplay
                 loop
-                poster={posterFilms.src}
-                src="/videos/video_films_3mbps.mp4"
+                preload="none"
+                data-poster={posterFilms.src}
+                data-src="/videos/video_films_3mbps.mp4"
               >
               </video>
             </div>

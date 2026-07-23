@@ -22,7 +22,9 @@ const [initialSlide] = HERO_SLIDES;
     <PictureHero
       src={initialSlide.src}
       alt={HERO_ALT}
-      priority
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
       pictureAttributes={{
         "data-hero-current": "",
         "data-logo": initialSlide.logoTheme,

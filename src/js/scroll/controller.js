@@ -113,6 +113,17 @@ export function createScrollController({
       onStart,
       onComplete: () => {
         if (pageScrollTween === tween) pageScrollTween = undefined;
+
+        // Explicit navigation disables autoKill so mobile viewport movement
+        // cannot abort it. Re-read the destination once loading has settled
+        // and correct any small drift before announcing completion.
+        if (!autoKill) {
+          const settledY = getTargetPosition(target);
+          if (settledY !== null && Math.abs(window.scrollY - settledY) > 1) {
+            window.scrollTo(window.scrollX, settledY);
+          }
+        }
+
         currentIndex =
           finalIndex === undefined ? syncIndex() : clampIndex(finalIndex);
         onComplete?.();
@@ -186,7 +197,10 @@ export function createScrollController({
     const target = event.currentTarget.dataset.scrollTarget;
     if (!target) return;
 
-    scrollTo(target, { duration: SCROLL_CONFIG.slideAnimationDuration });
+    scrollTo(target, {
+      duration: SCROLL_CONFIG.slideAnimationDuration,
+      autoKill: false,
+    });
   }
 
   scrollTargets.forEach((element) => {

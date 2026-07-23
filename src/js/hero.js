@@ -18,8 +18,10 @@ function getLogoTheme(theme) {
 function getSlides(template) {
   return [...template.content.querySelectorAll("picture[data-hero-slide]")].map(
     (picture) => ({
-      picture,
+      template: picture,
       logoTheme: getLogoTheme(picture.dataset.logo),
+      preparedPicture: undefined,
+      preparePromise: undefined,
     }),
   );
 }
@@ -42,30 +44,44 @@ function waitForImage(image) {
 }
 
 async function prepareSlide(frame, slide) {
-  const picture = slide.picture.cloneNode(true);
-  const image = picture.querySelector("img");
-  if (!image) {
-    throw new Error("Hero slide is missing its fallback image");
-  }
+  if (slide.preparedPicture) return slide.preparedPicture;
+  if (slide.preparePromise) return slide.preparePromise;
 
-  picture.removeAttribute("data-hero-slide");
-  picture.setAttribute("data-hero-pending", "");
-  picture.setAttribute("aria-hidden", "true");
-  image.loading = "eager";
-  image.decoding = "async";
-  frame.append(picture);
+  slide.preparePromise = (async () => {
+    const picture = slide.template.cloneNode(true);
+    const image = picture.querySelector("img");
+    if (!image) {
+      throw new Error("Hero slide is missing its fallback image");
+    }
+
+    picture.removeAttribute("data-hero-slide");
+    picture.setAttribute("data-hero-pending", "");
+    picture.setAttribute("aria-hidden", "true");
+    image.loading = "eager";
+    image.decoding = "async";
+    frame.append(picture);
+
+    try {
+      await waitForImage(image);
+      await image.decode?.().catch(() => {});
+      slide.preparedPicture = picture;
+      return picture;
+    } catch (error) {
+      picture.remove();
+      throw error;
+    }
+  })();
 
   try {
-    await waitForImage(image);
-    await image.decode?.().catch(() => {});
-    return picture;
+    return await slide.preparePromise;
   } catch (error) {
-    picture.remove();
+    slide.preparePromise = undefined;
     throw error;
   }
 }
 
 function applySlide(currentPicture, logo, slide, nextPicture) {
+  currentPicture.removeAttribute("data-hero-current");
   currentPicture.replaceWith(nextPicture);
   nextPicture.removeAttribute("data-hero-pending");
   nextPicture.removeAttribute("aria-hidden");
@@ -78,12 +94,24 @@ function applySlide(currentPicture, logo, slide, nextPicture) {
   return nextPicture;
 }
 
+function isHeroVisible(frame) {
+  if (document.hidden) return false;
+
+  const bounds = frame.getBoundingClientRect();
+  return bounds.bottom > 0 && bounds.top < window.innerHeight;
+}
+
 async function runSequence(frame, currentPicture, logo, slides, interval) {
   let currentIndex = 0;
 
   if (slides.length === 1) return;
 
   while (true) {
+    if (!isHeroVisible(frame)) {
+      await delay(interval);
+      continue;
+    }
+
     const nextIndex = (currentIndex + 1) % slides.length;
     const nextSlide = slides[nextIndex];
 
@@ -92,18 +120,20 @@ async function runSequence(frame, currentPicture, logo, slides, interval) {
       prepareSlide(frame, nextSlide),
     ]);
 
-    if (results[1].status === "fulfilled") {
+    if (results[1].status === "rejected") {
+      console.warn(results[1].reason);
+      continue;
+    }
+
+    if (isHeroVisible(frame)) {
       currentPicture = applySlide(
         currentPicture,
         logo,
         nextSlide,
         results[1].value,
       );
-    } else {
-      console.warn(results[1].reason);
+      currentIndex = nextIndex;
     }
-
-    currentIndex = nextIndex;
   }
 }
 
@@ -120,6 +150,11 @@ export function heroInit() {
 
     const slides = getSlides(template);
     if (slides.length === 0) return;
+
+    // The first slide is already rendered and decoded by the browser. Reuse
+    // that same node when the sequence loops instead of decoding it again.
+    slides[0].preparedPicture = currentPicture;
+    slides[0].preparePromise = Promise.resolve(currentPicture);
 
     initializedHeroes.add(hero);
 

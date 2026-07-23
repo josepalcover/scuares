@@ -35,6 +35,48 @@ const contact = contactCommercialInit(contactModal);
 navCommercialInit(scrollController, contact);
 filmModalInit(scrollController);
 
+function initFilmCoverVideo() {
+  const video = document.querySelector(".video-films");
+  if (!video) return;
+
+  let loadTimer;
+  let loaded = false;
+
+  function loadAndPlay() {
+    if (!loaded) {
+      video.poster = video.dataset.poster ?? "";
+      video.src = video.dataset.src ?? "";
+      loaded = true;
+    }
+    video.play().catch(() => {});
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    loadAndPlay();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      window.clearTimeout(loadTimer);
+
+      if (!entry?.isIntersecting) {
+        if (loaded) video.pause();
+        return;
+      }
+
+      // A long anchor animation can sweep past this section. Requiring it to
+      // remain nearby avoids starting a large video during that scroll.
+      loadTimer = window.setTimeout(loadAndPlay, 400);
+    },
+    { threshold: 0.25 },
+  );
+
+  observer.observe(video);
+}
+
+initFilmCoverVideo();
+
 window.addEventListener("load", () => {
   heroInit();
 

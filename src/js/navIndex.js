@@ -22,7 +22,7 @@ export function navIndexInit(scrollController, contact) {
 
     event.preventDefault();
     const target = clickedLink.dataset.goto ?? clickedLink.getAttribute("href");
-    if (target) scrollController.scrollTo(target);
+    if (target) scrollController.scrollTo(target, { autoKill: false });
   });
 
   contactButton.addEventListener("click", () => {
