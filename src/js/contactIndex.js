@@ -1,39 +1,68 @@
-import { SINGLE_COLUMN_QUERY } from "../styles/breakpoints.js";
 import { SCROLL_CONFIG } from "./scroll/config.js";
+import { NAV_DOCK_ANCHOR_SELECTOR, syncNavDocking } from "./navDock.js";
+
+const REPEAT_TOGGLE_GUARD_MS = 300;
 
 export function contactIndexInit(contactModal, scrollController) {
   if (!contactModal) return null;
 
-  const navDockSection = document.querySelector(".nav-dock-section");
-  const singleColumnLayout = window.matchMedia(SINGLE_COLUMN_QUERY);
+  const nav = document.querySelector(".nav-main");
+  const navDockAnchor = document.querySelector(NAV_DOCK_ANCHOR_SELECTOR);
   let isDockingForModal = false;
+  let ignoreToggleUntil = 0;
+
+  function openModal(options) {
+    contactModal.open(options);
+    ignoreToggleUntil = performance.now() + REPEAT_TOGGLE_GUARD_MS;
+  }
+
+  function finishDocking(options, allowCorrection = true) {
+    requestAnimationFrame(() => {
+      const isDocked = syncNavDocking(nav, navDockAnchor);
+
+      if (isDocked) {
+        isDockingForModal = false;
+        openModal(options);
+        return;
+      }
+
+      if (allowCorrection) {
+        const correctionTween = scrollController.scrollTo(navDockAnchor, {
+          duration: 0,
+          autoKill: false,
+          onComplete: () => finishDocking(options, false),
+          onInterrupt: () => {
+            isDockingForModal = false;
+          },
+        });
+
+        if (correctionTween) return;
+      }
+
+      isDockingForModal = false;
+    });
+  }
 
   function open(options = {}) {
+    if (contactModal.isOpen() || isDockingForModal) return;
+
     if (scrollController.isLocked) {
-      contactModal.open(options);
+      openModal(options);
       return;
     }
 
-    const shouldDockFirst =
-      singleColumnLayout.matches &&
-      navDockSection &&
-      navDockSection.getBoundingClientRect().top > 0;
-
-    if (!shouldDockFirst) {
-      contactModal.open(options);
+    if (!navDockAnchor || syncNavDocking(nav, navDockAnchor)) {
+      openModal(options);
       return;
     }
 
-    if (isDockingForModal) return;
     isDockingForModal = true;
 
-    const dockingTween = scrollController.scrollTo(navDockSection, {
+    const dockingTween = scrollController.scrollTo(navDockAnchor, {
       duration: SCROLL_CONFIG.slideAnimationDuration,
       ease: "power2.out",
-      onComplete: () => {
-        isDockingForModal = false;
-        requestAnimationFrame(() => contactModal.open(options));
-      },
+      autoKill: false,
+      onComplete: () => finishDocking(options),
       onInterrupt: () => {
         isDockingForModal = false;
       },
@@ -43,6 +72,8 @@ export function contactIndexInit(contactModal, scrollController) {
   }
 
   function toggle(options = {}) {
+    if (isDockingForModal || performance.now() < ignoreToggleUntil) return;
+
     if (contactModal.isOpen()) {
       contactModal.close();
     } else {

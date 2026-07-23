@@ -3,6 +3,9 @@ import { heroInit } from "./hero.js";
 import { createContactModal } from "./contactModal.js";
 import { contactIndexInit } from "./contactIndex.js";
 import { createScrollController } from "./scroll/controller.js";
+import { galleryPreloadInit } from "./galleryPreload.js";
+
+galleryPreloadInit();
 
 const scrollController = createScrollController();
 const contactModal = createContactModal(scrollController);

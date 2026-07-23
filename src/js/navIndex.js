@@ -1,9 +1,10 @@
 import { gsap, ScrollTrigger } from "./gsap.js";
 import { SCROLL_CONFIG } from "./scroll/config.js";
+import { NAV_DOCK_ANCHOR_SELECTOR, syncNavDocking } from "./navDock.js";
 
 export function navIndexInit(scrollController, contact) {
   const nav = document.querySelector(".nav-main");
-  const navDockAnchor = document.querySelector("[data-nav-dock-anchor]");
+  const navDockAnchor = document.querySelector(NAV_DOCK_ANCHOR_SELECTOR);
   const logo = nav?.querySelector(".logo");
   const contactButton = nav?.querySelector("[data-contact-toggle]");
 
@@ -48,14 +49,8 @@ export function navIndexInit(scrollController, contact) {
     }
   });
 
-  function updateDocking(isFixed) {
-    nav.classList.toggle("nav-main--fixed", isFixed);
-    nav.classList.toggle("nav-main--docked", !isFixed);
-  }
-
   function syncDocking() {
-    if (!navDockAnchor) return;
-    updateDocking(navDockAnchor.getBoundingClientRect().top <= 0);
+    syncNavDocking(nav, navDockAnchor);
   }
 
   if (navDockAnchor) {
@@ -64,8 +59,9 @@ export function navIndexInit(scrollController, contact) {
       start: "top top",
       end: "max",
       invalidateOnRefresh: true,
-      onEnter: () => updateDocking(true),
-      onLeaveBack: () => updateDocking(false),
+      onEnter: syncDocking,
+      onLeaveBack: syncDocking,
+      onUpdate: syncDocking,
       onRefresh: syncDocking,
     });
     syncDocking();

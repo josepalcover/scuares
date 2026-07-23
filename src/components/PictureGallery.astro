@@ -24,8 +24,8 @@ const {
   src,
   alt,
   class: className,
-  loading,
-  decoding,
+  loading = "lazy",
+  decoding = "async",
   fetchpriority,
   priority,
   pictureAttributes,
@@ -36,6 +36,7 @@ const {
   src={src}
   alt={alt}
   class={className}
+  data-gallery-image=""
   formats={PICTURE_FORMATS}
   fallbackFormat={PICTURE_FALLBACK_FORMAT}
   widths={PICTURE_WIDTHS}
@@ -45,5 +46,8 @@ const {
   decoding={decoding}
   fetchpriority={fetchpriority}
   priority={priority}
-  pictureAttributes={pictureAttributes}
+  pictureAttributes={{
+    ...pictureAttributes,
+    "data-gallery-picture": "",
+  }}
 />
