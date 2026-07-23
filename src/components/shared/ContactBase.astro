@@ -1,20 +1,26 @@
 ---
 interface Props {
   variant?: "inline" | "modal";
-  text?: string;
-  email?: string;
+  heading: string;
+  text: string;
+  email: string;
+  instagramLabel: string;
+  instagramHandle: string;
+  instagramUrl: string;
 }
 
 const {
   variant = "inline",
-  text = `We work with architects worldwide,
-in English, Spanish and Catalan.
-Tell us about your project,
-we'll get back to you.`,
-  email = "info@scuares.com",
+  heading,
+  text,
+  email,
+  instagramLabel,
+  instagramHandle,
+  instagramUrl,
 } = Astro.props;
 const isModal = variant === "modal";
 const copyStatusId = `email-copy-status-${variant}`;
+const headingLines = heading.split("\n");
 const textLines = text.split("\n");
 ---
 
@@ -34,8 +40,14 @@ const textLines = text.split("\n");
     <div class="text-box">
       <p class="text-normal">
         <span class="contact-heading">
-          Get in<br />
-          touch.
+          {
+            headingLines.map((line, index) => (
+              <>
+                {line}
+                {index < headingLines.length - 1 && <br />}
+              </>
+            ))
+          }
         </span>
         <span class="contact-copy">
           {
@@ -65,12 +77,12 @@ const textLines = text.split("\n");
         </span>
         <a
           class="instagram-link"
-          href="https://instagram.com/scuares.studio"
+          href={instagramUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
-          instagram<br />
-          @scuares.studio
+          {instagramLabel}<br />
+          {instagramHandle}
         </a>
       </p>
     </div>
