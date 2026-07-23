@@ -1,0 +1,74 @@
+---
+import tourSolaris from "../../assets/images/tour_solaris.jpg";
+import tourVertigo from "../../assets/images/tour_vertigo.jpg";
+import Credit from "../shared/Credit.astro";
+import PictureGallery from "../shared/PictureGallery.astro";
+---
+
+<!-- =======================
+  TOURS
+============================ -->
+<div class="section" id="tours">
+  <section class="cover tours-main snap">
+    <div class="cover-text">
+      <h2 class="header-sub">360 VIRTUAL TOURS</h2>
+      <h3 class="header-main">
+        Look around,<br />
+        Move around
+      </h3>
+      <p class="text-1">
+        We bring your clients inside your designs making it possible for them to
+        feel and explore photorealistic virtual spaces as if they were actually
+        there. Our 360º virtual tours do not require any special equipment and
+        they can easily be hosted online. They can be played from anywhere with
+        a smartphone, tablet, computer or a virtual reality headset.
+      </p>
+    </div>
+    <div class="cover-content">
+      <div class="pano" id="pano-cover" data-pano-folder="dubai"></div>
+      <Credit
+        class="c-cover"
+        author="External Reference + OnionLab"
+        project="Spanish Pavilion. Expo Dubai 2020"
+      />
+
+      <div class="pano-overlay">
+        <p class="pano-click-text">Click and Drag</p>
+        <div class="pano-play">PLAY 360</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tours-proj snap" id="tours-proj">
+    <div class="tour-item" data-project="solaris">
+      <PictureGallery
+        src={tourSolaris}
+        alt="Photorealistic interior 3D Rendering of a luxury bathroom in a contamporary villa designed by Justyna Gornicka in Switzerland. Residential real estate project. Still CG Image produced by Scuares, an architectural visualization studio"
+      />
+      <div class="btn-box">
+        <button class="btn-play">360</button>
+        <h4 class="btn-proj">Play <br />Solaris <br />Tour</h4>
+      </div>
+    </div>
+
+    <div class="tour-item" data-project="vertigo">
+      <PictureGallery
+        src={tourVertigo}
+        alt="Photorealistic exterior 3D Rendering of a luxury housing complex designed by Justyna Gornicka in Switzerland. Residential real estate project. Still CG Image produced by Scuares, an architectural visualization studio"
+      />
+      <div class="btn-box">
+        <button class="btn-play">360</button>
+        <h4 class="btn-proj">Play <br />Vertigo<br />Tour</h4>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="modal-tours modal-solaris">
+  <div class="modal-pano hidden" id="pano-solaris"></div>
+  <div class="modal-pano hidden" id="pano-vertigo"></div>
+  <button class="modal-close" type="button" aria-label="Close tour">
+    <span class="line-close line-close1"></span>
+    <span class="line-close line-close2"></span>
+  </button>
+</div>

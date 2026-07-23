@@ -6,12 +6,7 @@ interface Props {
   class?: string;
 }
 
-const {
-  author,
-  project,
-  hidden = false,
-  class: className,
-} = Astro.props;
+const { author, project, hidden = false, class: className } = Astro.props;
 ---
 
 <div class:list={["credit", { "c-hide": hidden }, className]}>

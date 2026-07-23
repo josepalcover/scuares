@@ -1,0 +1,42 @@
+---
+import walkewegA from "../../assets/images/walkeweg_a.jpg";
+import Credit from "../shared/Credit.astro";
+import PictureGallery from "../shared/PictureGallery.astro";
+---
+
+<!--==============================
+  ABOUT
+===============================-->
+<section class="cover snap" id="about">
+  <div class="cover-text">
+    <h3 class="header-sub">ABOUT</h3>
+    <h4 class="header-main">Our services.</h4>
+    <p class="text-1">
+      We create all types of 3d visuals to bring projects to life. <br />
+      <br />
+      <a
+        class="about-service-link"
+        href="#films"
+        aria-label="Scroll to the films section">Films →</a
+      ><br />
+      <a
+        class="about-service-link"
+        href="#images"
+        aria-label="Scroll to the images section">Images →</a
+      ><br />
+      <a
+        class="about-service-link"
+        href="#tours"
+        aria-label="Scroll to the tours section">Tours →</a
+      ><br />
+    </p>
+  </div>
+
+  <div class="cover-content img-full">
+    <PictureGallery
+      src={walkewegA}
+      alt="Photorealistic exterior 3D Rendering of a real estate residential deveoplment in Gland, Switzerland. Human eye level view. Facade detail at sunset. Still CG image produced by Scuares, an architectural visualization studio"
+    />
+    <Credit author="Architect" project="Housing project in Gland" />
+  </div>
+</section>

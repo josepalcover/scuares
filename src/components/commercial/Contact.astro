@@ -1,0 +1,17 @@
+---
+import Contact from "../shared/Contact.astro";
+
+interface Props {
+  variant?: "inline" | "modal";
+}
+
+const { variant = "inline" } = Astro.props;
+const text = `We work with developers,
+real estate marketing agencies
+and builders internationally.
+in English, Spanish and Catalan.
+Tell us about your project
+and we'll get back to you.`;
+---
+
+<Contact variant={variant} text={text} email="projects@scuares.com" />

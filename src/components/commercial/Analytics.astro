@@ -1,0 +1,33 @@
+<script
+  is:inline
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=AW-807551184"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "AW-807551184");
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const contactSection = document.getElementById("contact");
+    if (!contactSection) return;
+
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            gtag("event", "conversion", {
+              send_to: "AW-807551184/Dd25CNvZ0_8bENCBiYED",
+            });
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.4 },
+    );
+
+    observer.observe(contactSection);
+  });
+</script>

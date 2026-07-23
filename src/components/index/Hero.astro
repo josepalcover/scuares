@@ -1,8 +1,20 @@
 ---
-import PictureHero from "./PictureHero.astro";
-import { HERO_ALT, HERO_SLIDES } from "../config/heroSlides.js";
+import PictureHero from "../shared/PictureHero.astro";
+import baselA from "../../assets/images/basel_a.jpg";
+import baselB from "../../assets/images/basel_b.jpg";
+import puglia from "../../assets/images/puglia.jpg";
+import walkewegA from "../../assets/images/walkeweg_a.jpg";
+import walkewegB from "../../assets/images/walkeweg_b.jpg";
 
-const [initialSlide] = HERO_SLIDES;
+const heroAlt = "Photorealistic architectural visualization by Scuares";
+const heroSlides = [
+  { src: walkewegB, logoTheme: "light" },
+  { src: puglia, logoTheme: "dark" },
+  { src: walkewegA, logoTheme: "light" },
+  { src: baselB, logoTheme: "light" },
+  { src: baselA, logoTheme: "light" },
+];
+const [initialSlide] = heroSlides;
 ---
 
 <!--==============================
@@ -21,7 +33,7 @@ const [initialSlide] = HERO_SLIDES;
   <div class="img-hero">
     <PictureHero
       src={initialSlide.src}
-      alt={HERO_ALT}
+      alt={heroAlt}
       loading="eager"
       decoding="async"
       fetchpriority="high"
@@ -33,10 +45,10 @@ const [initialSlide] = HERO_SLIDES;
 
     <template data-hero-slides>
       {
-        HERO_SLIDES.map((slide) => (
+        heroSlides.map((slide) => (
           <PictureHero
             src={slide.src}
-            alt={HERO_ALT}
+            alt={heroAlt}
             pictureAttributes={{
               "data-hero-slide": "",
               "data-logo": slide.logoTheme,

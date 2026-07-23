@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content={description} />
+<meta
+  name="google-site-verification"
+  content="Oc__Wwdl_tRXLnyFebkLVeqprhvqnJwN6DI6k9S0lB0"
+/>
+<title>{title}</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
