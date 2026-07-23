@@ -1,6 +1,10 @@
 import { gsap, ScrollTrigger } from "./gsap.js";
 import { SCROLL_CONFIG } from "./scroll/config.js";
-import { NAV_DOCK_ANCHOR_SELECTOR, syncNavDocking } from "./navDock.js";
+import {
+  NAV_DOCK_ANCHOR_SELECTOR,
+  NAV_DOCK_TOLERANCE,
+  syncNavDocking,
+} from "./navDock.js";
 
 export function navIndexInit(scrollController, contact) {
   const nav = document.querySelector(".nav-main");
@@ -56,7 +60,7 @@ export function navIndexInit(scrollController, contact) {
   if (navDockAnchor) {
     ScrollTrigger.create({
       trigger: navDockAnchor,
-      start: "top top",
+      start: `top ${NAV_DOCK_TOLERANCE}px`,
       end: "max",
       invalidateOnRefresh: true,
       onEnter: syncDocking,
@@ -65,6 +69,17 @@ export function navIndexInit(scrollController, contact) {
       onRefresh: syncDocking,
     });
     syncDocking();
+
+    window.addEventListener("pageshow", (event) => {
+      syncDocking();
+
+      if (event.persisted) {
+        requestAnimationFrame(() => {
+          ScrollTrigger.refresh();
+          syncDocking();
+        });
+      }
+    });
   }
 
   function updateTheme(slide) {
