@@ -3,7 +3,7 @@ import { SCROLL_CONFIG } from "./scroll/config.js";
 
 export function navIndexInit(scrollController, contact) {
   const nav = document.querySelector(".nav-main");
-  const navDockSection = document.querySelector(".nav-dock-section");
+  const navDockAnchor = document.querySelector("[data-nav-dock-anchor]");
   const logo = nav?.querySelector(".logo");
   const contactButton = nav?.querySelector("[data-contact-toggle]");
 
@@ -54,13 +54,13 @@ export function navIndexInit(scrollController, contact) {
   }
 
   function syncDocking() {
-    if (!navDockSection) return;
-    updateDocking(navDockSection.getBoundingClientRect().top <= 0);
+    if (!navDockAnchor) return;
+    updateDocking(navDockAnchor.getBoundingClientRect().top <= 0);
   }
 
-  if (navDockSection) {
+  if (navDockAnchor) {
     ScrollTrigger.create({
-      trigger: navDockSection,
+      trigger: navDockAnchor,
       start: "top top",
       end: "max",
       invalidateOnRefresh: true,

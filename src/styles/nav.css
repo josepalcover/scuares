@@ -9,6 +9,15 @@
 
 /*NAV MAIN SITE*/
 
+.nav-dock-anchor {
+  position: absolute;
+  top: var(--hero-height);
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
 .nav-main {
   width: 100%;
   display: flex;
