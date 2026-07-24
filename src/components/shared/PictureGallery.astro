@@ -8,9 +8,10 @@ import {
   PICTURE_QUALITY,
   PICTURE_WIDTHS,
 } from "../../config/pictures.js";
+import { resolveImage } from "../../config/imageRegistry.js";
 
 interface Props {
-  src: ImageMetadata;
+  src: string | ImageMetadata;
   alt: string;
   class?: string;
   loading?: "eager" | "lazy";
@@ -21,7 +22,7 @@ interface Props {
 }
 
 const {
-  src,
+  src: source,
   alt,
   class: className,
   loading = "lazy",
@@ -30,6 +31,8 @@ const {
   priority,
   pictureAttributes,
 } = Astro.props;
+
+const src = await resolveImage(source);
 ---
 
 <Picture

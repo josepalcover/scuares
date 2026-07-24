@@ -1,19 +1,11 @@
 ---
 import PictureHero from "../shared/PictureHero.astro";
-import baselA from "../../assets/images/basel_a.jpg";
-import baselB from "../../assets/images/basel_b.jpg";
-import puglia from "../../assets/images/puglia.jpg";
-import walkewegA from "../../assets/images/walkeweg_a.jpg";
-import walkewegB from "../../assets/images/walkeweg_b.jpg";
 
-const heroAlt = "Photorealistic architectural visualization by Scuares";
-const heroSlides = [
-  { src: walkewegB, logoTheme: "light" },
-  { src: puglia, logoTheme: "dark" },
-  { src: walkewegA, logoTheme: "light" },
-  { src: baselB, logoTheme: "light" },
-  { src: baselA, logoTheme: "light" },
-];
+interface Props {
+  slides: Array<{ src: string; alt: string; logoTheme: string }>;
+}
+
+const { slides: heroSlides } = Astro.props;
 const [initialSlide] = heroSlides;
 ---
 
@@ -26,7 +18,7 @@ const [initialSlide] = heroSlides;
       <div class="img-hero">
         <PictureHero
           src={initialSlide.src}
-          alt={heroAlt}
+          alt={initialSlide.alt}
           loading="eager"
           decoding="async"
           fetchpriority="high"
@@ -41,7 +33,7 @@ const [initialSlide] = heroSlides;
             heroSlides.map((slide) => (
               <PictureHero
                 src={slide.src}
-                alt={heroAlt}
+                alt={slide.alt}
                 pictureAttributes={{
                   "data-hero-slide": "",
                   "data-logo": slide.logoTheme,

@@ -1,9 +1,8 @@
 ---
-import filmSolaris from "../../assets/images/film_solaris.jpg";
-import filmVertigo from "../../assets/images/film_vertigo.jpg";
-import filmVilla from "../../assets/images/film_villa.jpg";
-import posterFilms from "../../assets/images/poster_films.jpg";
+import { getImage } from "../../config/imageRegistry.js";
 import PictureGallery from "../shared/PictureGallery.astro";
+
+const posterFilms = await getImage("poster_films");
 ---
 
 <!--==============================
@@ -52,7 +51,7 @@ import PictureGallery from "../shared/PictureGallery.astro";
           Architect: Justyna Gornicka - Hervé De Giovannini Architecte"
       >
         <PictureGallery
-          src={filmSolaris}
+          src="film_solaris"
           class="film-img"
           alt="Photorealistic exterior 3D Rendering of a modern contemprary villa designed by Justyna Gornicka - Hervé De Giovannini Architecte. Still CG Image produced by Scuares, an architectural visualization studio"
         />
@@ -81,7 +80,7 @@ import PictureGallery from "../shared/PictureGallery.astro";
         data-description="A 3d rendered architectural walkthrough of a refurbished heritage villa. A video created to showcase both the spaces and the essence of the project. It includes fully computer generated scenes along with composites of drone footage and rendered animations."
       >
         <PictureGallery
-          src={filmVilla}
+          src="film_villa"
           class="film-img"
           alt="Photorealistic exterior 3D Rendering of a traditional villa with a pool in France. Still CG image produced by Scuares, an architectural visualization studio"
         />
@@ -113,7 +112,7 @@ import PictureGallery from "../shared/PictureGallery.astro";
           Architects: Justyna Gornicka - Hervé De Giovannini Architecte"
       >
         <PictureGallery
-          src={filmVertigo}
+          src="film_vertigo"
           class="film-img"
           alt="Photorealistic exteriorn 3D Rendering of a modern housing complex in Switzerland designed by Hervé DeGiovannini Architecte. With contemporary metal facade design. Still CG Image produced by Scuares, an architectural visualization studio"
         />
