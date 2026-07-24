@@ -1,12 +1,5 @@
 ---
 import PictureHero from "../shared/PictureHero.astro";
-
-interface Props {
-  slides: Array<{ src: string; alt: string; logoTheme: string }>;
-}
-
-const { slides: heroSlides } = Astro.props;
-const [initialSlide] = heroSlides;
 ---
 
 <!--==============================
@@ -24,30 +17,58 @@ const [initialSlide] = heroSlides;
   <div class="logo-hero" data-hero-logo>scuares</div>
   <div class="img-hero">
     <PictureHero
-      src={initialSlide.src}
-      alt={initialSlide.alt}
+      src="walkeweg_b"
+      alt="Photorealistic architectural visualization by Scuares"
       loading="eager"
       decoding="async"
       fetchpriority="high"
       pictureAttributes={{
         "data-hero-current": "",
-        "data-logo": initialSlide.logoTheme,
+        "data-logo": "light",
       }}
     />
 
     <template data-hero-slides>
-      {
-        heroSlides.map((slide) => (
-          <PictureHero
-            src={slide.src}
-            alt={slide.alt}
-            pictureAttributes={{
-              "data-hero-slide": "",
-              "data-logo": slide.logoTheme,
-            }}
-          />
-        ))
-      }
+      <PictureHero
+        src="walkeweg_b"
+        alt="Photorealistic architectural visualization by Scuares"
+        pictureAttributes={{
+          "data-hero-slide": "",
+          "data-logo": "light",
+        }}
+      />
+      <PictureHero
+        src="puglia"
+        alt="Photorealistic architectural visualization by Scuares"
+        pictureAttributes={{
+          "data-hero-slide": "",
+          "data-logo": "dark",
+        }}
+      />
+      <PictureHero
+        src="walkeweg_a"
+        alt="Photorealistic architectural visualization by Scuares"
+        pictureAttributes={{
+          "data-hero-slide": "",
+          "data-logo": "light",
+        }}
+      />
+      <PictureHero
+        src="basel_b"
+        alt="Photorealistic architectural visualization by Scuares"
+        pictureAttributes={{
+          "data-hero-slide": "",
+          "data-logo": "light",
+        }}
+      />
+      <PictureHero
+        src="basel_a"
+        alt="Photorealistic architectural visualization by Scuares"
+        pictureAttributes={{
+          "data-hero-slide": "",
+          "data-logo": "light",
+        }}
+      />
     </template>
   </div>
 </section>

@@ -17,34 +17,6 @@ import Images from "../components/commercial/Images.astro";
 import Nav from "../components/commercial/Nav.astro";
 import Tours from "../components/commercial/Tours.astro";
 import PageHead from "../components/shared/PageHead.astro";
-
-const heroSlides = [
-  {
-    src: "walkeweg_b",
-    alt: "Photorealistic architectural visualization by Scuares",
-    logoTheme: "light",
-  },
-  {
-    src: "puglia",
-    alt: "Photorealistic architectural visualization by Scuares",
-    logoTheme: "dark",
-  },
-  {
-    src: "walkeweg_a",
-    alt: "Photorealistic architectural visualization by Scuares",
-    logoTheme: "light",
-  },
-  {
-    src: "basel_b",
-    alt: "Photorealistic architectural visualization by Scuares",
-    logoTheme: "light",
-  },
-  {
-    src: "basel_a",
-    alt: "Photorealistic architectural visualization by Scuares",
-    logoTheme: "light",
-  },
-];
 ---
 
 <!doctype html>
@@ -65,7 +37,7 @@ const heroSlides = [
     <Nav />
 
     <main id="page-content">
-      <Hero slides={heroSlides} />
+      <Hero />
       <About />
       <Films />
       <Images />
