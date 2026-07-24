@@ -42,15 +42,22 @@ function initFilmCoverVideo() {
   const video = document.querySelector(".video-films");
   if (!video) return;
 
+  const about = document.querySelector("#about");
   let loadTimer;
   let loaded = false;
 
+  function preload() {
+    if (loaded) return;
+
+    video.poster = video.dataset.poster ?? "";
+    video.src = video.dataset.src ?? "";
+    video.preload = "auto";
+    video.load();
+    loaded = true;
+  }
+
   function loadAndPlay() {
-    if (!loaded) {
-      video.poster = video.dataset.poster ?? "";
-      video.src = video.dataset.src ?? "";
-      loaded = true;
-    }
+    preload();
     video.play().catch(() => {});
   }
 
@@ -59,7 +66,21 @@ function initFilmCoverVideo() {
     return;
   }
 
-  const observer = new IntersectionObserver(
+  if (about) {
+    const preloadObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting || entry.intersectionRatio < 0.1) return;
+
+        preload();
+        preloadObserver.disconnect();
+      },
+      { threshold: 0.1 },
+    );
+
+    preloadObserver.observe(about);
+  }
+
+  const playbackObserver = new IntersectionObserver(
     ([entry]) => {
       window.clearTimeout(loadTimer);
 
@@ -75,7 +96,7 @@ function initFilmCoverVideo() {
     { threshold: 0.25 },
   );
 
-  observer.observe(video);
+  playbackObserver.observe(video);
 }
 
 initFilmCoverVideo();
