@@ -2,7 +2,6 @@ export function filmModalInit(scrollController) {
   const films = document.querySelector(".films-proj");
   const modal = document.querySelector(".modal-film");
   const playerHost = modal?.querySelector("[data-film-player]");
-  const playerCache = document.querySelector(".film-player-cache");
   const title = modal?.querySelector(".modal-title");
   const description = modal?.querySelector(".modal-description");
   const closeButton = modal?.querySelector(".modal-close");
@@ -11,7 +10,6 @@ export function filmModalInit(scrollController) {
     !films ||
     !modal ||
     !playerHost ||
-    !playerCache ||
     !title ||
     !description ||
     !closeButton
@@ -19,45 +17,50 @@ export function filmModalInit(scrollController) {
     return;
   }
 
-  const players = new Map();
+  const createPlayer = (project) => {
+    if (!project.dataset.src) return;
 
-  films.querySelectorAll(".film-item").forEach((project) => {
     const iframe = document.createElement("iframe");
     iframe.className = "modal-iframe";
     iframe.src = project.dataset.src;
     iframe.title = `${project.dataset.title} film`;
     iframe.allow = "autoplay; fullscreen; picture-in-picture";
     iframe.allowFullscreen = true;
-    iframe.loading = "eager";
-    playerCache.append(iframe);
-    players.set(project, iframe);
-  });
+    return iframe;
+  };
 
   let opener;
   let currentPlayer;
 
+  const destroyPlayer = () => {
+    if (!currentPlayer) return;
+
+    currentPlayer.contentWindow?.postMessage(
+      JSON.stringify({ method: "pause" }),
+      "https://player.vimeo.com",
+    );
+    currentPlayer.remove();
+    currentPlayer = undefined;
+  };
+
   const showModal = (project) => {
-    const player = players.get(project);
+    destroyPlayer();
+    const player = createPlayer(project);
     if (!player) return;
 
     opener = document.activeElement;
-    currentPlayer = player;
-    playerHost.append(player);
     title.textContent = project.dataset.title;
     description.innerHTML = project.dataset.description.replaceAll(
       "(br)",
       "<br>",
     );
+    currentPlayer = player;
+    playerHost.replaceChildren(player);
     modal.hidden = false;
   };
 
   const hideModal = () => {
-    currentPlayer?.contentWindow?.postMessage(
-      JSON.stringify({ method: "pause" }),
-      "https://player.vimeo.com",
-    );
-    if (currentPlayer) playerCache.append(currentPlayer);
-    currentPlayer = undefined;
+    destroyPlayer();
     modal.hidden = true;
     scrollController.scrollTo(films, {
       duration: 0,
