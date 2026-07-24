@@ -6,7 +6,10 @@ import { heroInit } from "./hero.js";
 import { createContactModal } from "./contactModal.js";
 import { contactCommercialInit } from "./contactCommercial.js";
 import { createScrollController } from "./scroll/controller.js";
+import { galleryPreloadInit } from "./galleryPreload.js";
 import { SINGLE_COLUMN_QUERY } from "../styles/breakpoints.js";
+
+galleryPreloadInit();
 
 const singleColumnLayout = window.matchMedia(SINGLE_COLUMN_QUERY);
 const commercialNav = document.querySelector(".nav-commercial");

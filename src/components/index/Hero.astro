@@ -1,0 +1,61 @@
+---
+import PictureHero from "../shared/PictureHero.astro";
+import baselA from "../../assets/images/basel_a.jpg";
+import baselB from "../../assets/images/basel_b.jpg";
+import puglia from "../../assets/images/puglia.jpg";
+import walkewegA from "../../assets/images/walkeweg_a.jpg";
+import walkewegB from "../../assets/images/walkeweg_b.jpg";
+
+const heroAlt = "Photorealistic architectural visualization by Scuares";
+const heroSlides = [
+  { src: walkewegB, logoTheme: "light" },
+  { src: puglia, logoTheme: "dark" },
+  { src: walkewegA, logoTheme: "light" },
+  { src: baselB, logoTheme: "light" },
+  { src: baselA, logoTheme: "light" },
+];
+const [initialSlide] = heroSlides;
+---
+
+<!--==============================
+  HERO - HOME
+ ==============================-->
+<section
+  class="hero-full snap"
+  data-logo="dark"
+  data-contact="dark"
+  data-scroll-target="#about"
+  data-hero-sequence
+  data-hero-interval="3000"
+  id="home"
+>
+  <div class="logo-hero" data-hero-logo>scuares</div>
+  <div class="img-hero">
+    <PictureHero
+      src={initialSlide.src}
+      alt={heroAlt}
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      pictureAttributes={{
+        "data-hero-current": "",
+        "data-logo": initialSlide.logoTheme,
+      }}
+    />
+
+    <template data-hero-slides>
+      {
+        heroSlides.map((slide) => (
+          <PictureHero
+            src={slide.src}
+            alt={heroAlt}
+            pictureAttributes={{
+              "data-hero-slide": "",
+              "data-logo": slide.logoTheme,
+            }}
+          />
+        ))
+      }
+    </template>
+  </div>
+</section>

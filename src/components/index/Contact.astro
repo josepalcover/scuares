@@ -1,0 +1,22 @@
+---
+import ContactBase from "../shared/ContactBase.astro";
+
+interface Props {
+  variant?: "inline" | "modal";
+}
+
+const { variant = "inline" } = Astro.props;
+const contact = {
+  heading: "Get in\ntouch.",
+  text: `We work with architects worldwide,
+in English, Spanish and Catalan.
+Tell us about your project,
+we'll get back to you.`,
+  email: "info@scuares.com",
+  instagramLabel: "instagram",
+  instagramHandle: "@scuares.studio",
+  instagramUrl: "https://instagram.com/scuares.studio",
+};
+---
+
+<ContactBase variant={variant} {...contact} />

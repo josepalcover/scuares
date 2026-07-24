@@ -1,9 +1,14 @@
 import { gsap, ScrollTrigger } from "./gsap.js";
 import { SCROLL_CONFIG } from "./scroll/config.js";
+import {
+  NAV_DOCK_ANCHOR_SELECTOR,
+  NAV_DOCK_TOLERANCE,
+  syncNavDocking,
+} from "./navDock.js";
 
 export function navIndexInit(scrollController, contact) {
   const nav = document.querySelector(".nav-main");
-  const navDockSection = document.querySelector(".nav-dock-section");
+  const navDockAnchor = document.querySelector(NAV_DOCK_ANCHOR_SELECTOR);
   const logo = nav?.querySelector(".logo");
   const contactButton = nav?.querySelector("[data-contact-toggle]");
 
@@ -48,27 +53,33 @@ export function navIndexInit(scrollController, contact) {
     }
   });
 
-  function updateDocking(isFixed) {
-    nav.classList.toggle("nav-main--fixed", isFixed);
-    nav.classList.toggle("nav-main--docked", !isFixed);
-  }
-
   function syncDocking() {
-    if (!navDockSection) return;
-    updateDocking(navDockSection.getBoundingClientRect().top <= 0);
+    syncNavDocking(nav, navDockAnchor);
   }
 
-  if (navDockSection) {
+  if (navDockAnchor) {
     ScrollTrigger.create({
-      trigger: navDockSection,
-      start: "top top",
+      trigger: navDockAnchor,
+      start: `top ${NAV_DOCK_TOLERANCE}px`,
       end: "max",
       invalidateOnRefresh: true,
-      onEnter: () => updateDocking(true),
-      onLeaveBack: () => updateDocking(false),
+      onEnter: syncDocking,
+      onLeaveBack: syncDocking,
+      onUpdate: syncDocking,
       onRefresh: syncDocking,
     });
     syncDocking();
+
+    window.addEventListener("pageshow", (event) => {
+      syncDocking();
+
+      if (event.persisted) {
+        requestAnimationFrame(() => {
+          ScrollTrigger.refresh();
+          syncDocking();
+        });
+      }
+    });
   }
 
   function updateTheme(slide) {

@@ -4,38 +4,21 @@ import "../styles/nav.css";
 import "../styles/images.css";
 import "../styles/contact.css";
 
-import Nav from "../components/Nav.astro";
-import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import Slides from "../components/Slides.astro";
-import Contact from "../components/Contact.astro";
+import About from "../components/index/About.astro";
+import Contact from "../components/index/Contact.astro";
+import Hero from "../components/index/Hero.astro";
+import Images from "../components/index/Images.astro";
+import Nav from "../components/index/Nav.astro";
+import PageHead from "../components/shared/PageHead.astro";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- meta description for SEO-->
-    <meta
-      name="description"
-      content="Architectural Visualization studio that produces cost-effective photorealistic 3D renderings for residential and commercial Real Estate projects. CG Images and Animations."
+    <PageHead
+      title="scuares"
+      description="Architectural Visualization studio that produces cost-effective photorealistic 3D renderings for residential and commercial Real Estate projects. CG Images and Animations."
     />
-
-    <!-- google site ownership verification -->
-    <meta
-      name="google-site-verification"
-      content="Oc__Wwdl_tRXLnyFebkLVeqprhvqnJwN6DI6k9S0lB0"
-    />
-
-    <title>scuares</title>
-
-    <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-    <!-- SCRIPTS -->
 
     <script>
       import "../js/appIndex.js";
@@ -47,7 +30,7 @@ import Contact from "../components/Contact.astro";
     <main id="page-content">
       <Hero />
       <About />
-      <Slides />
+      <Images />
       <Contact />
     </main>
     <Contact variant="modal" />
