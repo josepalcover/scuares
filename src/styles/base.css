@@ -258,6 +258,7 @@ header {
   height: 100%;
   overflow: hidden;
   position: relative;
+  padding: var(--frame-y) var(--frame-x);
 }
 
 .cover-content > picture {
@@ -322,6 +323,9 @@ header {
     grid-template-columns: 1fr;
   }
 
+  .cover-content {
+    padding: 0;
+  }
   .home {
     grid-template-rows: 1fr auto;
   }
