@@ -60,6 +60,10 @@
   background-color: transparent;
 }
 
+.modal-tours[hidden] {
+  display: none;
+}
+
 .hidden {
   display: none;
 }

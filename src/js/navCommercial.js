@@ -17,6 +17,10 @@ export function navCommercialInit(scrollController, contact) {
 
   function showNav() {
     navIsActive = true;
+    hamburger.setAttribute("aria-expanded", "true");
+    hamburger.setAttribute("aria-label", "Close navigation");
+    offscreenNav.setAttribute("aria-hidden", "false");
+    offscreenNav.removeAttribute("inert");
     navTimeline.restart();
     logo.classList.add("logo-nav-active");
     hamburger.classList.add("hamburger-nav-active");
@@ -25,6 +29,10 @@ export function navCommercialInit(scrollController, contact) {
 
   function hideNav() {
     navIsActive = false;
+    hamburger.setAttribute("aria-expanded", "false");
+    hamburger.setAttribute("aria-label", "Open navigation");
+    offscreenNav.setAttribute("aria-hidden", "true");
+    offscreenNav.setAttribute("inert", "");
     navTimeline.reverse();
     logo.classList.remove("logo-nav-active");
     hamburger.classList.remove("hamburger-nav-active");
@@ -55,6 +63,13 @@ export function navCommercialInit(scrollController, contact) {
   });
 
   offscreenNav.addEventListener("click", hideNav);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navIsActive) {
+      hideNav();
+      hamburger.focus({ preventScroll: true });
+    }
+  });
 
   const scrollToSection = (target) => {
     scrollController.scrollTo(target === "#home" ? 0 : target, {

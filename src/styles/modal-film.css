@@ -68,7 +68,7 @@
   transform: none;
 }
 
-@media (max-aspect-ratio: 13/10), (max-width: 800px) {
+@media (--narrow-or-portrait) {
   .modal-film {
     padding: 2rem;
   }
@@ -90,13 +90,13 @@
   }
 }
 
-@media (min-aspect-ratio: 13/10) and (max-width: 1300px) and (min-width: 800.1px) {
+@media (--wide-landscape) and (width <= 1300px) {
   .modal-film .modal-container {
     grid-template-columns: 3fr 2fr;
   }
 }
 
-@media (min-aspect-ratio: 13/10) and (min-width: 800.1px) and (max-height: 450px) {
+@media (--wide-landscape) and (height <= 450px) {
   .modal-film {
     padding: 2rem;
   }
@@ -111,9 +111,7 @@
   }
 }
 
-@media (min-aspect-ratio: 13/10) and (max-width: 700px),
-  (min-width: 600.1px) and (max-width: 800px) and (max-height: 650px),
-  (max-width: 600px) and (max-height: 500px) {
+@media (--film-modal-hide-text) {
   .modal-film .modal-text {
     display: none;
   }
@@ -123,7 +121,7 @@
   }
 }
 
-@media (min-aspect-ratio: 13/10) and (min-width: 800.1px) and (max-height: 300px) {
+@media (--wide-landscape) and (height <= 300px) {
   .modal-film .modal-text {
     display: none;
   }

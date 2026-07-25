@@ -1,13 +1,27 @@
 import { gsap } from "./gsap.js";
 
+const PROJECT_TOURS = {
+  solaris: {
+    label: "Solaris",
+    target: "pano-solaris",
+    xml: "/tours/solaris/tour.xml",
+  },
+  vertigo: {
+    label: "Vertigo",
+    target: "pano-vertigo",
+    xml: "/tours/vertigo/tour.xml",
+  },
+};
+
 export function panosInit(scrollController) {
   // Hide the cover panorama overlay on click.
   const panoOverlay = document.querySelector(".pano-overlay");
-  panoOverlay.addEventListener("click", () => {
+  panoOverlay?.addEventListener("click", () => {
     panoOverlay.classList.add("pano-overlay-hidden");
   });
 
-  // Load the krpano script, then create the panoramas.
+  // Load krpano near the tours section. The cover is the only panorama created
+  // at this point; project panoramas are created on their first explicit open.
   const krpanoScript = document.createElement("script");
   krpanoScript.setAttribute("src", "/tours/krpano.js");
   krpanoScript.setAttribute("type", "text/javascript");
@@ -15,54 +29,70 @@ export function panosInit(scrollController) {
 
   krpanoScript.addEventListener("load", () => {
     const coverPano = document.getElementById("pano-cover");
+    const modal = document.querySelector(".modal-tours");
+    const toursProjects = document.querySelector(".tours-proj");
+    const closeButton = modal?.querySelector(".modal-close");
 
-    embedpano({
-      xml: `/tours/${coverPano.dataset.panoFolder}/pano.xml`,
-      target: coverPano.id,
-    });
+    if (coverPano?.dataset.panoFolder) {
+      embedpano({
+        xml: `/tours/${coverPano.dataset.panoFolder}/pano.xml`,
+        target: coverPano.id,
+      });
+    }
 
-    embedpano({
-      xml: "/tours/solaris/tour.xml",
-      target: "pano-solaris",
-    });
-    embedpano({
-      xml: "/tours/vertigo/tour.xml",
-      target: "pano-vertigo",
-    });
+    if (!modal || !toursProjects || !closeButton) return;
 
+    const initializedProjects = new Set();
     let toursPagePosition;
-    const showModalToursTl = gsap
-      .timeline({ paused: true })
-      .fromTo(
-        ".modal-tours",
-        { autoAlpha: 0 },
-        { autoAlpha: 1, duration: 0.2 },
-      );
+    let tourModalActive = false;
+    let opener;
+
+    const initializeProject = (project) => {
+      const tour = PROJECT_TOURS[project];
+      if (!tour || initializedProjects.has(project)) return;
+
+      embedpano({ xml: tour.xml, target: tour.target });
+      initializedProjects.add(project);
+    };
 
     const showModalTours = (project) => {
+      const tour = PROJECT_TOURS[project];
+      if (!tour) return;
+
       toursPagePosition = scrollController.capturePosition();
+      opener = document.activeElement;
       tourModalActive = true;
-      document
+      modal
         .querySelectorAll(".modal-pano")
         .forEach((panoElement) => panoElement.classList.add("hidden"));
-      document.querySelector(`#pano-${project}`).classList.remove("hidden");
-      showModalToursTl.restart();
+      document.getElementById(tour.target)?.classList.remove("hidden");
+      modal.hidden = false;
+      modal.setAttribute("aria-label", `${tour.label} virtual tour`);
+      initializeProject(project);
+      gsap.fromTo(
+        modal,
+        { autoAlpha: 0 },
+        { autoAlpha: 1, duration: 0.2, overwrite: true },
+      );
+      closeButton.focus({ preventScroll: true });
     };
 
     const hideModalTours = () => {
+      if (!tourModalActive) return;
+
       tourModalActive = false;
-      gsap.to(".modal-tours", {
+      gsap.to(modal, {
         autoAlpha: 0,
         duration: 0.2,
+        overwrite: true,
         onComplete: () => {
+          modal.hidden = true;
           scrollController.restorePosition(toursPagePosition);
+          if (opener?.isConnected) opener.focus({ preventScroll: true });
+          opener = undefined;
         },
       });
     };
-
-    const toursProjects = document.querySelector(".tours-proj");
-    const closeButton = document.querySelector(".modal-tours .modal-close");
-    let tourModalActive = false;
 
     toursProjects.addEventListener("click", (event) => {
       const projectElement = event.target.closest(".tour-item");

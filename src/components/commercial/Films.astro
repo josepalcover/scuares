@@ -12,11 +12,11 @@ const posterFilms = await getImage("poster_films");
   <div class="page">
     <section class="cover snap films-main anim">
       <div class="cover-text">
-        <h3 class="header-sub">FILMS</h3>
-        <h4 class="header-main">
+        <h2 class="header-sub">FILMS</h2>
+        <h3 class="header-main">
           If you can imagine it,<br />
           we can film it.<br />
-        </h4>
+        </h3>
         <p class="text-1">
           Scuares creates high-end cinematic animations for architecture and
           real estate. From walkthroughs and flythroughs to cinemagraphs, each
@@ -54,7 +54,7 @@ const posterFilms = await getImage("poster_films");
           alt="Photorealistic exterior 3D Rendering of a modern contemprary villa designed by Justyna Gornicka - Hervé De Giovannini Architecte. Still CG Image produced by Scuares, an architectural visualization studio"
         />
         <div class="btn-box">
-          <button class="btn-play" aria-label="play">
+          <button class="btn-play" type="button" aria-label="Play Solaris film">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -67,7 +67,7 @@ const posterFilms = await getImage("poster_films");
                 clip-rule="evenodd"></path>
             </svg>
           </button>
-          <h5 class="btn-proj">Solaris<br />Film</h5>
+          <h4 class="btn-proj">Solaris<br />Film</h4>
         </div>
       </div>
 
@@ -83,7 +83,11 @@ const posterFilms = await getImage("poster_films");
           alt="Photorealistic exterior 3D Rendering of a traditional villa with a pool in France. Still CG image produced by Scuares, an architectural visualization studio"
         />
         <div class="btn-box">
-          <button class="btn-play" aria-label="play">
+          <button
+            class="btn-play"
+            type="button"
+            aria-label="Play The Villa film"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -96,7 +100,7 @@ const posterFilms = await getImage("poster_films");
                 clip-rule="evenodd"></path>
             </svg>
           </button>
-          <h5 class="btn-proj">Villa<br />Film</h5>
+          <h4 class="btn-proj">Villa<br />Film</h4>
         </div>
       </div>
 
@@ -115,7 +119,7 @@ const posterFilms = await getImage("poster_films");
           alt="Photorealistic exteriorn 3D Rendering of a modern housing complex in Switzerland designed by Hervé DeGiovannini Architecte. With contemporary metal facade design. Still CG Image produced by Scuares, an architectural visualization studio"
         />
         <div class="btn-box">
-          <button class="btn-play" aria-label="play">
+          <button class="btn-play" type="button" aria-label="Play Vertigo film">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -128,7 +132,7 @@ const posterFilms = await getImage("poster_films");
                 clip-rule="evenodd"></path>
             </svg>
           </button>
-          <h5 class="btn-proj">Vertigo<br />Film</h5>
+          <h4 class="btn-proj">Vertigo<br />Film</h4>
         </div>
       </div>
     </section>
@@ -147,7 +151,7 @@ const posterFilms = await getImage("poster_films");
       <div class="modal-video" data-film-player></div>
 
       <div class="modal-text">
-        <h4 id="film-modal-title" class="modal-title header-main"></h4>
+        <h2 id="film-modal-title" class="modal-title header-main"></h2>
         <p class="modal-description text-1"></p>
       </div>
     </div>

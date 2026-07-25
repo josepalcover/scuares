@@ -44,7 +44,11 @@ import PictureGallery from "../shared/PictureGallery.astro";
         alt="Photorealistic interior 3D Rendering of a luxury bathroom in a contamporary villa designed by Justyna Gornicka in Switzerland. Residential real estate project. Still CG Image produced by Scuares, an architectural visualization studio"
       />
       <div class="btn-box">
-        <button class="btn-play">360</button>
+        <button
+          class="btn-play"
+          type="button"
+          aria-label="Open Solaris virtual tour">360</button
+        >
         <h4 class="btn-proj">Open <br />Solaris <br />Tour</h4>
       </div>
     </div>
@@ -55,14 +59,24 @@ import PictureGallery from "../shared/PictureGallery.astro";
         alt="Photorealistic exterior 3D Rendering of a luxury housing complex designed by Justyna Gornicka in Switzerland. Residential real estate project. Still CG Image produced by Scuares, an architectural visualization studio"
       />
       <div class="btn-box">
-        <button class="btn-play">360</button>
+        <button
+          class="btn-play"
+          type="button"
+          aria-label="Open Vertigo virtual tour">360</button
+        >
         <h4 class="btn-proj">Open <br />Vertigo<br />Tour</h4>
       </div>
     </div>
   </section>
 </div>
 
-<div class="modal-tours modal-solaris">
+<div
+  class="modal-tours modal-solaris"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Virtual tour"
+  hidden
+>
   <div class="modal-pano hidden" id="pano-solaris"></div>
   <div class="modal-pano hidden" id="pano-vertigo"></div>
   <button class="modal-close" type="button" aria-label="Close tour">

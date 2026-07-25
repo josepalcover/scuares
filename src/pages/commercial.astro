@@ -16,14 +16,19 @@ import Images from "../components/commercial/Images.astro";
 import Nav from "../components/commercial/Nav.astro";
 import Tours from "../components/commercial/Tours.astro";
 import PageHead from "../components/shared/PageHead.astro";
+import { getImage } from "../config/imageRegistry.js";
+
+const socialImage = await getImage("gym");
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <PageHead
-      title="Scuares-Architectural Visualization. 3D Rendering"
+      title="Scuares Commercial — Architectural Visualization"
       description="Scuares creates images, films and 360° virtual tours for real estate, hospitality and commercial projects."
+      canonical="https://scuares.com/commercial/"
+      image={socialImage.src}
     />
 
     <script>

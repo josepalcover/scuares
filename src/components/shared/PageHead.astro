@@ -2,15 +2,24 @@
 interface Props {
   title: string;
   description: string;
+  canonical: string;
+  image?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, canonical, image } = Astro.props;
+const imageUrl = image ? new URL(image, canonical).href : undefined;
 ---
 
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:type" content="website" />
+{imageUrl && <meta property="og:image" content={imageUrl} />}
 <meta
   name="google-site-verification"
   content="Oc__Wwdl_tRXLnyFebkLVeqprhvqnJwN6DI6k9S0lB0"

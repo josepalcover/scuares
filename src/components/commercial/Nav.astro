@@ -5,6 +5,7 @@
   <!-- LOGO -->
   <button
     class="nav-logo-box link"
+    type="button"
     data-goto="#home"
     data-contact-logo
     aria-label="scroll to the top of the page"
@@ -32,13 +33,19 @@
     </button>
 
     <!-- HAMBURGER -->
-    <div class="hamburger-box">
-      <div class="hamburger-lines">
+    <button
+      class="hamburger-box"
+      type="button"
+      aria-controls="commercial-menu"
+      aria-expanded="false"
+      aria-label="Open navigation"
+    >
+      <div class="hamburger-lines" aria-hidden="true">
         <div class="line line-top"></div>
         <div class="line line-mid"></div>
         <div class="line line-bottom"></div>
       </div>
-    </div>
+    </button>
 
     <button
       class="contact-modal-close"
@@ -52,7 +59,7 @@
   </div>
 
   <!-- NAVIGATION OFF SCREEN -->
-  <div class="nav-offscreen">
+  <div class="nav-offscreen" id="commercial-menu" aria-hidden="true" inert>
     <ul class="nav-links">
       <li>
         <a class="link" href="#home" aria-label="scroll to the home section"

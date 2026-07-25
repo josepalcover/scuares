@@ -10,14 +10,19 @@ import Hero from "../components/index/Hero.astro";
 import Images from "../components/index/Images.astro";
 import Nav from "../components/index/Nav.astro";
 import PageHead from "../components/shared/PageHead.astro";
+import { getImage } from "../config/imageRegistry.js";
+
+const socialImage = await getImage("about_image");
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <PageHead
-      title="scuares"
-      description="Architectural Visualization studio that produces cost-effective photorealistic 3D renderings for residential and commercial Real Estate projects. CG Images and Animations."
+      title="Scuares — Images of Unbuilt Architecture"
+      description="Scuares is an architectural image studio creating images of unbuilt architecture for architecture studios worldwide."
+      canonical="https://scuares.com/"
+      image={socialImage.src}
     />
 
     <script>
