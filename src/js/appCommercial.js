@@ -1,7 +1,7 @@
 import { ScrollTrigger } from "./gsap.js";
 import { navCommercialInit } from "./navCommercial.js";
 import { filmModalInit } from "./filmModal.js";
-import { panosInit } from "./panos.js";
+import { panosInit, tourModalsInit } from "./panos.js";
 import { heroInit } from "./hero.js";
 import { createContactModal } from "./contactModal.js";
 import { contactCommercialInit } from "./contactCommercial.js";
@@ -37,6 +37,7 @@ const contact = contactCommercialInit(contactModal);
 
 navCommercialInit(scrollController, contact);
 filmModalInit(scrollController);
+tourModalsInit(scrollController);
 
 function initFilmCoverVideo() {
   const video = document.querySelector(".video-films");

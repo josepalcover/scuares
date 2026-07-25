@@ -147,8 +147,7 @@ export function createScrollController({
 
     return scrollTo(nextIndex * window.innerHeight, {
       ...options,
-      duration:
-        options.duration ?? SCROLL_CONFIG.slideAnimationDuration,
+      duration: options.duration ?? SCROLL_CONFIG.slideAnimationDuration,
       finalIndex: nextIndex,
     });
   }

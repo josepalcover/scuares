@@ -1,3 +1,5 @@
+import { createModalFocusManager } from "./modalFocus.js";
+
 export function filmModalInit(scrollController) {
   const films = document.querySelector(".films-proj");
   const modal = document.querySelector(".modal-film");
@@ -31,6 +33,7 @@ export function filmModalInit(scrollController) {
 
   let opener;
   let currentPlayer;
+  let filmsPagePosition;
 
   const destroyPlayer = () => {
     if (!currentPlayer) return;
@@ -43,12 +46,18 @@ export function filmModalInit(scrollController) {
     currentPlayer = undefined;
   };
 
-  const showModal = (project) => {
+  const focusManager = createModalFocusManager(modal, {
+    initialFocus: () => closeButton,
+    onEscape: () => hideModal(),
+  });
+
+  const showModal = (project, trigger) => {
     destroyPlayer();
     const player = createPlayer(project);
     if (!player) return;
 
-    opener = document.activeElement;
+    opener = trigger;
+    filmsPagePosition = scrollController.capturePosition();
     title.textContent = project.dataset.title;
     description.innerHTML = project.dataset.description.replaceAll(
       "(br)",
@@ -57,30 +66,35 @@ export function filmModalInit(scrollController) {
     currentPlayer = player;
     playerHost.replaceChildren(player);
     modal.hidden = false;
+    focusManager.activate({ opener });
   };
 
   const hideModal = () => {
+    if (modal.hidden) return;
+
     destroyPlayer();
     modal.hidden = true;
-    scrollController.scrollTo(films, {
-      duration: 0,
-      onComplete: () => scrollController.syncIndex(),
-    });
-    opener?.focus();
+    scrollController.restorePosition(filmsPagePosition);
+    focusManager.deactivate();
+    opener = undefined;
   };
 
   films.addEventListener("click", (event) => {
-    const filmClicked = event.target.closest(".film-item");
-    if (filmClicked) showModal(filmClicked);
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const filmClicked = target.closest(".film-item");
+    const trigger =
+      target.closest(".btn-play") ??
+      filmClicked?.querySelector(".btn-play") ??
+      filmClicked;
+
+    if (filmClicked) showModal(filmClicked, trigger);
   });
 
   closeButton.addEventListener("click", hideModal);
 
   modal.addEventListener("click", (event) => {
     if (event.target === modal) hideModal();
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !modal.hidden) hideModal();
   });
 }
