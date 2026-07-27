@@ -25,6 +25,10 @@
   position: relative;
 }
 
+.contact-email-row--last {
+  margin-bottom: 0;
+}
+
 .email {
   color: inherit;
   font: inherit;

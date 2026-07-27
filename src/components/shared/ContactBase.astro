@@ -4,20 +4,14 @@ interface Props {
   heading: string;
   text: string;
   email: string;
-  instagramLabel: string;
-  instagramHandle: string;
-  instagramUrl: string;
+  instagram?: {
+    label: string;
+    handle: string;
+    url: string;
+  };
 }
 
-const {
-  variant = "inline",
-  heading,
-  text,
-  email,
-  instagramLabel,
-  instagramHandle,
-  instagramUrl,
-} = Astro.props;
+const { variant = "inline", heading, text, email, instagram } = Astro.props;
 const isModal = variant === "modal";
 const copyStatusId = `email-copy-status-${variant}`;
 const headingLines = heading.split("\n");
@@ -59,7 +53,12 @@ const textLines = text.split("\n");
             ))
           }
         </span>
-        <span class="contact-email-row">
+        <span
+          class:list={[
+            "contact-email-row",
+            { "contact-email-row--last": !instagram },
+          ]}
+        >
           <button
             class="email contact-email"
             type="button"
@@ -75,15 +74,20 @@ const textLines = text.split("\n");
             hidden>[email copied]</span
           >
         </span>
-        <a
-          class="instagram-link"
-          href={instagramUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {instagramLabel}<br />
-          {instagramHandle}
-        </a>
+        {
+          instagram && (
+            <a
+              class="instagram-link"
+              href={instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {instagram.label}
+              <br />
+              {instagram.handle}
+            </a>
+          )
+        }
       </p>
     </div>
   </div>
