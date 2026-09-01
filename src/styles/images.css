@@ -49,6 +49,12 @@
   object-position: center center;
 }
 
+/*for img-full images that we want to crop from the top
+and position it from the bottom, not the center*/
+.align-bottom > picture > img {
+  object-position: center bottom;
+}
+
 .img-pad {
   /*vertical padding*/
   padding-block: var(--img-pad-y);
