@@ -16,8 +16,9 @@ import PictureHero from "../shared/PictureHero.astro";
 >
   <div class="logo-hero" data-hero-logo>scuares</div>
   <div class="img-hero">
+    <!--FIRST IMAGE -->
     <PictureHero
-      src="walkeweg_b"
+      src="cover_wolf_garden"
       alt="Photorealistic architectural visualization by Scuares"
       loading="eager"
       decoding="async"
@@ -28,9 +29,10 @@ import PictureHero from "../shared/PictureHero.astro";
       }}
     />
 
+  <!--REPEAT THE FIRST IMAGE HERE -->
     <template data-hero-slides>
-      <PictureHero
-        src="walkeweg_b"
+        <PictureHero
+        src="cover_wolf_garden"
         alt="Photorealistic architectural visualization by Scuares"
         pictureAttributes={{
           "data-hero-slide": "",
@@ -38,15 +40,7 @@ import PictureHero from "../shared/PictureHero.astro";
         }}
       />
       <PictureHero
-        src="puglia"
-        alt="Photorealistic architectural visualization by Scuares"
-        pictureAttributes={{
-          "data-hero-slide": "",
-          "data-logo": "dark",
-        }}
-      />
-      <PictureHero
-        src="walkeweg_a"
+        src="cover_vidy"
         alt="Photorealistic architectural visualization by Scuares"
         pictureAttributes={{
           "data-hero-slide": "",
@@ -54,7 +48,7 @@ import PictureHero from "../shared/PictureHero.astro";
         }}
       />
       <PictureHero
-        src="basel_b"
+        src="cover_wolf_street"
         alt="Photorealistic architectural visualization by Scuares"
         pictureAttributes={{
           "data-hero-slide": "",
@@ -62,13 +56,14 @@ import PictureHero from "../shared/PictureHero.astro";
         }}
       />
       <PictureHero
-        src="basel_a"
+        src="cover_basel"
         alt="Photorealistic architectural visualization by Scuares"
         pictureAttributes={{
           "data-hero-slide": "",
           "data-logo": "light",
         }}
       />
+      
     </template>
   </div>
 </section>

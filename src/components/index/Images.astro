@@ -5,11 +5,13 @@ import PictureGallery from "../shared/PictureGallery.astro";
 
 <!--==============================
   IMAGES
- ==============================--><!-- washington -->
+ ==============================-->
+ 
+ <!------------------------------------>
 <section class="images-two snap" data-logo="dark" data-contact="dark">
-  <div class="img-pad">
+  <div class="img-full align-bottom">
     <PictureGallery
-      src="washington_aerial"
+      src="wolf_garden_crop"
       alt="Aerial photorealistic exterior 3D Rendering of a modern multifunctional complex in an urban context in Washington. Still CG image produced by Scuares, an architectural visualization studio"
     />
     <Credit
@@ -19,45 +21,94 @@ import PictureGallery from "../shared/PictureGallery.astro";
   </div>
   <div class="img-pad">
     <PictureGallery
-      src="washington_street"
+      src="walkeweg_a"
       alt="Photorealistic exterior 3D Rendering of a modern multifunctional complex in an urban context in Washington. View from a human eye level. Still CG image produced by Scuares, an architectural visualization studio"
     />
     <Credit
-      hidden={true}
+      hidden={false}
       author="Partnership with Pictury"
       project="Multifunctional Building"
     />
   </div>
 </section>
 
-<!-- bedroom - dining -->
-<section class="images-two snap" data-logo="light" data-contact="dark">
-  <div class="img-full align-bottom">
+<!-- walkeweg_b / maloja_street_crop -->
+
+<section class="images-two snap" data-logo="light" data-contact="light">
+  <div class="img-pad">
     <PictureGallery
-      src="bedroom"
+      src="walkeweg_b"
       alt="Photorealistic interior 3D Rendering of a modern dining room in an apartment in Berlin, designed by JM Designs. Mix of contemporary furniture with classical architecture. Real Estate residential project. Still CG Image produced by Scuares, an architectural visualization studio"
     />
     <Credit author="JM Designs" project="Apartment in Berlin" />
   </div>
-  <div class="img-pad">
+  <div class="img-full">
     <PictureGallery
-      src="dining"
+      src="wolf_street_crop"
       alt="Photorealistic interior 3D Rendering of a modern bedroom in an apartment in Berlin, designed by JM Designs. Mix of contemporary furniture with classical architecture.Real Estate residential project. Still CG Image produced by Scuares, an architectural visualization studio"
     />
-    <Credit hidden={true} author="JM Designs" project="Apartment in Berlin" />
+    <Credit hidden={false} author="JM Designs" project="Apartment in Berlin" />
   </div>
 </section>
 
-<!-- puglia -->
-<section class="images-one snap" data-logo="light" data-contact="light">
+<!-- llamp / maloja -->
+<section class="images-two snap" data-logo="dark" data-contact="dark">
+  <div class="img-full align-bottom">
+    <PictureGallery
+      src="llamp_side"
+      alt="Aerial photorealistic exterior 3D Rendering of a modern multifunctional complex in an urban context in Washington. Still CG image produced by Scuares, an architectural visualization studio"
+    />
+    <Credit
+      hidden={false}
+      author="Partnership with Pictury"
+      project="Multifunctional Building"
+    />
+  </div>
   <div class="img-pad">
     <PictureGallery
-      src="puglia"
-      alt="Photorealistic exterior 3D Rendering of a modern house in a beautiful landscape in Puglia designed by Bergnes de las Casas Arquitectos. Contemporary facade design with concrete and wood. Still CG Image produced by Scuares, an architectural visualization studio"
+      src="maloja_int"
+      alt="Photorealistic exterior 3D Rendering of a modern multifunctional complex in an urban context in Washington. View from a human eye level. Still CG image produced by Scuares, an architectural visualization studio"
     />
-    <Credit author="Bergnes de las Casas" project="Villa in Puglia" />
+    <Credit
+      hidden={false}
+      author="Partnership with Pictury"
+      project="Multifunctional Building"
+    />
   </div>
 </section>
+
+<!-- vidy detail -->
+
+<section class="images-one snap" data-logo="dark" data-contact="dark">
+  <div class="img-full">
+    <PictureGallery
+      src="vidy_detail"
+      alt="Photorealistic exterior 3D Rendering of a contemporary luxury Villa with a swimmig pool designed by JM Designs. Residential real estate project. Still CG Image produced by Scuares, an architectural visualization studio"
+    />
+    <Credit author="JM Designs" project="N House" />
+  </div>
+</section>
+
+<!-- maloja_ext / vidy_front -->
+
+<section class="images-two snap" data-logo="light" data-contact="dark">
+  <div class="img-pad">
+    <PictureGallery
+      src="maloja_ext"
+      alt="Photorealistic interior 3D Rendering of a modern dining room in an apartment in Berlin, designed by JM Designs. Mix of contemporary furniture with classical architecture. Real Estate residential project. Still CG Image produced by Scuares, an architectural visualization studio"
+    />
+    <Credit author="JM Designs" project="Apartment in Berlin" />
+  </div>
+  <div class="img-full">
+    <PictureGallery
+      src="vidy_front"
+      alt="Photorealistic interior 3D Rendering of a modern bedroom in an apartment in Berlin, designed by JM Designs. Mix of contemporary furniture with classical architecture.Real Estate residential project. Still CG Image produced by Scuares, an architectural visualization studio"
+    />
+    <Credit hidden={false} author="JM Designs" project="Apartment in Berlin" />
+  </div>
+</section>
+
+<!------------------------------------>
 
 <!-- walkeweg -->
 <section class="images-two snap" data-logo="dark" data-contact="dark">
@@ -82,23 +133,6 @@ import PictureGallery from "../shared/PictureGallery.astro";
   </div>
 </section>
 
-<!-- gregor -->
-<section class="images-two snap" data-logo="dark" data-contact="light">
-  <div class="img-pad">
-    <PictureGallery
-      src="gregor_int"
-      alt="Photorealistic interior 3D Rendering of a modern house designed by Gregor Pils Architects. Contemporary interior design with wood and plaster. Building next to vineyards. Real Estate residential project. Still CG Image produced by Scuares, an architectural visualization studio"
-    />
-    <Credit author="Gregor Pils" project="Weinbergloft Houses" />
-  </div>
-  <div class="img-full">
-    <PictureGallery
-      src="gregor_ext"
-      alt="Photorealistic exterior 3D Rendering of a modern house designed by Gregor Pils Architects. Contemporary facade design with wood and plaster. Building next to vineyards. Real Estate residential project.  Still CG Image produced by Scuares, an architectural visualization studio"
-    />
-    <Credit hidden={true} author="Gregor Pils" project="Weinbergloft Houses" />
-  </div>
-</section>
 
 <!-- antiparos -->
 <section class="images-two snap" data-logo="dark" data-contact="dark">
@@ -205,98 +239,29 @@ import PictureGallery from "../shared/PictureGallery.astro";
   </div>
 </section>
 
-<!-- zurich -->
-<section class="images-two snap" data-logo="dark" data-contact="dark">
-  <div class="img-full">
-    <PictureGallery
-      src="zurich_ext"
-      alt="Photorealistic exterior 3D Rendering of a courthouse in Zurich designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
-    />
-    <Credit author="Parabase" project="Hinwil Courthouse, Zurich" />
-  </div>
 
+
+
+
+
+
+
+  <!-- gregor -->
+<section class="images-two snap" data-logo="dark" data-contact="light">
   <div class="img-pad">
     <PictureGallery
-      src="zurich_int"
-      alt="Photorealistic interior 3D Rendering of a courthouse in Zurich designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
+      src="gregor_int"
+      alt="Photorealistic interior 3D Rendering of a modern house designed by Gregor Pils Architects. Contemporary interior design with wood and plaster. Building next to vineyards. Real Estate residential project. Still CG Image produced by Scuares, an architectural visualization studio"
     />
-    <Credit
-      hidden={true}
-      author="Parabase"
-      project="Hinwil Courthouse, Zurich"
+    <Credit author="Gregor Pils" project="Weinbergloft Houses" />
+  </div>
+  <div class="img-full">
+    <PictureGallery
+      src="gregor_ext"
+      alt="Photorealistic exterior 3D Rendering of a modern house designed by Gregor Pils Architects. Contemporary facade design with wood and plaster. Building next to vineyards. Real Estate residential project.  Still CG Image produced by Scuares, an architectural visualization studio"
     />
+    <Credit hidden={true} author="Gregor Pils" project="Weinbergloft Houses" />
   </div>
 </section>
 
-<!-- pool -->
-
-<section class="images-one snap" data-logo="dark" data-contact="dark">
-  <div class="img-full">
-    <PictureGallery
-      src="pool"
-      alt="Photorealistic exterior 3D Rendering of a contemporary luxury Villa with a swimmig pool designed by JM Designs. Residential real estate project. Still CG Image produced by Scuares, an architectural visualization studio"
-    />
-    <Credit author="JM Designs" project="N House" />
-  </div>
-</section>
-
-<!-- doha - offices -->
-<section class="images-two snap" data-logo="dark" data-contact="dark">
-  <div class="img-full">
-    <PictureGallery
-      src="doha"
-      alt="Photorealistic exterior 3D Rendering of a park in Doha designed by Yaseen Raad. Still CG Image produced by Scuares, an architectural visualization studio"
-    />
-    <Credit author="Yaseen Raad" project="Conference Street Park (Doha)" />
-  </div>
-
-  <div class="img-pad">
-    <PictureGallery
-      src="offices"
-      alt="Photorealistic exterior 3D Rendering of an office building in Basel designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
-    />
-    <Credit author="Parabase" project="BRCCH Offices, Basel" />
-  </div>
-</section>
-
-<!-- robotic -->
-<section class="images-two snap" data-logo="dark" data-contact="dark">
-  <div class="img-pad">
-    <PictureGallery
-      src="robot_a"
-      alt="Photorealistic exterior 3D Rendering of robotically fabricated wooden pavilion in a beautiful landscape designed by Josep Alcover. Parametric architecture project. Still CG Image produced by Scuares, an architectural visualization studio"
-    />
-    <Credit author="Josep Alcover" project="Wooden Pavilions" />
-  </div>
-
-  <div class="img-pad">
-    <PictureGallery
-      src="robot_b"
-      alt="Photorealistic exterior 3D Rendering of robotically fabricated wooden pavilion in a beautiful landscape designed by Josep Alcover. Parametric architecture project. Still CG Image produced by Scuares, an architectural visualization studio"
-    />
-    <Credit hidden={true} author="Josep Alcover" project="Wooden Pavilions" />
-  </div>
-</section>
-
-<!-- volta -->
-<section class="images-two snap" data-logo="dark" data-contact="dark">
-  <div class="img-full">
-    <PictureGallery
-      src="volta_a"
-      alt="Photorealistic exterior 3D Rendering of a residential building in Volta designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
-    />
-    <Credit author="Parabase" project="Stadtbaustein Volta Nord" />
-  </div>
-
-  <div class="img-pad">
-    <PictureGallery
-      src="volta_b"
-      alt="Photorealistic exterior 3D Rendering of a residential building in Volta designed by Parabase Architects. Project for an architectural competition. Still CG Image produced by Scuares, an architectural visualization studio"
-    />
-    <Credit
-      hidden={true}
-      author="Parabase"
-      project="Stadtbaustein Volta Nord"
-    />
-  </div>
 </section>
