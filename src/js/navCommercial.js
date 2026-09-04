@@ -96,12 +96,14 @@ export function navCommercialInit(scrollController, contact) {
     if (navIsActive) hideNav();
   });
 
-  document.querySelector("#about")?.addEventListener("click", (event) => {
-    const clickedLink = event.target.closest(".about-service-link");
-    if (!clickedLink) return;
+  document
+    .querySelector(".hero-service-links")
+    ?.addEventListener("click", (event) => {
+      const clickedLink = event.target.closest(".hero-service-link");
+      if (!clickedLink) return;
 
-    event.preventDefault();
-    const target = clickedLink.getAttribute("href");
-    if (target) scrollToSection(target);
-  });
+      event.preventDefault();
+      const target = clickedLink.getAttribute("href");
+      if (target) scrollToSection(target);
+    });
 }

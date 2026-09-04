@@ -43,7 +43,7 @@ function initFilmCoverVideo() {
   const video = document.querySelector(".video-films");
   if (!video) return;
 
-  const about = document.querySelector("#about");
+  const home = document.querySelector("#home");
   let loadTimer;
   let loaded = false;
 
@@ -67,7 +67,7 @@ function initFilmCoverVideo() {
     return;
   }
 
-  if (about) {
+  if (home) {
     const preloadObserver = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting || entry.intersectionRatio < 0.1) return;
@@ -78,7 +78,7 @@ function initFilmCoverVideo() {
       { threshold: 0.1 },
     );
 
-    preloadObserver.observe(about);
+    preloadObserver.observe(home);
   }
 
   const playbackObserver = new IntersectionObserver(

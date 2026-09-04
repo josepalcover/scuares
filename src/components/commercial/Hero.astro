@@ -6,7 +6,7 @@ import PictureHero from "../shared/PictureHero.astro";
   HOME
 ========================-->
 <header>
-  <section class="home section snap" id="home" data-scroll-target="#about">
+  <section class="home section snap" id="home" data-scroll-target="#films">
     <div class="cover-content" data-hero-sequence data-hero-interval="3000">
       <div class="img-hero">
         <PictureHero
@@ -76,6 +76,23 @@ import PictureHero from "../shared/PictureHero.astro";
         Scuares makes images, films and 360° virtual tours for real estate,
         hospitality and commercial projects.
       </p>
+      <nav class="hero-service-links" aria-label="Commercial services">
+        <a
+          class="hero-service-link"
+          href="#images"
+          aria-label="Scroll to the images section">Images →</a
+        >
+        <a
+          class="hero-service-link"
+          href="#films"
+          aria-label="Scroll to the films section">Films →</a
+        >
+        <a
+          class="hero-service-link"
+          href="#tours"
+          aria-label="Scroll to the tours section">Tours →</a
+        >
+      </nav>
     </div>
   </section>
 </header>

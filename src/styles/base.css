@@ -64,10 +64,10 @@ a:active {
   font-weight: inherit;
 }
 
-.about-service-link:link,
-.about-service-link:visited,
-.about-service-link:hover,
-.about-service-link:active {
+.hero-service-link:link,
+.hero-service-link:visited,
+.hero-service-link:hover,
+.hero-service-link:active {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
@@ -212,6 +212,17 @@ header {
   font-size: var(--text-size);
   line-height: var(--text-line-height);
   text-align: left;
+}
+
+.commercial-page .hero-service-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.4rem;
+  margin-top: 2.8rem;
+  font-weight: 500;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
 }
 
 .commercial-page .home {
