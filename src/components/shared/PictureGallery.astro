@@ -9,6 +9,10 @@ import {
   PICTURE_WIDTHS,
 } from "../../config/pictures.js";
 import { resolveImage } from "../../config/imageRegistry.js";
+import {
+  SINGLE_COLUMN_CONDITIONS,
+  ULTRA_WIDE_QUERY,
+} from "../../styles/breakpoints.js";
 
 interface Props {
   src: string | ImageMetadata;
@@ -18,6 +22,8 @@ interface Props {
   decoding?: "async" | "auto" | "sync";
   fetchpriority?: "high" | "low" | "auto";
   priority?: boolean;
+  cover?: boolean;
+  columns?: 1 | 2;
   pictureAttributes?: Record<string, unknown>;
 }
 
@@ -29,10 +35,22 @@ const {
   decoding = "async",
   fetchpriority,
   priority,
+  cover = false,
+  columns = 1,
   pictureAttributes,
 } = Astro.props;
 
 const src = await resolveImage(source);
+const ratio = src.width / src.height;
+// Match images.css: single-column images are uncropped; desktop slides cover
+// 100vh, or 50vw when ultrawide. Each single-column condition needs its own size.
+const sizes = cover
+  ? [
+      ...SINGLE_COLUMN_CONDITIONS.map((condition) => `${condition} 100vw`),
+      `${ULTRA_WIDE_QUERY} max(${100 / columns}vw, ${50 * ratio}vw)`,
+      `max(${100 / columns}vw, ${100 * ratio}vh)`,
+    ].join(", ")
+  : GALLERY_SIZES;
 ---
 
 <Picture
@@ -43,7 +61,7 @@ const src = await resolveImage(source);
   formats={PICTURE_FORMATS}
   fallbackFormat={PICTURE_FALLBACK_FORMAT}
   widths={PICTURE_WIDTHS}
-  sizes={GALLERY_SIZES}
+  sizes={sizes}
   quality={PICTURE_QUALITY}
   loading={loading}
   decoding={decoding}
