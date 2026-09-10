@@ -22,8 +22,7 @@ interface Props {
   decoding?: "async" | "auto" | "sync";
   fetchpriority?: "high" | "low" | "auto";
   priority?: boolean;
-  cover?: boolean;
-  columns?: 1 | 2;
+  size?: "normal" | "full-one" | "full-two" | "full-cover";
   pictureAttributes?: Record<string, unknown>;
 }
 
@@ -35,22 +34,42 @@ const {
   decoding = "async",
   fetchpriority,
   priority,
-  cover = false,
-  columns = 1,
+  size = "normal",
   pictureAttributes,
 } = Astro.props;
 
 const src = await resolveImage(source);
 const ratio = src.width / src.height;
-// Match images.css: single-column images are uncropped; desktop slides cover
-// 100vh, or 50vw when ultrawide. Each single-column condition needs its own size.
-const sizes = cover
-  ? [
-      ...SINGLE_COLUMN_CONDITIONS.map((condition) => `${condition} 100vw`),
-      `${ULTRA_WIDE_QUERY} max(${100 / columns}vw, ${50 * ratio}vw)`,
-      `max(${100 / columns}vw, ${100 * ratio}vh)`,
-    ].join(", ")
-  : GALLERY_SIZES;
+let sizes = GALLERY_SIZES;
+
+if (size !== "normal") {
+  const width = size === "full-two" ? 50 : 100;
+  let singleColumn = "100vw";
+  let desktop = `max(${width}vw, ${100 * ratio}vh)`;
+  let ultrawide = `max(${width}vw, ${50 * ratio}vw)`;
+
+  if (size === "full-cover") {
+    // Match base.css at its 10px root font (html: 62.5%): --cover-column
+    // is 40rem and --frame-x/y are 1.6rem per side. Text padding is already
+    // inside the column's border box. Keep these in sync with the cover CSS.
+    const textColumnPx = 400;
+    const frameTotalPx = 32;
+    const imageWidth = `100vw - ${textColumnPx + frameTotalPx}px`;
+    desktop = `max(${imageWidth}, ${100 * ratio}vh - ${frameTotalPx * ratio}px)`;
+    ultrawide = `max(${imageWidth}, ${50 * ratio}vw - ${frameTotalPx * ratio}px)`;
+    // Mobile covers have no padding and stay 100vw square. Using the whole
+    // square conservatively allows for the in-flow credit reducing image height.
+    singleColumn = `max(100vw, ${100 * ratio}vw)`;
+  }
+
+  // Single-column rules override ultrawide in CSS. Each condition needs its
+  // own sizes entry; only slide images become uncropped in this layout.
+  sizes = [
+    ...SINGLE_COLUMN_CONDITIONS.map((condition) => `${condition} ${singleColumn}`),
+    `${ULTRA_WIDE_QUERY} ${ultrawide}`,
+    desktop,
+  ].join(", ");
+}
 ---
 
 <Picture
