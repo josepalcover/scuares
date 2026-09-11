@@ -216,9 +216,9 @@ header {
 
 .commercial-page .hero-service-links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
-  gap: 1.4rem;
+  gap: 2.4rem;
   margin-top: 2.8rem;
   font-weight: 500;
   font-size: var(--text-size);
