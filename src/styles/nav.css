@@ -162,7 +162,7 @@
 /*CONTACT BTN*/
 .nav-commercial .contact-btn {
   background-color: white;
-  border: 2px solid var(--col-dark-commercial);
+  /*border: 2px solid var(--col-dark-commercial);*/
   height: 100%;
   padding: 0 12px;
   color: var(--col-dark-commercial);

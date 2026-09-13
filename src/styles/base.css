@@ -269,7 +269,7 @@ header {
   height: 100%;
   overflow: hidden;
   position: relative;
-  padding: var(--frame-y) var(--frame-x);
+  /*padding: var(--frame-y) var(--frame-x);*/
 }
 
 .cover-content > picture {

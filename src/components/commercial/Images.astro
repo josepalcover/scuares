@@ -35,6 +35,8 @@ import PictureGallery from "../shared/PictureGallery.astro";
     </div>
   </section>
 
+  <!-- llamp living -->
+
   <section class="images-one snap">
     <div class="img-pad">
       <PictureGallery
@@ -46,6 +48,32 @@ import PictureGallery from "../shared/PictureGallery.astro";
     </div>
   </section>
 
+  <!-- wolf garden / wa detaillkeweg -->
+  <section class="images-two snap" data-logo="light" data-contact="dark">
+    <div class="img-full align-bottom">
+      <PictureGallery
+        size="full-two"
+        src="wolf_detail"
+        alt="3D rendering of planted apartment balconies above a communal garden and exterior stairs"
+      />
+      <Credit
+        author="[1st PRIZE] Parabase"
+        project="Binaria SBB Wolf MF03, Basel"
+      />
+    </div>
+    <div class="img-pad">
+      <PictureGallery
+        size="normal"
+        src="walkeweg_a"
+        alt="3D rendering of timber-clad homes and gardens beside the railway at Walkeweg Nord"
+      />
+      <Credit
+        author="[1st PRIZE] Parabase"
+        project="Areal Walkeweg Nord Basel"
+      />
+    </div>
+  </section>
+  <!-- beecroft walkways and front -->
   <section class="images-two snap">
     <div class="img-pad">
       <PictureGallery
@@ -65,6 +93,7 @@ import PictureGallery from "../shared/PictureGallery.astro";
     </div>
   </section>
 
+  <!-- vandoeuvers -->
   <section class="images-one snap">
     <div class="img-full">
       <PictureGallery
@@ -72,10 +101,26 @@ import PictureGallery from "../shared/PictureGallery.astro";
         src="vandoeuvres_front"
         alt="3D rendering of a low apartment building with deep balconies overlooking a lawn"
       />
-      <Credit author="Hervé de Giovannini architecte" project="Housing in Geneva" />
+      <Credit
+        author="Hervé de Giovannini architecte"
+        project="Housing in Geneva"
+      />
     </div>
   </section>
 
+  <!-- antiparos full -->
+  <section class="images-one snap">
+    <div class="img-full">
+      <PictureGallery
+        size="full-one"
+        src="antiparos_a1"
+        alt="3D rendering of a stone villa and shaded terrace beside a swimming pool"
+      />
+      <Credit author="West Valley" project="Villas in Antiparos" />
+    </div>
+  </section>
+
+  <!-- martin berlin -->
   <section class="images-two snap">
     <div class="img-full">
       <PictureGallery
@@ -96,17 +141,6 @@ import PictureGallery from "../shared/PictureGallery.astro";
   </section>
 
   <section class="images-one snap">
-    <div class="img-full">
-      <PictureGallery
-        size="full-one"
-        src="antiparos_a1"
-        alt="3D rendering of a stone villa and shaded terrace beside a swimming pool"
-      />
-      <Credit author="West Valley" project="Villas in Antiparos" />
-    </div>
-  </section>
-
-  <section class="images-one snap">
     <div class="img-pad">
       <PictureGallery
         size="normal"
@@ -114,25 +148,6 @@ import PictureGallery from "../shared/PictureGallery.astro";
         alt="3D rendering of a bright shared study with a long table, sofas, and large windows"
       />
       <Credit author="QIP" project="London: Press House" />
-    </div>
-  </section>
-
-  <section class="images-two snap">
-    <div class="img-full">
-      <PictureGallery
-        size="full-two"
-        src="antiparos_d1"
-        alt="3D rendering of a hillside villa and infinity pool beneath a shaded terrace"
-      />
-      <Credit author="West Valley" project="Villas in Antiparos" />
-    </div>
-    <div class="img-pad">
-      <PictureGallery
-        size="normal"
-        src="antiparos_d2"
-        alt="3D rendering of a timber pergola reflected in a swimming pool"
-      />
-      <Credit author="West Valley" project="Villas in Antiparos" />
     </div>
   </section>
 
@@ -193,6 +208,32 @@ import PictureGallery from "../shared/PictureGallery.astro";
     </div>
   </section>
 
+  <!-- tallinn / rupia -->
+  <section class="images-two snap" data-logo="light" data-contact="dark">
+    <div class="img-full align-bottom">
+      <PictureGallery
+        size="full-two"
+        src="tallinn_int"
+        alt="3D rendering of a tall timber exhibition hall with stairs, seating, and full-height glazing"
+      />
+      <Credit
+        hidden={false}
+        author="[1st PRIZE] Appareil and J.Alcover"
+        project="Estonian Architecture and Design building"
+      />
+    </div>
+    <div class="img-pad">
+      <PictureGallery
+        size="normal"
+        src="rupia"
+        alt="3D rendering of a low stone house set among dry-stone walls on a wooded hillside"
+      />
+      <Credit author="Mesura" project="Ter House" />
+    </div>
+  </section>
+
+  <!-- founex pool -->
+
   <section class="images-one snap">
     <div class="img-full">
       <PictureGallery
@@ -204,6 +245,7 @@ import PictureGallery from "../shared/PictureGallery.astro";
     </div>
   </section>
 
+  <!-- beecroft -->
   <section class="images-two snap">
     <div class="img-full">
       <PictureGallery
@@ -220,6 +262,26 @@ import PictureGallery from "../shared/PictureGallery.astro";
         alt="3D rendering of a studio bedroom with a kitchenette and a teal bedspread"
       />
       <Credit author="QIP" project="London: Press House" />
+    </div>
+  </section>
+
+  <!-- antiparos -->
+  <section class="images-two snap">
+    <div class="img-full">
+      <PictureGallery
+        size="full-two"
+        src="antiparos_d1"
+        alt="3D rendering of a hillside villa and infinity pool beneath a shaded terrace"
+      />
+      <Credit author="West Valley" project="Villas in Antiparos" />
+    </div>
+    <div class="img-pad">
+      <PictureGallery
+        size="normal"
+        src="antiparos_d2"
+        alt="3D rendering of a timber pergola reflected in a swimming pool"
+      />
+      <Credit author="West Valley" project="Villas in Antiparos" />
     </div>
   </section>
 
@@ -253,6 +315,34 @@ import PictureGallery from "../shared/PictureGallery.astro";
     </div>
   </section>
 
+  <!-- walkeweg_b / wolf_street_crop -->
+
+  <section class="images-two snap" data-logo="dark" data-contact="light">
+    <div class="img-pad">
+      <PictureGallery
+        size="normal"
+        src="walkeweg_b"
+        alt="3D rendering of pitched-roof housing blocks around a planted pedestrian courtyard"
+      />
+      <Credit
+        author="[1st PRIZE] Parabase"
+        project="Areal Walkeweg Nord Basel"
+      />
+    </div>
+    <div class="img-full">
+      <PictureGallery
+        size="full-two"
+        src="wolf_street_crop"
+        alt="Street-level 3D rendering of a housing façade with a large circular entrance"
+      />
+      <Credit
+        author="[1st PRIZE] Parabase"
+        project="Binaria SBB Wolf MF03, Basel"
+      />
+    </div>
+  </section>
+
+  <!-- kildare / maviglia arcada -->
   <section class="images-two snap">
     <div class="img-pad">
       <PictureGallery
@@ -269,6 +359,34 @@ import PictureGallery from "../shared/PictureGallery.astro";
         alt="3D rendering of an arched courtyard with a central reflecting pool"
       />
       <Credit author="Ultimate Collection Ltd" project="La Maviglia" />
+    </div>
+  </section>
+
+  <!-- maloja_ext / vidy_front -->
+
+  <section class="images-two snap" data-logo="dark" data-contact="dark">
+    <div class="img-full">
+      <PictureGallery
+        size="full-two"
+        src="vidy_detail"
+        alt="3D rendering of a green-and-white office building reflected in a landscaped pond"
+      />
+      <Credit
+        author="Transversal Architectes"
+        project=" Bâtiment du Service de l’eau à Vidy"
+      />
+    </div>
+    <div class="img-pad">
+      <PictureGallery
+        size="full-two"
+        src="vidy_front"
+        alt="3D rendering of a green-and-white office building reflected in a landscaped pond"
+      />
+      <Credit
+        hidden
+        author="Transversal Architectes"
+        project=" Bâtiment du Service de l’eau à Vidy"
+      />
     </div>
   </section>
 
@@ -332,6 +450,26 @@ import PictureGallery from "../shared/PictureGallery.astro";
     </div>
   </section>
 
+  <!-- basel / carme -->
+  <section class="images-two snap" data-logo="dark" data-contact="dark">
+    <div class="img-full align-bottom">
+      <PictureGallery
+        size="full-two"
+        src="basel"
+        alt="3D rendering of a housing block with deep balconies facing a landscaped courtyard"
+      />
+      <Credit author="Parabase" project="Burgfelderstrasse housing, Basel" />
+    </div>
+    <div class="img-pad">
+      <PictureGallery
+        size="normal"
+        src="carme_ext"
+        alt="3D rendering of a brick housing façade with timber-framed balconies and a cobbled forecourt"
+      />
+      <Credit hidden={false} author="B67" project="Carme street housing" />
+    </div>
+  </section>
+
   <section class="images-two snap">
     <div class="img-full">
       <PictureGallery
@@ -362,6 +500,34 @@ import PictureGallery from "../shared/PictureGallery.astro";
     </div>
   </section>
 
+  <!-- court ext / gym -->
+  <section class="images-two snap" data-logo="light" data-contact="dark">
+    <div class="img-full align-bottom">
+      <PictureGallery
+        size="full-two"
+        src="court_ext"
+        alt="3D rendering of planted apartment balconies above a grassy communal terrace"
+      />
+      <Credit
+        hidden={false}
+        author="[1st PRIZE] Parabase"
+        project="Binaria SBB Wolf MF03"
+      />
+    </div>
+    <div class="img-pad">
+      <PictureGallery
+        size="normal"
+        src="gym"
+        alt="3D rendering of two timber gymnasium buildings framing a view of the Alps"
+      />
+      <Credit
+        hidden={false}
+        author="[1st PRIZE] Transversal + Acte"
+        project="Salles de gymnastiques de l’Abbaye de St-Maurice"
+      />
+    </div>
+  </section>
+  <!-- beecroft library day -->
   <section class="images-two snap">
     <div class="img-full">
       <PictureGallery
@@ -478,7 +644,10 @@ import PictureGallery from "../shared/PictureGallery.astro";
         src="bernexpahud"
         alt="3D rendering of apartments surrounding a landscaped courtyard and covered seating area"
       />
-      <Credit author="Hervé de Giovannini architecte" project="Villa in Bernex" />
+      <Credit
+        author="Hervé de Giovannini architecte"
+        project="Villa in Bernex"
+      />
     </div>
     <div class="img-full">
       <PictureGallery
@@ -524,7 +693,31 @@ import PictureGallery from "../shared/PictureGallery.astro";
         src="codines_side_com"
         alt="3D rendering of an angular brick house with a shaded terrace among pine trees"
       />
-      <Credit author="Bergnes de las Casas" project="House in St. F. Codines" hidden />
+      <Credit
+        author="Bergnes de las Casas"
+        project="House in St. F. Codines"
+        hidden
+      />
+    </div>
+  </section>
+
+  <!-- maloja -->
+  <section class="images-two snap" data-logo="dark" data-contact="dark">
+    <div class="img-full">
+      <PictureGallery
+        size="full-two"
+        src="maloja_ext"
+        alt="3D rendering of a hillside house and infinity pool overlooking the Mediterranean Sea"
+      />
+      <Credit author="Parabase" project="Nuova Scuola, Maloja" />
+    </div>
+    <div class="img-pad">
+      <PictureGallery
+        size="normal"
+        src="maloja_int"
+        alt="3D rendering of a timber school hall with tall windows and an open central floor"
+      />
+      <Credit author="Parabase" project="Nuova Scuola, Maloja" hidden />
     </div>
   </section>
 
@@ -535,7 +728,10 @@ import PictureGallery from "../shared/PictureGallery.astro";
         src="vandoeuvres_int"
         alt="3D rendering of a bright living room with cream sofas and large garden-facing windows"
       />
-      <Credit author="Hervé de Giovannini architecte" project="Housing in Geneva" />
+      <Credit
+        author="Hervé de Giovannini architecte"
+        project="Housing in Geneva"
+      />
     </div>
   </section>
 
@@ -558,6 +754,22 @@ import PictureGallery from "../shared/PictureGallery.astro";
     </div>
   </section>
 
+  <!-- tallinn ext -->
+
+  <section class="images-one snap" data-logo="light" data-contact="light">
+    <div class="img-full">
+      <PictureGallery
+        size="full-one"
+        src="tallinn_ext"
+        alt="3D rendering of a long timber cultural building set among mature park trees"
+      />
+      <Credit
+        author="[1st PRIZE] Appareil and J.Alcover"
+        project="Estonian Architecture and Design building"
+      />
+    </div>
+  </section>
+
   <section class="images-two snap">
     <div class="img-full">
       <PictureGallery
@@ -576,6 +788,18 @@ import PictureGallery from "../shared/PictureGallery.astro";
       <Credit author="West Valley" project="Villas in Antiparos" />
     </div>
   </section>
+  <!-- refuge -->
+
+  <section class="images-one snap" data-logo="dark" data-contact="dark">
+    <div class="img-full">
+      <PictureGallery
+        size="full-one"
+        src="refuge"
+        alt="3D rendering of a metal-clad mountain refuge on a steep rocky Alpine slope"
+      />
+      <Credit author="Parabase" project="Refuge des Bouquetins CAS" />
+    </div>
+  </section>
 
   <section class="images-two snap">
     <div class="img-pad">
@@ -584,7 +808,10 @@ import PictureGallery from "../shared/PictureGallery.astro";
         src="vandoeuvres_back"
         alt="3D rendering of apartments surrounding a landscaped courtyard and covered seating area"
       />
-      <Credit author="Hervé de Giovannini architecte" project="Housing in Geneva" />
+      <Credit
+        author="Hervé de Giovannini architecte"
+        project="Housing in Geneva"
+      />
     </div>
     <div class="img-full">
       <PictureGallery
@@ -592,7 +819,10 @@ import PictureGallery from "../shared/PictureGallery.astro";
         src="vandoeuvres_side"
         alt="3D rendering of projecting apartment balconies above a tree-lined lawn"
       />
-      <Credit author="Hervé de Giovannini architecte" project="Housing in Geneva" />
+      <Credit
+        author="Hervé de Giovannini architecte"
+        project="Housing in Geneva"
+      />
     </div>
   </section>
 
@@ -642,6 +872,29 @@ import PictureGallery from "../shared/PictureGallery.astro";
         alt="3D rendering of a white bedroom with corner windows and a colorful painting"
       />
       <Credit author="Hervé de Giovannini (J. Gornicka)" project="Solaris" />
+    </div>
+  </section>
+  <!-- thalwil / seepolizei aerial -->
+  <section class="images-two snap" data-logo="dark" data-contact="light">
+    <div class="img-pad">
+      <PictureGallery
+        size="normal"
+        src="thalwil"
+        alt="3D rendering of a dark pitched-roof villa partly screened by trees and hedges"
+      />
+      <Credit hidden={false} author="Studio Sito" project="Villa in Thalwil" />
+    </div>
+    <div class="img-full">
+      <PictureGallery
+        size="full-two"
+        src="seepolizei_aerial"
+        alt="Aerial 3D rendering of the Seepolizei building and docks extending into Lake Zurich"
+      />
+      <Credit
+        hidden={false}
+        author="Parabase"
+        project="Seepolizei building in Oberrieden"
+      />
     </div>
   </section>
 
@@ -734,7 +987,18 @@ import PictureGallery from "../shared/PictureGallery.astro";
       <Credit author="Hervé de Giovannini (J. Gornicka)" project="Vertigo" />
     </div>
   </section>
+  <!-- seepolizei water -->
 
+  <section class="images-one snap" data-logo="dark" data-contact="dark">
+    <div class="img-full">
+      <PictureGallery
+        size="full-one"
+        src="seepolizei_water"
+        alt="Water-level 3D rendering of a lakeside police building with a broad circular roof"
+      />
+      <Credit author="Parabase" project="Seepolizei building in Oberrieden" />
+    </div>
+  </section>
   <section class="images-one snap">
     <div class="img-pad">
       <PictureGallery
